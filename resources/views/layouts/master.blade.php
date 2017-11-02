@@ -10,10 +10,12 @@
         @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/returnBook' && $_SERVER['REQUEST_URI'] != '/checkout')
             <a class="topright-nav" href="/">menu</a>
         @endif
-        @if (!empty(Cookie::get('user')))
-            <a class="topright-nav" href="/logout">logout</a>
-        @elseif (empty(Cookie::get('user')))
-             <a class="topright-nav" href="/login">login</a>
+        @if ($_SERVER['REQUEST_URI'] != '/login')
+            @if (!empty(Cookie::get('user')))
+                <a class="topright-nav" href="/logout">logout</a>
+            @elseif (empty(Cookie::get('user')))
+                 <a class="topright-nav" href="/login">login</a>
+            @endif
         @endif
         @yield('body')
     </body>
