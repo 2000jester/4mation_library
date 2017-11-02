@@ -72,7 +72,7 @@ class UserBooksController extends Controller
             return redirect("/borrow");
         }
         $loanedBook = DB::table('user_books')->where('book', '=', request('barcode'))->get();
-        if(!empty($loanedBook)){
+        if(!empty($loanedBook[0])){
             if($loanedBook[0]->user == getCookie('user')[0]->username){
                 return redirect('/borrow');
             } else {
