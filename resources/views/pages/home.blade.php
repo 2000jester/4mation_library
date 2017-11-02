@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="links">
-                <a href="/login">Borrow</a>
+                <a href="/borrow">Borrow</a>
                 <a href="/return">Return</a>
                 <a href="/help">Help</a>
             </div>

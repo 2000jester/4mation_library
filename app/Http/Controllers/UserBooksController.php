@@ -10,10 +10,10 @@ use Cookie;
 use Illuminate\Http\RedirectResponse;
 
 function getCookie($cookieName){
-    if($cookieName == 'user'){
-        return Cookie::get($cookieName);
+    if($cookieName == 'books'){
+        return unserialize(Cookie::get($cookieName));
     }
-    return unserialize(Cookie::get($cookieName));
+    return Cookie::get($cookieName);
 }
 function getBookData($booksCookie){
     if(!empty($booksCookie)){
@@ -47,18 +47,27 @@ function checkUser(){
         \App::abort(302, '', ['Location' => '/login']);
     }
 }
+function sendPageCookie(){
+    Cookie::queue(Cookie::forever('lastPage',$_SERVER['REQUEST_URI']));
+}
 class UserBooksController extends Controller
 {
+    public function home(){
+        sendPageCookie();
+        return view('pages.home');
+    }
     public function setUserCookie(){
+        sendPageCookie();
         $user = users::getUser(request('username'));
         if(count($user) == 0){
             return redirect('/login');
         }
-        return redirect('/borrow')->withCookie(cookie('user', $user, 0.5));
+        return redirect(getCookie('lastPage'))->withCookie(cookie('user', $user, 5));
     }
 
 
     public function setBooksCookie(){
+        sendPageCookie();
         checkUser();
         if(empty(books::getBook(request('barcode'))[0])){
             return redirect("/borrow");
@@ -83,12 +92,14 @@ class UserBooksController extends Controller
 
 
     public function borrow(){
+        sendPageCookie();
         checkUser();
         return view('pages.borrow')->with('bookData', getBookData(getCookie('books')));
     }
 
 
     public function checkout(){
+        sendPageCookie();
         checkUser();
         if(empty(getCookie('books'))){
             return redirect('/borrow');
@@ -103,6 +114,7 @@ class UserBooksController extends Controller
 
 
     public function return(){
+        sendPageCookie();
         return view('pages.return')->with('returned', false);
     }
 
@@ -114,6 +126,7 @@ class UserBooksController extends Controller
 
 
     public function help(){
+        sendPageCookie();
         return view('pages.help');
     }
 

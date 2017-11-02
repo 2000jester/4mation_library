@@ -1,8 +1,6 @@
 <?php
 //Home Page
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'UserBooksController@home');
 //login Page
 Route::get('/login', 'UserBooksController@login');
 Route::post('/login', 'UserBooksController@login');
