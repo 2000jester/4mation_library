@@ -67,10 +67,16 @@ class UserBooksController extends Controller
 
 
     public function setBooksCookie(){
-        sendPageCookie();
         checkUser();
         if(empty(books::getBook(request('barcode'))[0])){
             return redirect("/borrow");
+        }
+        if(!empty(books::getBook(request()))){
+            returnBook(requests('barcode'));
+            //TODO
+            //
+            //SEND EMAIL TO USER THAT HAD THE BOOK ON LOAN
+            //
         }
         if(empty(getCookie('books'))){
             return redirect('/borrow')->withCookie(cookie('books', serialize([request('barcode')]), 5));
