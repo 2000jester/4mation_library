@@ -10,10 +10,7 @@ use Cookie;
 use Illuminate\Http\RedirectResponse;
 
 function getCookie($cookieName){
-    if($cookieName == 'books'){
-        return unserialize(Cookie::get($cookieName));
-    }
-    return Cookie::get($cookieName);
+    return unserialise(Cookie::get($cookieName));
 }
 function getBookData($booksCookie){
     if(!empty($booksCookie)){
@@ -71,9 +68,9 @@ class UserBooksController extends Controller
         if(empty(books::getBook(request('barcode'))[0])){
             return redirect("/borrow");
         }
-        $loanedBook = DB::table('user_books')->where('book', '=', request('barcode'))->get();
-        if(!empty($loanedBook[0])){
-            if($loanedBook[0]->user == getCookie('user')[0]->username){
+        $bookToAdd = DB::table('user_books')->where('book', '=', request('barcode'))->get();
+        if(!empty($bookToAdd[0])){
+            if($bookToAdd[0]->user == getCookie('user')[0]->username){
                 return redirect('/borrow');
             }
         }
@@ -111,12 +108,15 @@ class UserBooksController extends Controller
         }
         $books = getCookie('books');
         for($i = 0; $i< count($books); $i++){
-            $loanedBook = DB::table('user_books')->where('book', '=', $books[$i])->get();
-            $user = users::getUser($loanedBook[0]->user);
-            $message = "Hello ".$user[0]->first_name.",\r the book you had on loan called '".books::getBook($loanedBook[0]->book)[0]->title."',\r has been loaned by another user.";
-            $message = wordwrap($message, 70, "\r\n");
-            mail($user[0]->email, '4Mation Library', $message);
-            returnBook($books[$i]);
+            $bookToBeReturned = DB::table('user_books')->where('book', '=', $books[$i])->get();
+            dd($bookToBeReturned);
+            if(!empty($bookToBeReturned)){
+                $user = users::getUser($bookToBeReturned[0]->user);
+                $message = "Hello ".$user[0]->first_name.",\r the book you had on loan called '".books::getBook($bookToBeReturned[0]->book)[0]->title."',\r has been loaned by another user.";
+                $message = wordwrap($message, 70, "\r\n");
+                mail($user[0]->email, '4Mation Library', $message);
+                returnBook($books[$i]);
+            }
             borrowBook(getCookie('user')[0]->username,$books[$i]);
         }
             
