@@ -4,7 +4,7 @@
 @endsection
 @section('body')
     <div class="full-height content flex-center">
-        Thanks {{ Cookie::get('user')[0]->first_name }},</br>
+        Thanks {{ unserialize(Cookie::get('user'))[0]->first_name }},</br>
         your books have been borrowed </br></br>
         <a class="button" href="/borrow">Borrow More</a></br>
         <a class="button" href="/">Menu</a>

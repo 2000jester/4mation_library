@@ -5,7 +5,7 @@
 @section('body')
     <div class="full-height content flex-center">
             @if (empty(Cookie::get('books')))
-                Welcome {{ Cookie::get('user')[0]->first_name }}!
+                Welcome {{ unserialize(Cookie::get('user'))[0]->first_name }}!
                 Please scan a book or enter the barcode to start
             @elseif (!empty($bookData))
                 Your Cart :
@@ -19,7 +19,7 @@
             {{ csrf_field() }}
             <input type="text" name="barcode" autofocus="autofocus" autocomplete="off">
             </form>
-            @if (!empty(Cookie::get('books')))
+            @if (!empty(unserialize(Cookie::get('books'))))
                 <form method="post" action="/checkout">
                     {{ csrf_field() }}
                     <input type="submit" value="Checkout" class="button">
