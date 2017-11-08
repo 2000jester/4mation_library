@@ -111,12 +111,12 @@ class UserBooksController extends Controller
         }
         $books = getCookie('books');
         for($i = 0; $i< count($books); $i++){
-            returnBook($books[$i]);
             $loanedBook = DB::table('user_books')->where('book', '=', $books[$i])->get();
             $user = users::getUser($loanedBook[0]->user);
             $message = "Hello ".$user[0]->first_name.",\r the book you had on loan called '".books::getBook($loanedBook[0]->book)[0]->title."',\r has been loaned by another user.";
             $message = wordwrap($message, 70, "\r\n");
             mail($user[0]->email, '4Mation Library', $message);
+            returnBook($books[$i]);
             borrowBook(getCookie('user')[0]->username,$books[$i]);
         }
             
