@@ -5,8 +5,8 @@ Route::get('/', 'UserBooksController@home');
 Route::get('/login', 'UserBooksController@login');
 Route::post('/login', 'UserBooksController@login');
 //setCookie functions
-Route::post('/setUserCookie', 'UserBooksController@setUserCookie');
-Route::post('/setBooksCookie', 'UserBooksController@setBooksCookie');
+Route::post('/setUserCookie', 'UsersController@setUserCookie');
+Route::post('/setBooksCookie', 'BooksController@setBooksCookie');
 //borrow page
 Route::get('/borrow', 'UserBooksController@borrow');
 Route::post('/borrow', 'UserBooksController@borrow');
