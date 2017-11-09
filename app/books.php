@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class books extends Model
 {
-    public static function getAll(){
+    public static function getAllFromDB(){
         return books::all();
     }
-    public static function getBook($book){
-        return DB::table('books')->select()->where('bar_code', '=', $book)->get();
+    public static function getBookFromDB($barcode){
+        return DB::table('books')->select()->where('bar_code', '=', $barcode)->get();
     }
 }

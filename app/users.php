@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class users extends Model
 {
-    public static function getUser($username){
+    public static function getUserFromDB($username){
         return DB::table('users')->select()->where('username', '=', $username)->get();
     }
 }
