@@ -41,7 +41,7 @@ trait Funcs{
         DB::table('user_books')->where('book', '=', $barcode)->delete();
     }
     public function checkUser(){
-        if(empty(getCookie('user'))){
+        if(empty($this->getCookie('user'))){
             \App::abort(302, '', ['Location' => '/login']);
         }
     }
