@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Traits\GlobalFuncs;
+use App\Traits\Funcs;
 
 class UsersController extends Controller{
 
-    use GlobalFuncs;
+    use Funcs;
 
     public function setUserCookie(){
         sendPageCookie();

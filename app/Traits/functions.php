@@ -9,11 +9,11 @@ use Illuminate\Http\Response;
 use Cookie;
 use Illuminate\Http\RedirectResponse;
 
-trait GlobalFuncs{
-    function getCookie($cookieName){
+trait Funcs{
+    public function getCookie($cookieName){
         return unserialize(Cookie::get($cookieName));
     }
-    function getBookData($booksCookie){
+    public function getBookData($booksCookie){
         if(!empty($booksCookie)){
             $books = $booksCookie;
             $bookData = [];
@@ -32,20 +32,20 @@ trait GlobalFuncs{
             }
         }
     }
-    function borrowBook($username, $barcode){
+    public function borrowBook($username, $barcode){
         DB::table('user_books')->insert(
             ['user'=>$username,'book'=>$barcode,'date_borrowed'=>date("d.m.y")]
         );
     }
-    function returnBook($barcode){
+    public function returnBook($barcode){
         DB::table('user_books')->where('book', '=', $barcode)->delete();
     }
-    function checkUser(){
+    public function checkUser(){
         if(empty(getCookie('user'))){
             \App::abort(302, '', ['Location' => '/login']);
         }
     }
-    function sendPageCookie(){
+    public function sendPageCookie(){
         Cookie::queue(Cookie::forever('lastPage',serialize($_SERVER['REQUEST_URI'])));
     }
 }

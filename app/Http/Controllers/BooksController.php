@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\books;
-use App\Traits\GlobalFuncs;
+use App\user_books;
+use App\Traits\Funcs;
 
 class BooksController extends Controller{
 
-    use GlobalFuncs;
+    use Funcs;
 
     public function setBooksCookie(){
         checkUser();
         if(empty(books::getBook(request('barcode'))[0])){
             return redirect("/borrow");
         }
-        $bookToAdd = DB::table('user_books')->where('book', '=', request('barcode'))->get();
+        $bookToAdd = user_books::getUserBook(request('barcode'));
         if(!empty($bookToAdd[0])){
             if($bookToAdd[0]->user == getCookie('user')[0]->username){
                 return redirect('/borrow');

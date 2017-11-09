@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
 use Cookie;
 use Illuminate\Http\RedirectResponse;
-use App\Traits\GlobalFuncs;
+use App\Traits\Funcs;
 
 class UserBooksController extends Controller{
 
-    use GlobalFuncs;
+    use Funcs;
 
     public function home(){
         sendPageCookie();
@@ -44,11 +44,11 @@ class UserBooksController extends Controller{
         }
         $books = getCookie('books');
         for($i = 0; $i< count($books); $i++){
-            $bookToBeReturned = DB::table('user_books')->where('book', '=', $books[$i])->get();
+            $bookToBeReturned = user_books::getUserBook($books[$i]);
             if(!empty($bookToBeReturned[0])){
                 $user = users::getUser($bookToBeReturned[0]->user);
 
-                $message = "Hello ".$user[0]->first_name.",\r the book you had on loan called '".books::getBook($bookToBeReturned[0]->book)[0]->title."',\r has been loaned by another user.";
+                $message = "Hello ".$user[0]->first_name.",\rthe book you had on loan called '".books::getBook($bookToBeReturned[0]->book)[0]->title."',\rhas been loaned by another user.";
                 $message = wordwrap($message, 70, "\r\n");
 
                 $subject = '4Mation Library';
