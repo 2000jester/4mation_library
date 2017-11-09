@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\books;
+use App\Traits\GlobalFuncs;
 
-class BooksController extends Controller
-{
+class BooksController extends Controller{
+
+    use GlobalFuncs;
+
     public function setBooksCookie(){
         checkUser();
         if(empty(books::getBook(request('barcode'))[0])){

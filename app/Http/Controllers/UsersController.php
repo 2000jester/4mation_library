@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Traits\GlobalFuncs;
 
-class UsersController extends Controller
-{
+class UsersController extends Controller{
+
+    use GlobalFuncs;
+
     public function setUserCookie(){
         sendPageCookie();
         $user = users::getUser(request('username'));

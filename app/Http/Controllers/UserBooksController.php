@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Response;
 use Cookie;
 use Illuminate\Http\RedirectResponse;
+use App\Traits\GlobalFuncs;
 
-class UserBooksController extends Controller
-{
+class UserBooksController extends Controller{
+
+    use GlobalFuncs;
+
     public function home(){
         sendPageCookie();
         return view('pages.home');
