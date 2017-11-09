@@ -6,20 +6,6 @@ use Illuminate\Http\Request;
 
 use App\books;
 
-function checkUser(){
-    if(empty(getCookie('user'))){
-        \App::abort(302, '', ['Location' => '/login']);
-    }
-}
-
-function sendPageCookie(){
-    Cookie::queue(Cookie::forever('lastPage',serialize($_SERVER['REQUEST_URI'])));
-}
-
-function getCookie($cookieName){
-    return unserialize(Cookie::get($cookieName));
-}
-
 class BooksController extends Controller
 {
     public function setBooksCookie(){
