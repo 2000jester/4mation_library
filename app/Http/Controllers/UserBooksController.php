@@ -55,7 +55,7 @@ class UserBooksController extends Controller{
         return view('pages.return')->with('returned', false);
     }
     public function returnBook(){
-        $this->returnBook(request('barcode'));
+        $this->returnBookTrait(request('barcode'));
         return view('pages.return')->with('returned', true);
     }
     public function help(){

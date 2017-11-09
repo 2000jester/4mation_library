@@ -1,0 +1,7 @@
+1. Make Trait scripts for each class
+2. Add Help Page Content
+3. Add search function
+4. add admin login
+5. migrate confluence page to DB
+6. update DB cloumns
+7. add admin exclusive features such as user lookup

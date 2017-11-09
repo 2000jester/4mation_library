@@ -9,8 +9,6 @@ use App\books;
 use App\users;
 use Cookie;
 
-
-
 trait Funcs{
     public function getCookie($cookieName){
         return unserialize(Cookie::get($cookieName));
@@ -35,25 +33,19 @@ trait Funcs{
         }
     }
     public function borrowBook($username, $barcode){
-        user_books::addUserBook($username, $barcode);
+        user_books::addUserBookToDB($username, $barcode);
     }
-    public function returnBook($barcode){
+    public function returnBookTrait($barcode){
         user_books::deleteUserBookFromDB($barcode);
+    }
+    public function getUserBook($barcode){
+        return user_books::getUserBookFromDB($barcode);
     }
     public function getUser($username){
         return users::getUserFromDB($username);
     }
     public function getBook($barcode){
         return books::getBookFromDB($barcode);
-    }
-    public function getUserBook($barcode){
-        return user_books::getUserBookFromDB($barcode);
-    }
-    public function deleteUserBook($barcode){
-        user_books::deleteUserBookFromDB($barcode);
-    }
-    public function addUserBook($barcode){
-        user_books::addUserBookToDB($barcode);
     }
     public function checkUser(){
         if(empty($this->getCookie('user'))){
