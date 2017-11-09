@@ -16,6 +16,10 @@ function checkUser(){
     }
 }
 
+function sendPageCookie(){
+    Cookie::queue(Cookie::forever('lastPage',serialize($_SERVER['REQUEST_URI'])));
+}
+
 class UsersController extends Controller
 {
     public function setUserCookie(){
@@ -24,6 +28,6 @@ class UsersController extends Controller
         if(count($user) == 0){
             return redirect('/login');
         }
-        return redirect(getCookie('lastPage'))->withCookie(cookie('user', serialize($user), 5));
+        return redirect(controller::getCookie('lastPage'))->withCookie(cookie('user', serialize($user), 5));
     }
 }
