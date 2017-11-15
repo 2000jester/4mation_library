@@ -12,6 +12,6 @@ class books extends Model
         return books::all();
     }
     public static function getBookFromDB($barcode){
-        return DB::table('books')->select()->where('id', '=', $barcode)->get();
+        return DB::table('books')->select()->where('barcode', '=', $barcode)->get();
     }
 }
