@@ -10,11 +10,11 @@ class UsersController extends Controller{
     use UserFuncs;
 
     public function setUserCookie(){
-        Funcs::sendPageCookie();
-        $user = UserFuncs::getUser(request('username'));
+        Funcs::sendPageCookieTrait();
+        $user = UserFuncs::getUserTrait(request('username'));
         if(count($user) == 0){
             return redirect('/login');
         }
-        return redirect(Funcs::getCookie('lastPage'))->withCookie(cookie('user', serialize($user), 5));
+        return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('user', serialize($user), 5));
     }
 }

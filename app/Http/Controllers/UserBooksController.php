@@ -73,4 +73,8 @@ class UserBooksController extends Controller{
         Funcs::removeCookieTrait('books');
         return redirect('/');
     }
+    public function clearCart(){
+        Funcs::removeCookieTrait('books');
+        return redirect('/borrow');
+    }
 }

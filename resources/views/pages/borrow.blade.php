@@ -24,6 +24,10 @@
                     {{ csrf_field() }}
                     <input type="submit" value="Checkout" class="button">
                 </form>
+                <form method="post" action="/clearCart">
+                    {{ csrf_field() }}
+                    <input type="submit" value="Clear Cart" class="button">
+                </form>
             @endif
     </div>
 @endsection
