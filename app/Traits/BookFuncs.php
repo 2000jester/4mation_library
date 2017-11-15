@@ -30,5 +30,4 @@ trait BookFuncs{
     public function getBook($barcode){
         return books::getBookFromDB($barcode);
     }
-    
 }
