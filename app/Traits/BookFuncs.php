@@ -8,13 +8,13 @@ use App\books;
 use Cookie;
 
 trait BookFuncs{
-    public function getBookData($booksCookie){
+    public static function getBookDataTrait($booksCookie){
         if(!empty($booksCookie)){
             $books = $booksCookie;
             $bookData = [];
             for($i = 0; $i < count($books); $i++){
                 array_push($bookData,
-                    books::getBook(
+                    books::getBookFromDB(
                         $books[$i]
                     )
                 );
@@ -27,7 +27,7 @@ trait BookFuncs{
             }
         }
     }
-    public function getBook($barcode){
+    public static function getBookTrait($barcode){
         return books::getBookFromDB($barcode);
     }
 }

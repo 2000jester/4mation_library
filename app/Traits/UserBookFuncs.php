@@ -8,13 +8,13 @@ use App\user_books;
 use Cookie;
 
 trait UserBookFuncs{
-    public function borrowBook($username, $barcode){
+    public static function borrowBookTrait($username, $barcode){
         user_books::addUserBookToDB($username, $barcode);
     }
-    public function returnBookTrait($barcode){
+    public static function returnBookTrait($barcode){
         user_books::deleteUserBookFromDB($barcode);
     }
-    public function getUserBook($barcode){
+    public static function getUserBookTrait($barcode){
         return user_books::getUserBookFromDB($barcode);
     }
 }

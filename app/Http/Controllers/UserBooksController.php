@@ -13,34 +13,34 @@ class UserBooksController extends Controller{
     use UserFuncs;
 
     public function home(){
-        Funcs::sendPageCookie();
+        Funcs::sendPageCookieTrait();
         return view('pages.home');
     }
     public function login(){
-        if(empty(Funcs::getCookie('user'))){
+        if(empty(Funcs::getCookieTrait('user'))){
             return view('pages.login');
         } else {
             return redirect('/borrow');
         }
     }
     public function borrow(){
-        Funcs::sendPageCookie();
-        Funcs::checkUser();
-        return view('pages.borrow')->with('bookData', BookFuncs::getBookData(Funcs::getCookie('books')));
+        Funcs::sendPageCookieTrait();
+        Funcs::checkUserTrait();
+        return view('pages.borrow')->with('bookData', BookFuncs::getBookDataTrait(Funcs::getCookieTrait('books')));
     }
     public function checkout(){
-        Funcs::sendPageCookie();
-        Funcs::checkUser();
-        if(empty(Funcs::getCookie('books'))){
+        Funcs::sendPageCookieTrait();
+        Funcs::checkUserTrait();
+        if(empty(Funcs::getCookieTrait('books'))){
             return redirect('/borrow');
         }
-        $books = Funcs::getCookie('books');
+        $books = Funcs::getCookieTrait('books');
         for($i = 0; $i< count($books); $i++){
-            $bookToBeReturned = UserBookFuncs::getUserBook($books[$i]);
+            $bookToBeReturned = UserBookFuncs::getUserBookTrait($books[$i]);
             if(!empty($bookToBeReturned[0])){
-                $user = UserFuncs::getUser($bookToBeReturned[0]->user);
+                $user = UserFuncs::getUserTrait($bookToBeReturned[0]->user);
 
-                $message = "Hello ".$user[0]->first_name.",\rthe book you had on loan called '".BookFuncs::getBook($bookToBeReturned[0]->book)[0]->title."',\rhas been loaned by another user.";
+                $message = "Hello ".$user[0]->first_name.",\rthe book you had on loan called '".BookFuncs::getBookTrait($bookToBeReturned[0]->book)[0]->title."',\rhas been loaned by another user.";
                 $message = wordwrap($message, 70, "\r\n");
 
                 $subject = '4Mation Library';
@@ -50,14 +50,14 @@ class UserBooksController extends Controller{
                 mail($user[0]->email, $subject, $message, $from);
                 UserBookFuncs::returnBookTrait($books[$i]);
             }
-            UserBookFuncs::borrowBook(Funcs::getCookie('user')[0]->username,$books[$i]);
+            UserBookFuncs::borrowBookTrait(Funcs::getCookieTrait('user')[0]->username,$books[$i]);
         }
             
-        Funcs::removeCookie('books');
+        Funcs::removeCookieTrait('books');
         return view('pages.checkout');
     }
     public function return(){
-        Funcs::sendPageCookie();
+        Funcs::sendPageCookieTrait();
         return view('pages.return')->with('returned', false);
     }
     public function returnBook(){
@@ -65,12 +65,12 @@ class UserBooksController extends Controller{
         return view('pages.return')->with('returned', true);
     }
     public function help(){
-        Funcs::sendPageCookie();
+        Funcs::sendPageCookieTrait();
         return view('pages.help');
     }
     public function logout(){
-        Funcs::removeCookie('user');
-        Funcs::removeCookie('books');
+        Funcs::removeCookieTrait('user');
+        Funcs::removeCookieTrait('books');
         return redirect('/');
     }
 }

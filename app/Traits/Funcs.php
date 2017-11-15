@@ -6,19 +6,19 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Cookie;
 
-trait BookFuncs{
-    public function getCookie($cookieName){
+trait Funcs{
+    public static function getCookieTrait($cookieName){
         return unserialize(Cookie::get($cookieName));
     }
-    public function checkUser(){
-        if(empty($this->getCookie('user'))){
+    public static function checkUserTrait(){
+        if(empty(Funcs::getCookieTrait('user'))){
             \App::abort(302, '', ['Location' => '/login']);
         }
     }
-    public function sendPageCookie(){
+    public static function sendPageCookieTrait(){
         Cookie::queue(Cookie::forever('lastPage',serialize($_SERVER['REQUEST_URI'])));
     }
-    public function removeCookie($cookie){
+    public static function removeCookieTrait($cookie){
         Cookie::queue(Cookie::forget($cookie));
     }
 }
