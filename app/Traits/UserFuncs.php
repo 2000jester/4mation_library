@@ -8,4 +8,7 @@ use App\users;
 use Cookie;
 
 trait UserFuncs{
+    public function getUser($username){
+        return users::getUserFromDB($username);
+    }
 }
