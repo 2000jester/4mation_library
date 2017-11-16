@@ -2,8 +2,11 @@
 //Home Page
 Route::get('/', 'UserBooksController@home');
 //login Page
-Route::get('/login', 'UserBooksController@login');
-Route::post('/login', 'UserBooksController@login');
+Route::get('/login', 'UsersController@login');
+Route::post('/login', 'UsersController@login');
+//admin login
+Route::get('/loginAdmin', 'UsersController@loginAdmin');
+Route::post('/loginAmind', 'UsersController@loginAdmin');
 //setCookie functions
 Route::get('/setUserCookie', 'UsersController@setUserCookie');
 Route::post('/setUserCookie', 'UsersController@setUserCookie');

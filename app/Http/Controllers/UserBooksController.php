@@ -16,13 +16,6 @@ class UserBooksController extends Controller{
         Funcs::sendPageCookieTrait();
         return view('pages.home');
     }
-    public function login(){
-        if(empty(Funcs::getCookieTrait('user'))){
-            return view('pages.login');
-        } else {
-            return redirect('/borrow');
-        }
-    }
     public function borrow(){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
@@ -67,11 +60,6 @@ class UserBooksController extends Controller{
     public function help(){
         Funcs::sendPageCookieTrait();
         return view('pages.help');
-    }
-    public function logout(){
-        Funcs::removeCookieTrait('user');
-        Funcs::removeCookieTrait('books');
-        return redirect('/');
     }
     public function clearCart(){
         Funcs::removeCookieTrait('books');

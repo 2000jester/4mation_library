@@ -11,6 +11,9 @@
             {{ csrf_field() }}
             {{Form::text('username', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}
         </form>
+        <div class="admin">
+            </br> Or login as an <a href="/loginAdmin">Admin</a>
+        </div>
     </div>
     <script>
         document.getElementById("barcode").focus();
@@ -20,6 +23,9 @@
     <style>
         .login-content{
             width: 100%;
+        }
+        .admin{
+            font-size: 20px;
         }
     </style>
 @endsection

@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('team');
             $table->string('email');
+            $table->boolean('admin');
+            $table->string('password');
         });
     }
 

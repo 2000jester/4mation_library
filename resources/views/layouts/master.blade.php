@@ -14,7 +14,8 @@
             @if (!empty(Cookie::get('user')))
                 <a class="topright-nav" href="/logout">logout</a>
             @elseif (empty(Cookie::get('user')))
-                 <a class="topright-nav" href="/login">login</a>
+                <a class="topright-nav" href="/login">login</a>
+                <a class="topright-nav" href="/loginAdmin">admin</a>
             @endif
         @endif
         @yield('body')

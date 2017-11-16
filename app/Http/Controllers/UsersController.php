@@ -9,6 +9,18 @@ class UsersController extends Controller{
     use Funcs;
     use UserFuncs;
 
+    public function login(){
+        if(empty(Funcs::getCookieTrait('user'))){
+            return view('pages.login');
+        } else {
+            return redirect('/borrow');
+        }
+    }
+    public function logout(){
+        Funcs::removeCookieTrait('user');
+        Funcs::removeCookieTrait('books');
+        return redirect('/');
+    }
     public function setUserCookie(){
         Funcs::sendPageCookieTrait();
         $user = UserFuncs::getUserTrait(request('username'));
