@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->integer('year');
             $table->string('file');
             $table->string('genres');
+            $table->string('barcode');
         });
     }
 

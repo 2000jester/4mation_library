@@ -17,7 +17,7 @@
                 <a class="topright-nav" href="/login">login</a>
             @endif
             @if(!empty(Cookie::get('user')))
-                @if (unserialize(Cookie::get('user'))[0]->admin == 1)
+                @if (unserialize(Cookie::get('user'))[0]->admin == 1 && empty(Cookie::get('admin')))
                     <a class="topright-nav" href="/loginAdmin">admin</a>
                 @endif
             @endif

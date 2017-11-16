@@ -13,6 +13,9 @@
             <div class="links">
                 <a href="/borrow">Borrow</a>
                 <a href="/return">Return</a>
+                @if(!empty(Cookie::get('admin')))
+                    <a href="/userLookup">User Lookup</a>
+                @endif
                 <a href="/help">Help</a>
             </div>
         </div>

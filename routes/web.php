@@ -10,6 +10,8 @@ Route::post('/loginAmind', 'UsersController@loginAdmin');
 //setCookie functions
 Route::get('/setUserCookie', 'UsersController@setUserCookie');
 Route::post('/setUserCookie', 'UsersController@setUserCookie');
+Route::get('/setAdminCookie', 'UsersController@setAdminCookie');
+Route::post('/setAdminCookie', 'UsersController@setAdminCookie');
 Route::get('/setBooksCookie', 'BooksController@setBooksCookie');
 Route::post('/setBooksCookie', 'BooksController@setBooksCookie');
 //borrow page

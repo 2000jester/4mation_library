@@ -8,7 +8,7 @@
             {{ csrf_field() }}
             <div class="login-content">
                 Please enter your passord bellow</br>
-                {{Form::text('password', null, array('autocomplete'=>'off'))}}</br>
+                {{Form::text('password', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
             </div>
             <input type="submit" value="Login" class="button">
         </form>
