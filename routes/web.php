@@ -26,6 +26,6 @@ Route::post('/returnBook', 'UserBooksController@returnBook');
 //Help Page (accessed via home page)
 Route::get('/help', 'UserBooksController@help');
 //logout function
-Route::get('/logout', 'UserBooksController@logout');
+Route::get('/logout', 'UsersController@logout');
 //clear cart function
 Route::post('/clearCart', 'UserBooksController@clearCart');

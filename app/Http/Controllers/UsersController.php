@@ -13,13 +13,20 @@ class UsersController extends Controller{
         if(empty(Funcs::getCookieTrait('user'))){
             return view('pages.login');
         } else {
-            return redirect('/borrow');
+            return redirect(Funcs::getCookieTrait('lastPage'));
         }
     }
     public function logout(){
         Funcs::removeCookieTrait('user');
         Funcs::removeCookieTrait('books');
         return redirect('/');
+    }
+    public function loginAdmin(){
+        if(empty(Funcs::getCookieTrait('userAdmin'))){
+            return view('pages.loginAdmin');
+        } else {
+            return redirect(Funcs::getCookieTrait('lastPage'));
+        }
     }
     public function setUserCookie(){
         Funcs::sendPageCookieTrait();
