@@ -31,3 +31,5 @@ Route::get('/help', 'UserBooksController@help');
 Route::get('/logout', 'UsersController@logout');
 //clear cart function
 Route::post('/clearCart', 'UserBooksController@clearCart');
+//check for dupe barcodes
+Route::get('/checkDupes', 'BooksController@checkDupes');

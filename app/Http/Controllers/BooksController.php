@@ -30,4 +30,26 @@ class BooksController extends Controller{
             return redirect('/borrow')->withCookie(cookie('books', serialize($array), 5));
         }
     }
+
+    public function checkDupes(){
+        Funcs::checkUserTrait();
+        if(Funcs::getCookieTrait('user')[0]->admin == 0){
+            return redirect(Funcs::getCookieTrait('lastPage'));
+        }
+        $query = "select * from books where barcode in (select barcode from(select barcode, count(*) as counted from books group by barcode having counted > 1) as barcodes)";
+        $results = BookFuncs::rawQueryTrait($query);
+        /*
+        $allBooks = BookFuncs::getAllBooksTrait();
+        $dupeBooks = [];
+        for($i = 0; $i<count($allBooks);$i++){
+            for($j = 0; $j<count($allBooks);$j++){
+                if($allBooks[$i]->barcode == $allBooks[$j]->barcode && $i != $j){
+                    array_push($dupeBooks,$allBooks[$i]->title." : ".$allBooks[$i]->barcode);
+                }
+            }
+        }
+        if(count($dupeBooks) > 0){
+            dd($dupeBooks);
+        }*/
+    }
 }

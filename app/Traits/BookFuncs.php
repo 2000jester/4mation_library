@@ -30,4 +30,10 @@ trait BookFuncs{
     public static function getBookTrait($barcode){
         return books::getBookFromDB($barcode);
     }
+    public static function getAllBooksTrait(){
+        return books::getAllFromDB();
+    }
+    public static function rawQueryTrait($query){
+        return books::rawQuery($query);
+    }
 }
