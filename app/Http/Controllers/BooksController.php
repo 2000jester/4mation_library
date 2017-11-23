@@ -36,21 +36,8 @@ class BooksController extends Controller{
         if(Funcs::getCookieTrait('admin')==false){
             return redirect(Funcs::getCookieTrait('lastPage'));
         }
-        $query = "select * from books where barcode in (select barcode from(select barcode, count(*) as counted from books group by barcode having counted > 1) as barcodes)";
-        $results = BookFuncs::rawQueryTrait($query);
-        dd($results);
-        /*
-        $allBooks = BookFuncs::getAllBooksTrait();
-        $dupeBooks = [];
-        for($i = 0; $i<count($allBooks);$i++){
-            for($j = 0; $j<count($allBooks);$j++){
-                if($allBooks[$i]->barcode == $allBooks[$j]->barcode && $i != $j){
-                    array_push($dupeBooks,$allBooks[$i]->title." : ".$allBooks[$i]->barcode);
-                }
-            }
-        }
-        if(count($dupeBooks) > 0){
-            dd($dupeBooks);
-        }*/
+        
+        $results = BookFuncs::checkDupesTrait();
+        return view('pages.dupes', ['dupes' => $results]);
     }
 }

@@ -33,7 +33,7 @@ trait BookFuncs{
     public static function getAllBooksTrait(){
         return books::getAllFromDB();
     }
-    public static function rawQueryTrait($query){
-        return books::rawQuery($query);
+    public static function checkDupesTrait(){
+        return books::checkDupesFromDB();
     }
 }
