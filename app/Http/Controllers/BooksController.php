@@ -33,11 +33,12 @@ class BooksController extends Controller{
 
     public function checkDupes(){
         Funcs::checkUserTrait();
-        if(Funcs::getCookieTrait('user')[0]->admin == 0){
+        if(Funcs::getCookieTrait('admin')==false){
             return redirect(Funcs::getCookieTrait('lastPage'));
         }
         $query = "select * from books where barcode in (select barcode from(select barcode, count(*) as counted from books group by barcode having counted > 1) as barcodes)";
         $results = BookFuncs::rawQueryTrait($query);
+        dd($results);
         /*
         $allBooks = BookFuncs::getAllBooksTrait();
         $dupeBooks = [];
