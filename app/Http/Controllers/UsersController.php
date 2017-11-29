@@ -55,7 +55,7 @@ class UsersController extends Controller{
         return view('pages.userLookup');
     }
 
-    public function searchUser(){
+    public function displayUser(){
         if(Funcs::getCookieTrait('lastPage') != "/userLookup"){
             return redirect('/userLookup');
         }
@@ -89,6 +89,6 @@ class UsersController extends Controller{
         for($i = 0; $i<count($books); $i++){
             $books[$i] = BookFuncs::getBookTrait($books[$i]->book);
         }
-        return view()
+        return view('pages.displayUser', ['user'=>$user,'books'=>$books]);
     }
 }

@@ -37,4 +37,4 @@ Route::get('/checkDupes', 'BooksController@checkDupes');
 Route::get('/userLookup', 'UsersController@userLookup');
 //get the user data
 Route::get('/searchUser', 'UsersController@searchUser');
-Route::post('/searchUser', 'UsersController@searchUser');
+Route::post('/displayUser', 'UsersController@displayUser');
