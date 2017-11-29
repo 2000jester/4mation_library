@@ -33,10 +33,7 @@ class BooksController extends Controller{
 
     public function checkDupes(){
         Funcs::checkUserTrait();
-        if(Funcs::getCookieTrait('admin')==false){
-            return redirect(Funcs::getCookieTrait('lastPage'));
-        }
-        
+        Funcs::checkAdminTrait();
         $results = BookFuncs::checkDupesTrait();
         return view('pages.dupes', ['dupes' => $results]);
     }

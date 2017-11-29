@@ -13,13 +13,15 @@
             <div class="links">
                 <a href="/borrow">Borrow</a>
                 <a href="/return">Return</a>
-                <div class="dropdown">
-                    <button onclick="dropdown()" class="dropbtn">Admin Functions</button>
-                    <div id="adminFunctions" class="dropdown-content">
-                        <a href="/checkDupes">Check Duplicate Barcodes</a>
-                        <a href="/userLookup">Search a User</a>
+                @if(!empty(unserialize(Cookie::get('admin'))))
+                    <div class="dropdown">
+                        <button onclick="dropDown()" class="dropbtn">Admin Functions</button>
+                        <div id="adminFunctions" class="dropdown-content">
+                            <a href="/checkDupes">Check Duplicate Barcodes</a>
+                            <a href="/userLookup">Search a User</a>
+                        </div>
                     </div>
-                </div>
+                @endif
                 <a href="/help">Help</a>
             </div>
         </div>
@@ -69,7 +71,7 @@
         display: none;
         position: absolute;
         background-color: #f9f9f9;
-        min-width: 160px;
+        min-width: 250px;
         overflow: auto;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -80,6 +82,7 @@
         padding: 12px 16px;
         text-decoration: none;
         display: block;
+        font-size: 20px;
     }
 
     .dropdown a:hover {

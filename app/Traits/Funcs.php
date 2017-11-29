@@ -15,6 +15,11 @@ trait Funcs{
             \App::abort(302, '', ['Location' => '/login']);
         }
     }
+    public static function checkAdminTrait(){
+        if(empty(Funcs::getCookieTrait('admin'))){
+            \App::abort(302, '', ['Location' => '/loginAdmin']);
+        }
+    }
     public static function sendPageCookieTrait(){
         Cookie::queue(Cookie::forever('lastPage',serialize($_SERVER['REQUEST_URI'])));
     }
