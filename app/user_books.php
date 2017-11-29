@@ -7,8 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class user_books extends Model
 {
-    public static function getUserBookFromDB($barcode){
+    public static function getUserBookFromDBByBook($barcode){
         return DB::table('user_books')->select()->where('book', '=', $barcode)->get();
+    }
+    public static function getUserBookFromDBByUser($username){
+        return DB::table('user_books')->select()->where('user', '=', $username)->get();
     }
     public static function deleteUserBookFromDB($barcode){
         DB::table('user_books')->where('book', '=', $barcode)->delete();

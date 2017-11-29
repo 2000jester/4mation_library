@@ -29,7 +29,7 @@ class UserBooksController extends Controller{
         }
         $books = Funcs::getCookieTrait('books');
         for($i = 0; $i< count($books); $i++){
-            $bookToBeReturned = UserBookFuncs::getUserBookTrait($books[$i]);
+            $bookToBeReturned = UserBookFuncs::getUserBookByBookTrait($books[$i]);
             if(!empty($bookToBeReturned[0])){
                 $user = UserFuncs::getUserTrait($bookToBeReturned[0]->user);
 

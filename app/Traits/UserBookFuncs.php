@@ -14,7 +14,10 @@ trait UserBookFuncs{
     public static function returnBookTrait($barcode){
         user_books::deleteUserBookFromDB($barcode);
     }
-    public static function getUserBookTrait($barcode){
-        return user_books::getUserBookFromDB($barcode);
+    public static function getUserBookByBookTrait($barcode){
+        return user_books::getUserBookFromDBByBook($barcode);
+    }
+    public static function getUserBookByUserTrait($username){
+        return user_books::getUserBookFromDBByUser($username);
     }
 }

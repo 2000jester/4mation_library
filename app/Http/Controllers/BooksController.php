@@ -16,7 +16,7 @@ class BooksController extends Controller{
         if(empty(BookFuncs::getBookTrait(request('barcode'))[0])){
             return redirect("/borrow");
         }
-        $bookToAdd = UserBookFuncs::getUserBookTrait(request('barcode'));
+        $bookToAdd = UserBookFuncs::getUserBookByBookTrait(request('barcode'));
         if(!empty($bookToAdd[0])){
             if($bookToAdd[0]->user == Funcs::getCookieTrait('user')[0]->username){
                 return redirect('/borrow');

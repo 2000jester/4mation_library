@@ -33,3 +33,8 @@ Route::get('/logout', 'UsersController@logout');
 Route::post('/clearCart', 'UserBooksController@clearCart');
 //check for dupe barcodes
 Route::get('/checkDupes', 'BooksController@checkDupes');
+//Search a user
+Route::get('/userLookup', 'UsersController@userLookup');
+//get the user data
+Route::get('/searchUser', 'UsersController@searchUser');
+Route::post('/searchUser', 'UsersController@searchUser');

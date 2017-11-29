@@ -8,7 +8,15 @@ use App\users;
 use Cookie;
 
 trait UserFuncs{
-    public static function getUserTrait($username){
-        return users::getUserFromDB($username);
+    public static function getUserByUsernameTrait($username){
+        return users::getUserFromDBByUsername($username);
+    }
+
+    public static function getUserByFirstNameTrait($firstName){
+        return users::getUserFromDBByFirstName($firstName);
+    }
+
+    public static function getUserByLastNameTrait($lastName){
+        return users::getUserFromDBByLastName($lastName);
     }
 }
