@@ -36,4 +36,7 @@ trait BookFuncs{
     public static function checkDupesTrait(){
         return books::checkDupesFromDB();
     }
+    public static function searchBookByPhraseTrait($phrase){
+        return books::searchBookByPhraseFromDB($phrase);
+    }
 }

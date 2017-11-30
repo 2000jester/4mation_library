@@ -40,6 +40,7 @@ class BooksController extends Controller{
         return view('pages.bookLookup');
     }
     public function searchForPhrase(){
-        
+        $results = BookFuncs::searchBookByPhraseTrait(request('phrase'));
+        dd($results);
     }
 }
