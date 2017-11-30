@@ -27,6 +27,7 @@ Route::get('/returnBook', 'UserBooksController@returnBook');
 Route::post('/returnBook', 'UserBooksController@returnBook');
 //search for a book
 Route::get('/bookLookup', 'BooksController@bookLookup');
+Route::post('/bookLookup', 'BooksController@bookLookup');
 //logout function
 Route::get('/logout', 'UsersController@logout');
 //clear cart function
@@ -45,3 +46,6 @@ Route::post('/displayUser', 'UsersController@displayUser');
 //search for book by phrase
 Route::get('/searchForPhrase', 'BooksController@searchForPhrase');
 Route::post('/searchForPhrase', 'BooksController@searchForPhrase');
+//return book info 
+Route::get('/displayBooks', 'BooksController@displayBooks');
+Route::post('/displayBooks', 'BooksController@displayBooks');

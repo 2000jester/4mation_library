@@ -21,6 +21,6 @@ class books extends Model
     }
 
     public static function searchBookByPhraseFromDB($phrase){
-        return DB::select(DB::raw("SELECT * FROM books WHERE (title LIKE '%$phrase%' OR author LIKE '%$phrase%')"));
+        return DB::select(DB::raw("SELECT * FROM books WHERE title LIKE '%$phrase%' OR author LIKE '%$phrase%'"));
     }
 }

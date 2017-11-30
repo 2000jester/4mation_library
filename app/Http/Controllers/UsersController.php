@@ -26,6 +26,7 @@ class UsersController extends Controller{
         Funcs::removeCookieTrait('books');
         Funcs::removeCookieTrait('admin');
         Funcs::removeCookieTrait('data');
+        Funcs::removeCookieTrait('bookInfo');
         return redirect('/');
     }
     public function loginAdmin(){

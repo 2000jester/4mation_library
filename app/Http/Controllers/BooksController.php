@@ -37,10 +37,18 @@ class BooksController extends Controller{
         return view('pages.dupes', ['dupes' => $results]);
     }
     public function bookLookup(){
+        Funcs::sendPageCookieTrait();
+        Funcs::removeCookieTrait('bookInfo');
         return view('pages.bookLookup');
     }
-    public function searchForPhrase(){
+    public function displayBooks(){
+        Funcs::sendPageCookieTrait();
         $results = BookFuncs::searchBookByPhraseTrait(request('phrase'));
-        dd($results);
+        if(empty(Funcs::getCookieTrait('bookInfo'))){
+            return redirect("/bookLookup");
+        }
+        $phrase = Funcs::getCookieTrait('bookInfo')[0];
+        $bookInfo = Funcs::getCookieTrait('bookInfo')[1];
+        return view('pages.displayBooks', ['phrase' => request('phrase'),'bookInfo' => $results]);
     }
 }

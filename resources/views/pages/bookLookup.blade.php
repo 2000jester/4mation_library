@@ -7,7 +7,7 @@
         <div class="login-content">
             Please enter the phrase you wish to search for a book by
         </div>
-        <form method="post" action="/searchForPhrase" id="phrase">
+        <form method="post" action="/displayBooks" id="phrase">
             {{ csrf_field() }}
             {{Form::text('phrase', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
             <input type="submit" value="Search" class="button">
