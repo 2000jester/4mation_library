@@ -44,11 +44,6 @@ class BooksController extends Controller{
     public function displayBooks(){
         Funcs::sendPageCookieTrait();
         $results = BookFuncs::searchBookByPhraseTrait(request('phrase'));
-        if(empty(Funcs::getCookieTrait('bookInfo'))){
-            return redirect("/bookLookup");
-        }
-        $phrase = Funcs::getCookieTrait('bookInfo')[0];
-        $bookInfo = Funcs::getCookieTrait('bookInfo')[1];
         return view('pages.displayBooks', ['phrase' => request('phrase'),'bookInfo' => $results]);
     }
 }

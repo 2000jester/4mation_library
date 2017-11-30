@@ -61,6 +61,7 @@
         font-size: 16px;
         border: none;
         cursor: pointer;
+        text-transform: uppercase;
     }
     .dropdown {
         position: relative;
