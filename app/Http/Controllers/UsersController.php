@@ -28,6 +28,9 @@ class UsersController extends Controller{
         return redirect('/');
     }
     public function loginAdmin(){
+        if(empty(Funcs::getCookieTrait('user'))){
+            return redirect(Funcs::getCookieTrait('lastPage'));
+        }
         if(Funcs::getCookieTrait('user')[0]->admin != 1){
             return redirect(Funcs::getCookieTrait('lastPage'));
         }
@@ -52,10 +55,15 @@ class UsersController extends Controller{
 
     public function userLookup(){
         Funcs::sendPageCookieTrait();
+        Funcs::checkUserTrait();
+        Funcs::checkAdminTrait();
         return view('pages.userLookup');
     }
 
-    public function displayUser(){
+    public function searchUser(){
+        Funcs::sendPageCookieTrait();
+        Funcs::checkUserTrait();
+        Funcs::checkAdminTrait();
         if(Funcs::getCookieTrait('lastPage') != "/userLookup"){
             return redirect('/userLookup');
         }
@@ -89,6 +97,18 @@ class UsersController extends Controller{
         for($i = 0; $i<count($books); $i++){
             $books[$i] = BookFuncs::getBookTrait($books[$i]->book);
         }
-        return view('pages.displayUser', ['user'=>$user,'books'=>$books]);
+        $data = [$user,$books];
+        return redirect('/displayUser')->withCookie(cookie('data', serialize($data), 5));
+    }
+
+    public function displayUser(){
+        Funcs::sendPageCookieTrait();
+        Funcs::checkUserTrait();
+        Funcs::checkAdminTrait();
+        if(Funcs::getCookieTrait('lastPage') != "/searchUser"){
+            return redirect('/userLookup');
+        }
+        Funcs::sendPageCookieTrait();
+        return view('pages.displayUser', ['user'=>Funcs::getCookieTrait('data')[0],'books'=>Funcs::getCookieTrait('data')[1]]);
     }
 }

@@ -35,6 +35,10 @@ Route::post('/clearCart', 'UserBooksController@clearCart');
 Route::get('/checkDupes', 'BooksController@checkDupes');
 //Search a user
 Route::get('/userLookup', 'UsersController@userLookup');
+Route::post('/userLookup', 'UsersController@userLookup');
 //get the user data
 Route::get('/searchUser', 'UsersController@searchUser');
+Route::post('/searchUser', 'UsersController@searchUser');
+//display the user data
+Route::get('/displayUser', 'UsersController@displayUser');
 Route::post('/displayUser', 'UsersController@displayUser');
