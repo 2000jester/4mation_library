@@ -30,11 +30,13 @@ class BooksController extends Controller{
             return redirect('/borrow')->withCookie(cookie('books', serialize($array), 5));
         }
     }
-
     public function checkDupes(){
         Funcs::checkUserTrait();
         Funcs::checkAdminTrait();
         $results = BookFuncs::checkDupesTrait();
         return view('pages.dupes', ['dupes' => $results]);
+    }
+    public function bookLookup(){
+        dd("test");
     }
 }

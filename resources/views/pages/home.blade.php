@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 @endif
-                <a href="/help">Help</a>
+                <a href="/bookLookup">Search</a>
             </div>
         </div>
     </div>
