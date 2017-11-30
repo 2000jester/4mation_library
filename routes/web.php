@@ -42,3 +42,6 @@ Route::post('/searchUser', 'UsersController@searchUser');
 //display the user data
 Route::get('/displayUser', 'UsersController@displayUser');
 Route::post('/displayUser', 'UsersController@displayUser');
+//search for book by phrase
+Route::get('/searchForPhrase', 'BooksController@searchForPhrase');
+Route::post('/searchForPhrase', 'BooksController@searchForPhrase');

@@ -37,6 +37,9 @@ class BooksController extends Controller{
         return view('pages.dupes', ['dupes' => $results]);
     }
     public function bookLookup(){
-        dd("test");
+        return view('pages.bookLookup');
+    }
+    public function searchForPhrase(){
+        
     }
 }

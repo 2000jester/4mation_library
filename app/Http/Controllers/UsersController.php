@@ -25,6 +25,7 @@ class UsersController extends Controller{
         Funcs::removeCookieTrait('user');
         Funcs::removeCookieTrait('books');
         Funcs::removeCookieTrait('admin');
+        Funcs::removeCookieTrait('data');
         return redirect('/');
     }
     public function loginAdmin(){
@@ -98,7 +99,7 @@ class UsersController extends Controller{
             $books[$i] = BookFuncs::getBookTrait($books[$i]->book);
         }
         $data = [$user,$books];
-        return redirect('/displayUser')->withCookie(cookie('data', serialize($data), 5));
+        return redirect('/displayUser')->withCookie(cookie('data', serialize($data), 1));
     }
 
     public function displayUser(){
@@ -109,6 +110,9 @@ class UsersController extends Controller{
             return redirect('/userLookup');
         }
         Funcs::sendPageCookieTrait();
+        if(empty(Funcs::getCookieTrait('data'))){
+            return redirect('userLookup');
+        }
         return view('pages.displayUser', ['user'=>Funcs::getCookieTrait('data')[0],'books'=>Funcs::getCookieTrait('data')[1]]);
     }
 }
