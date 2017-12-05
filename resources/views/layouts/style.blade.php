@@ -35,15 +35,15 @@
         text-transform: uppercase;
     }
     .topright-nav{
-        float: right;
-        padding-right: 10px;
-        padding-top: 10px;
         color: #636b6f;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: .1rem;
         text-decoration: none;
         text-transform: uppercase;
+        position: fixed;
+        right: 10px;
+        top: 10px;
     }
     .button{
             margin-top: 20px;

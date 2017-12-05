@@ -49,3 +49,6 @@ Route::post('/searchForPhrase', 'BooksController@searchForPhrase');
 //return book info 
 Route::get('/displayBooks', 'BooksController@displayBooks');
 Route::post('/displayBooks', 'BooksController@displayBooks');
+//reserve a book
+Route::get('/reserveBook', 'BooksController@reserveBook');
+Route::post('/reserveBook', 'BooksController@reserveBook');

@@ -13,16 +13,17 @@
             <div class="links">
                 <a href="/borrow">Borrow</a>
                 <a href="/return">Return</a>
+                <a href="/bookLookup">Search</a>
+                <a href="/reserve">Reserve</a>
                 @if(!empty(unserialize(Cookie::get('admin'))))
                     <div class="dropdown">
                         <button onclick="dropDown()" class="dropbtn">Admin Functions</button>
                         <div id="adminFunctions" class="dropdown-content">
-                            <a href="/checkDupes">Check Duplicate Barcodes</a>
                             <a href="/userLookup">Search a User</a>
+                            <a href="/checkDupes">Check Duplicate Barcodes</a>
                         </div>
                     </div>
                 @endif
-                <a href="/bookLookup">Search</a>
             </div>
         </div>
     </div>

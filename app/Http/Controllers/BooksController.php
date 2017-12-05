@@ -42,7 +42,6 @@ class BooksController extends Controller{
         return view('pages.bookLookup');
     }
     public function displayBooks(){
-        Funcs::sendPageCookieTrait();
         $results = BookFuncs::searchBookByPhraseTrait(request('phrase'));
         return view('pages.displayBooks', ['phrase' => request('phrase'),'bookInfo' => $results]);
     }
