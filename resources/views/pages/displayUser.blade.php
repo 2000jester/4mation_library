@@ -15,10 +15,12 @@
                 {{ $books[$i][0]->title." -> ".$books[$i][0]->author }}</br>
             @endfor
         </div>
-        <form method="post" action="/userLookup" id="button">
-            {{ csrf_field() }}
-            <input type="submit" value="Search Another" class="button">
-        </form>
+        <div class="fixed-button">
+            <form method="post" action="/userLookup" id="button">
+                {{ csrf_field() }}
+                <input type="submit" value="Search Another" class="button">
+            </form>
+        </div>
     </div>
 @endsection
 @section('style')

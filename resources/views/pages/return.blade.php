@@ -19,8 +19,10 @@
     <div class="full-height content flex-center">
         <div class="welcome-text">
             The Book has been returned</br>
-            <a class="button" href="/return">Return Another</a></br>
-            <a class="button" href="/">Menu</a>
+            <div class="fixed-button">
+                <a class="button" href="/return">Return Another</a></br>
+                <a class="button" href="/">Menu</a>
+            </div>
         </div>
     </div>
     @endsection

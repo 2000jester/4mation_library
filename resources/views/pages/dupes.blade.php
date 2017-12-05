@@ -7,8 +7,10 @@
         @for($i = 0; $i < count($dupes); $i++)
             {{ $dupes[$i]->title." : ".$dupes[$i]->barcode }}</br>
         @endfor
-        <form action="/">
-            <input type="submit" value="Menu" class="button">
-        </form>
+        <div class="fixed-button">
+            <form action="/">
+                <input type="submit" value="Menu" class="button">
+            </form>
+        </div>
     <div>
 @endsection

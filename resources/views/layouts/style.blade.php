@@ -56,15 +56,16 @@
     }
 
     .button{
-            margin-top: 20px;
-            background-color: #5EC0D5;
-            border: none;
-            color: white;
-            padding: 15px 38px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px;
+        margin-top: 20px;
+        background-color: #5EC0D5;
+        border: none;
+        color: white;
+        padding: 15px 38px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        width: 180px;
     }
 
     a:link{
@@ -107,6 +108,8 @@
     .fixed-button{
         position:fixed;
         bottom: 15px;
+        left: 50%;
+        transform: translate(-50%);
     }
 
     .dropbtn {

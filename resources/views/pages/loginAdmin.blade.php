@@ -10,7 +10,9 @@
                 Please enter your passord bellow</br>
                 {{Form::password('password', array('autofocus'=>'autofocus','autocomplete'=>'off', 'id'=>'password'))}}</br>
             </div>
-            <input type="submit" value="Login" class="button">
+            <div class="fixed-button">
+                <input type="submit" value="Login" class="button">
+            </div>
         </form>
     </div>
     <script>

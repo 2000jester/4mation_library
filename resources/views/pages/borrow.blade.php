@@ -20,14 +20,16 @@
             <input type="text" name="barcode" autofocus="autofocus" autocomplete="off">
             </form>
             @if (!empty(unserialize(Cookie::get('books'))))
-                <form method="post" action="/checkout">
-                    {{ csrf_field() }}
-                    <input type="submit" value="Checkout" class="button">
-                </form>
-                <form method="post" action="/clearCart">
-                    {{ csrf_field() }}
-                    <input type="submit" value="Clear Cart" class="button">
-                </form>
+                <div class="fixed-button">
+                    <form method="post" action="/checkout">
+                        {{ csrf_field() }}
+                        <input type="submit" value="Checkout" class="button">
+                    </form>
+                    <form method="post" action="/clearCart">
+                        {{ csrf_field() }}
+                        <input type="submit" value="Clear Cart" class="button">
+                    </form>
+                </div>
             @endif
     </div>
 @endsection
