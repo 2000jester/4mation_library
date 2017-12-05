@@ -47,52 +47,6 @@
     </script>
 @endsection
 @section('style')
-<style>
-    #home-logo{
-        width: 50%;
-    }
-    .links{
-        margin-top: -3%;
-    }
-
-    .dropbtn {
-        background-color: #5EC0D5;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        text-transform: uppercase;
-    }
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 250px;
-        overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        font-size: 20px;
-    }
-
-    .dropdown a:hover {
-        background-color: #f1f1f1;
-    }
-
-    .show {
-        display:block;
-    }
+<style> 
 </style>
 @endsection

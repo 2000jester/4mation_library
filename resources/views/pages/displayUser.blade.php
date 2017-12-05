@@ -4,7 +4,7 @@
 @endsection
 @section('body')
     <div class="full-height content flex-center">
-        <div class="left-align">
+        <div class="left-align user-data">
             Firstname : {{ ucfirst($user[0]->first_name) }}</br> 
             Surname : {{ ucfirst($user[0]->last_name) }}</br>
             Team : {{ ucfirst($user[0]->team) }}</br>
@@ -23,8 +23,5 @@
 @endsection
 @section('style')
 <style>
-    .left-align{
-        text-align:left;
-    }
 </style>
 @endsection
