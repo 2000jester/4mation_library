@@ -27,8 +27,5 @@
 @endif
 @section('style')
     <style>
-        .content{
-            font-size: 30px;
-        }
     </style>
 @endsection

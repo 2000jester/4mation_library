@@ -19,8 +19,5 @@
 @endsection
 @section('style')
     <style>
-        .login-content{
-            width: 100%;
-        }
     </style>
 @endsection
