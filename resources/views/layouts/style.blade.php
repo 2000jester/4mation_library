@@ -35,15 +35,17 @@
         text-transform: uppercase;
     }
     .topright-nav{
-        color: #636b6f;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: .1rem;
-        text-decoration: none;
         text-transform: uppercase;
         position: fixed;
         right: 10px;
         top: 10px;
+    }
+    .topright-nav a{
+        text-decoration: none;
+        color: #636b6f;
     }
     .button{
             margin-top: 20px;
@@ -56,4 +58,35 @@
             display: inline-block;
             font-size: 18px;
         }
+    a:link{
+        text-decoration: none;
+        text-color: black;
+    }
+    a:visited{
+        text-decoration: none;
+        text-color: black;
+    }
+    .small-list{
+        font-size: 18px;
+        padding-top: 3vh;
+        padding-bottom: 6vh;
+    }
+    .left-align{
+        text-align:left;
+        font-size: 20px;
+        padding-left:110px;
+        padding-right:110px;
+    }
+    .justify-content-normal{
+        justify-content: normal;
+    }
+    .main-content{
+        height: calc(100vh - 102px);
+        overflow: auto;
+        padding-top: 15px;
+    }
+    .fixed-button{
+        position:fixed;
+        bottom: 15px;
+    }
 </style>

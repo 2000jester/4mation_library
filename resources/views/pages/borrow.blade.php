@@ -9,7 +9,7 @@
                 Please scan a book or enter the barcode to start
             @elseif (!empty($bookData))
                 Your Cart :
-                <div class="book-list">
+                <div class="small-list">
                     @foreach ($bookData as $book)
                          - {{ $book->title }} </br>
                     @endforeach
@@ -33,10 +33,5 @@
 @endsection
 @section('style')
     <style>
-        .book-list{
-            font-size: 18px;
-            padding-top: 3vh;
-            padding-bottom: 6vh;
-        }
     </style>
 @endsection
