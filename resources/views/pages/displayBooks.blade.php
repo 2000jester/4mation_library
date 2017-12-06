@@ -7,9 +7,17 @@
         @if(count($bookInfo) == 0)
             There were no results for the phrase "{{ $phrase }}"
         @endif
-        @for($i = 0; $i<count($bookInfo); $i++)
-            <a href="test.text">{{ $bookInfo[$i]->title." -> ".$bookInfo[$i]->author }}</a></br></br>
-        @endfor
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>Author</td>
+            </tr>
+                @for($i = 0; $i<count($bookInfo); $i++)
+                <tr>
+                    <td><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->title }} </a></td>
+                    <td><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->author }} </a></td>
+                </tr>
+                @endfor
     </div>
 @endsection
 @section('form')

@@ -12,8 +12,10 @@
     <form method="post" action="/displayBooks" id="phrase">
         {{ csrf_field() }}
         {{Form::text('phrase', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
-        <input type="submit" value="Search" class="button">
     </form>
+@endsection
+@section('formAnchor')
+    <a onClick="document.getElementById('phrase').submit();" class="button">Search</a>
 @endsection
 @section('script')
     <script>

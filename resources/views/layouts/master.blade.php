@@ -27,9 +27,10 @@
         <div class="full-height content flex-center">
             <div class="main-content">
                 @yield('content')
+                @yield('form')
             </div>
             <div class="fixed-button">
-                @yield('form')
+                @yield('formAnchor')
             </div>
         </div>
         @yield('script')
