@@ -2,6 +2,9 @@
 @section('title')
     Login
 @endsection
+@section('header')
+    <h1>Login</h1>
+@endsection
 @section('content')
     <div class="login-content">
         Please scan your card or enter your username bellow to login

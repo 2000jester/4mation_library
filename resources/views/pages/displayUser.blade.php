@@ -2,6 +2,9 @@
 @section('title')
     Display {{ $user[0]->first_name }}
 @endsection
+@section('header')
+    <h1>Display {{ $user[0]->first_name }}</h1>
+@endsection
 @section('content')
     <div class="left-align user-data">
         Firstname : {{ ucfirst($user[0]->first_name) }}</br> 

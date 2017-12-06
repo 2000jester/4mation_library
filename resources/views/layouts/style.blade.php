@@ -100,14 +100,14 @@
     }
 
     .main-content{
-        height: calc(100vh - 102px);
+        height: calc(100vh - 190px);
         overflow: auto;
         padding-top: 15px;
     }
 
     .fixed-button{
         position:fixed;
-        bottom: 15px;
+        bottom: 35px;
         left: 50%;
         transform: translate(-50%);
     }
@@ -155,5 +155,17 @@
 
     #home-logo{
         width: 50%;
+    }
+
+    .header{
+        width: 85%;
+    }
+    
+    .header h1{
+        border-bottom: 1px solid #5EC0D5;
+        text-align: left;
+        padding: 15px;
+        margin-bottom: 30px;
+        font-size: 45px;
     }
 </style>

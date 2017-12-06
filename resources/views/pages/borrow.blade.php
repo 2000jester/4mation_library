@@ -2,6 +2,9 @@
 @section('title')
     Borrow
 @endsection
+@section('header')
+    <h1>Borrow</h1>
+@endsection
 @section('content')
     @if (empty(Cookie::get('books')))
         Welcome {{ unserialize(Cookie::get('user'))[0]->first_name }}!

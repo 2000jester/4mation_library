@@ -2,6 +2,9 @@
 @section('title')
     Book Search
 @endsection
+@section('header')
+    <h1>Book Search</h1>
+@endsection
 @section('content')
     <div class="login-content">
         Please enter the phrase you wish to search for a book by</br>

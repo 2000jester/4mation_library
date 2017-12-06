@@ -2,6 +2,9 @@
 @section('title')
     Checkout
 @endsection
+@section('header')
+    <h1>Checkout</h1>
+@endsection
 @section('content')
     Thanks {{ unserialize(Cookie::get('user'))[0]->first_name }},</br>
     your books have been borrowed </br></br>

@@ -2,6 +2,9 @@
 @section('title')
     Search for "{{ $phrase }}"
 @endsection
+@section('header')
+    <h1>Search for "{{ $phrase }}"</h1>
+@endsection
 @section('content')
     <div class="left-align">
         @if(count($bookInfo) == 0)

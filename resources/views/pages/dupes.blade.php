@@ -2,6 +2,9 @@
 @section('title')
     Duplicate Barcodes
 @endsection
+@section('header')
+    <h1>Duplicate Barcodes</h1>
+@endsection
 @section('content')
         @for($i = 0; $i < count($dupes); $i++)
             {{ $dupes[$i]->title." : ".$dupes[$i]->barcode }}</br>

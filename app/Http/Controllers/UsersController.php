@@ -17,8 +17,10 @@ class UsersController extends Controller{
     public function login(){
         if(empty(Funcs::getCookieTrait('user'))){
             return view('pages.login');
-        } else {
+        } elseif(!empty(Funcs::getCookieTrait('lastPage'))) {
             return redirect(Funcs::getCookieTrait('lastPage'));
+        } else {
+            return redirect('/');
         }
     }
     public function logout(){
@@ -47,7 +49,6 @@ class UsersController extends Controller{
         return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('admin', serialize(true), 5));
     }
     public function setUserCookie(){
-        Funcs::sendPageCookieTrait();
         $user = UserFuncs::getUserByUsernameTrait(request('username'));
         if(count($user) == 0){
             return redirect('/login');

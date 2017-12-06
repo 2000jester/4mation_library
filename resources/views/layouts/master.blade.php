@@ -25,6 +25,9 @@
             @endif
         </div>
         <div class="full-height content flex-center">
+            <div class="header">
+                @yield('header')
+            </div>
             <div class="main-content">
                 @yield('content')
                 @yield('form')

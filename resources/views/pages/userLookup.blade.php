@@ -1,6 +1,9 @@
 @extends('layouts.master')
 @section('title')
-    Lookup User
+    Search a User
+@endsection
+@section('header')
+    <h1>Search a User</h1>
 @endsection
 @section('content')
     Please enter the users username or name bellow

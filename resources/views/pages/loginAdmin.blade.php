@@ -2,6 +2,9 @@
 @section('title')
     Admin Login
 @endsection
+@section('header')
+    <h1>Admin Login</h1>
+@endsection
 @section('content')
     Please enter your passord bellow</br>
 @endsection
