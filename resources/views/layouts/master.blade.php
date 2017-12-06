@@ -24,7 +24,7 @@
                 @endif
             @endif
         </div>
-        <div class="full-height content flex-center">
+        <div class="full-height content flex-center @yield('divStyle')">
             <div class="header">
                 @yield('header')
             </div>

@@ -100,9 +100,9 @@
     }
 
     .main-content{
-        height: calc(100vh - 190px);
+        height: calc(100vh - 300px);
         overflow: auto;
-        padding-top: 15px;
+        padding-top: 35px;
     }
 
     .fixed-button{
@@ -110,6 +110,12 @@
         bottom: 35px;
         left: 50%;
         transform: translate(-50%);
+    }
+
+    .fixed-th{
+        position:fixed;
+        margin-top: -26px;
+        background-color: white;
     }
 
     .dropbtn {
@@ -165,7 +171,6 @@
         border-bottom: 1px solid #5EC0D5;
         text-align: left;
         padding: 15px;
-        margin-bottom: 30px;
         font-size: 45px;
     }
 </style>
