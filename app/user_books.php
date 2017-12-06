@@ -14,7 +14,7 @@ class user_books extends Model
         return DB::table('user_books')->select()->where('user', '=', $username)->get();
     }
     public static function deleteUserBookFromDB($barcode){
-        DB::table('user_books')->where('book', '=', $barcode)->delete();
+        return DB::table('user_books')->where('book', '=', $barcode)->delete();
     }
     public static function addUserBookToDB($username, $barcode){
         DB::table('user_books')->insert(

@@ -100,9 +100,8 @@
     }
 
     .main-content{
-        height: calc(100vh - 300px);
+        height: calc(100vh - 265px);
         overflow: auto;
-        padding-top: 35px;
     }
 
     .fixed-button{
@@ -172,5 +171,22 @@
         text-align: left;
         padding: 15px;
         font-size: 45px;
+    }
+
+    .dispBlock-overAuto{
+        display: block;
+        overflow: auto;
+    }
+
+    .book-list-height{
+        height: calc(100vh - 300px);
+    }
+
+    .book-list-left-width{
+        width: calc((100vw - 220px) * 0.7);
+    }
+
+    .book-list-right-width{
+        width: calc((100vw - 220px) * 0.3);
     }
 </style>

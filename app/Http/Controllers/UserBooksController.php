@@ -51,11 +51,14 @@ class UserBooksController extends Controller{
     }
     public function return(){
         Funcs::sendPageCookieTrait();
-        return view('pages.return')->with('returned', false);
+        return view('pages.return', array('returned'=>false, 'error'=>false));
     }
     public function returnBook(){
-        UserBookFuncs::returnBookTrait(request('barcode'));
-        return view('pages.return')->with('returned', true);
+        if(UserBookFuncs::returnBookTrait(request('barcode')) > 0){
+            return view('pages.return',array('returned'=>true,'error'=>false));
+        } else {
+            return view('pages.return', array('returned'=>false,'error'=>true));
+        }
     }
     public function help(){
         Funcs::sendPageCookieTrait();

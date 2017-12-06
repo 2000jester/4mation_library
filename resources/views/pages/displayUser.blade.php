@@ -22,7 +22,11 @@
     <form method="post" action="/userLookup" id="userLookup">
         {{ csrf_field() }}
     </form>
+    <form method="post" action="/" id="menu">
+        {{ csrf_field() }}
+    </form>
 @endsection
 @section('formAnchor')
-    <a onClick="document.getElementById('userLookup').submit();" class="button">Search Another</a>
+    <a onClick="document.getElementById('userLookup').submit();" class="button">Search Another</a></br>
+    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection

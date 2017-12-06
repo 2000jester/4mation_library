@@ -12,30 +12,35 @@
         @endsection
         @if(count($bookInfo) == 0)
             There were no results for the phrase "{{ $phrase }}"
-        @endif
-        <table style="width: 100%">
-            <thead style="display: block; overflow: auto;">
-            <tr>
-                <th style="width: calc((100vw - 220px)*0.7)">Title</th>
-                <th style="width: calc((100vw - 220px)*0.3)">Author</th>
-            </tr>
-            </thead>
-            <tbody style="display: block; overflow: auto; height: calc(100vh - 122px);">
-                @for($i = 0; $i<count($bookInfo); $i++)
+        @else
+            <table style="width: 100%">
+                <thead class="dispBlock-overAuto">
                 <tr>
-                    <td style="width: calc((100vw - 220px)*0.7)"><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->title }} </a></td>
-                    <td style="width: calc((100vw - 220px)*0.3)"><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->author }} </a></td>
+                    <th class="book-list-left-width">Title</th>
+                    <th class="book-list-right-width">Author</th>
                 </tr>
-                @endfor
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="dispBlock-overAuto book-list-height">
+                    @for($i = 0; $i<count($bookInfo); $i++)
+                    <tr>
+                        <td class="book-list-left-width"><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->title }} </a></td>
+                        <td class="book-list-right-width"><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->author }} </a></td>
+                    </tr>
+                    @endfor
+                </tbody>
+            </table>
+        @endif
     </div>
 @endsection
 @section('form')
     <form method="post" action="/bookLookup" id="bookLookup">
         {{ csrf_field() }}
     </form>
+    <form method="post" action="/menu" id="menu">
+        {{ csrf_field() }}
+    </form>
 @endsection
 @section('formAnchor')
     <a onClick="document.getElementById('bookLookup').submit();" class="button">Search Again</a>
+    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a></br>
 @endsection
