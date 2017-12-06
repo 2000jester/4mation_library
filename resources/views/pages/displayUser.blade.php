@@ -16,8 +16,10 @@
     </div>
 @endsection
 @section('form')
-    <form method="post" action="/userLookup" id="button">
+    <form method="post" action="/userLookup" id="userLookup">
         {{ csrf_field() }}
-        <input type="submit" value="Search Another" class="button">
     </form>
+@endsection
+@section('formAnchor')
+    <a onClick="document.getElementById('userLookup').submit();" class="button">Search Another</a>
 @endsection

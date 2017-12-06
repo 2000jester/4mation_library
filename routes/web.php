@@ -3,6 +3,9 @@
 Route::get('/', 'UserBooksController@home');
 Route::get('/menu', 'UserBooksController@home');
 Route::get('/home', 'UserBooksController@home');
+Route::post('/', 'UserBooksController@home');
+Route::post('/menu', 'UserBooksController@home');
+Route::post('/home', 'UserBooksController@home');
 //login Page
 Route::get('/login', 'UsersController@login');
 Route::post('/login', 'UsersController@login');
@@ -24,6 +27,7 @@ Route::get('/checkout', 'UserBooksController@checkout');
 Route::post('/checkout', 'UserBooksController@checkout');
 //Return Page (accessed via home page)
 Route::get('/return', 'UserBooksController@return');
+Route::post('/return', 'UserBooksController@return');
 //Return book function
 Route::get('/returnBook', 'UserBooksController@returnBook');
 Route::post('/returnBook', 'UserBooksController@returnBook');

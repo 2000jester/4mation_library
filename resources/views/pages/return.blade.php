@@ -9,7 +9,9 @@
     @section('form')
         <form method="post" action="/returnBook" id="barcode">
             {{ csrf_field() }}
-            <input type="text" name="barcode" autofocus="autofocus" autocomplete="off">
+        </form>
+        <form method="post" action="/" id="menu">
+            {{ csrf_field() }}
         </form>
     @endsection
 @elseif ($returned == true)
@@ -19,14 +21,16 @@
     @section('form')
         <form method="post" action="/return" id="barcode">
             {{ csrf_field() }}
-            <input type="submit" value="Return Another" class="button">
         </form>
-        <form method="post" action="/" id="barcode">
+        <form method="post" action="/" id="menu">
             {{ csrf_field() }}
-            <input type="submit" value="Menu" class="button">
         </form>
     @endsection
 @endif
+@section('formAnchor')
+    <a onClick="document.getElementById('barcode').submit();" class="button">Return Another</a></br>
+    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
+@endsection
 @section('script')
     <script>
         document.getElementById("barcode").focus();

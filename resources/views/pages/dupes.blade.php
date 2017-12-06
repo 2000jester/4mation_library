@@ -8,7 +8,9 @@
         @endfor
 @endsection
 @section('form')
-    <form action="/">
-        <input type="submit" value="Menu" class="button">
+    <form action="/" id="menu">
     </form>
+@endsection
+@section('formAnchor')
+    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection

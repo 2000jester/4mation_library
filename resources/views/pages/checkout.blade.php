@@ -7,12 +7,14 @@
     your books have been borrowed </br></br>
 @endsection
 @section('form')
-    <form method="post" action="/borrow">
+    <form method="post" action="/borrow" id="borrowMore">
         {{ csrf_field() }}
-        <input type="submit" value="Borrow More" class="button">
     </form>
-    <form method="post" action="/">
+    <form method="post" action="/" id="menu">
         {{ csrf_field() }}
-        <input type="submit" value="Menu" class="button">
     </form>
+@endsection
+@section('formAnchor')
+    <a onClick="document.getElementById('borrowMore').submit();" class="button">Borrow More</a></br>
+    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection

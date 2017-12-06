@@ -11,8 +11,10 @@
     <form method="post" action="/setUserCookie" id="barcode">
         {{ csrf_field() }}
         {{Form::text('username', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
-        <input type="submit" value="Login" class="button">
     </form>
+@endsection
+@section('formAnchor')
+    <a onClick="document.getElementById('barcode').submit();" class="button">Login</a>
 @endsection
 @section('script')
     <script>

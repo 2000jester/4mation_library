@@ -9,8 +9,8 @@
         @endif
         <table>
             <tr>
-                <td>Title</td>
-                <td>Author</td>
+                <th>Title</th>
+                <th>Author</th>
             </tr>
                 @for($i = 0; $i<count($bookInfo); $i++)
                 <tr>
@@ -21,8 +21,10 @@
     </div>
 @endsection
 @section('form')
-    <form method="post" action="/bookLookup" id="button">
+    <form method="post" action="/bookLookup" id="bookLookup">
         {{ csrf_field() }}
-        <input type="submit" value="Search Again" class="button">
     </form>
+@endsection
+@section('formAnchor')
+    <a onClick="document.getElementById('bookLookup').submit();" class="button">Search Again</a>
 @endsection

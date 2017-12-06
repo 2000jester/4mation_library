@@ -9,8 +9,10 @@
     <form method="post" action="/searchUser" id="username">
         {{ csrf_field() }}
         {{Form::text('username', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
-        <input type="submit" value="Search" class="button">
     </form>
+@endsection
+@section('formAnchor')
+    <a onClick="document.getElementById('username').submit();" class="button">Search</a>
 @endsection
 @section('script')
     <script>
