@@ -2,29 +2,27 @@
 @section('title')
     Home
 @endsection
-@section('body')
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            <div class="title">
-                <div id="content-logo">
-                    {{ Html::image('photos/logo.png', "logo", array('id' => 'home-logo')) }}
-                </div>
+@section('content')
+    <div class="content">
+        <div class="title">
+            <div id="content-logo">
+                {{ Html::image('photos/logo.png', "logo", array('id' => 'home-logo')) }}
             </div>
-            <div class="links">
-                <a href="/borrow">Borrow</a>
-                <a href="/return">Return</a>
-                <a href="/bookLookup">Search</a>
-                <a href="/reserve">Reserve</a>
-                @if(!empty(unserialize(Cookie::get('admin'))))
-                    <div class="dropdown">
-                        <button onclick="dropDown()" class="dropbtn">Admin Functions</button>
-                        <div id="adminFunctions" class="dropdown-content">
-                            <a href="/userLookup">Search a User</a>
-                            <a href="/checkDupes">Check Duplicate Barcodes</a>
-                        </div>
+        </div>
+        <div class="links">
+            <a href="/borrow">Borrow</a>
+            <a href="/return">Return</a>
+            <a href="/bookLookup">Search</a>
+            <a href="/reserve">Reserve</a>
+            @if(!empty(unserialize(Cookie::get('admin'))))
+                <div class="dropdown">
+                    <button onclick="dropDown()" class="dropbtn">Admin Functions</button>
+                    <div id="adminFunctions" class="dropdown-content">
+                        <a href="/userLookup">Search a User</a>
+                        <a href="/checkDupes">Check Duplicate Barcodes</a>
                     </div>
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
     </div>
     <script>

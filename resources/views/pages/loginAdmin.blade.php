@@ -2,24 +2,18 @@
 @section('title')
     Admin Login
 @endsection
-@section('body')
-    <div class="full-height content flex-center">
-        <form method="post" action="/setAdminCookie" id="barcode">
-            {{ csrf_field() }}
-            <div class="login-content">
-                Please enter your passord bellow</br>
-                {{Form::password('password', array('autofocus'=>'autofocus','autocomplete'=>'off', 'id'=>'password'))}}</br>
-            </div>
-            <div class="fixed-button">
-                <input type="submit" value="Login" class="button">
-            </div>
-        </form>
-    </div>
+@section('content')
+    Please enter your passord bellow</br>
+@endsection
+@section('form')
+    <form method="post" action="/setAdminCookie" id="barcode">
+        {{ csrf_field() }}
+        {{Form::password('password', array('autofocus'=>'autofocus','autocomplete'=>'off', 'id'=>'password'))}}</br>
+        <input type="submit" value="Login" class="button">
+    </form>
+@endsection
+@section('script')
     <script>
         document.getElementById("barcode").focus();
     </script>
-@endsection
-@section('style')
-    <style>
-    </style>
 @endsection

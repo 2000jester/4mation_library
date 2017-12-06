@@ -3,31 +3,32 @@
     Return
 @endsection
 @if ($returned == false)
-    @section('body')
-        <div class="full-height content flex-center">
-            <div class="welcome-text">
-                    Please scan a book or enter the barcode to return it
-                <form method="post" action="/returnBook" id="barcode">
-                    {{ csrf_field() }}
-                    <input type="text" name="barcode" autofocus="autofocus" autocomplete="off">
-                </form>
-            </div>
-        </div>
+    @section('content')
+            Please scan a book or enter the barcode to return it
+    @endsection
+    @section('form')
+        <form method="post" action="/returnBook" id="barcode">
+            {{ csrf_field() }}
+            <input type="text" name="barcode" autofocus="autofocus" autocomplete="off">
+        </form>
     @endsection
 @elseif ($returned == true)
-    @section('body')
-    <div class="full-height content flex-center">
-        <div class="welcome-text">
+    @section('content')
             The Book has been returned</br>
-            <div class="fixed-button">
-                <a class="button" href="/return">Return Another</a></br>
-                <a class="button" href="/">Menu</a>
-            </div>
-        </div>
-    </div>
+    @endsection
+    @section('form')
+        <form method="post" action="/return" id="barcode">
+            {{ csrf_field() }}
+            <input type="submit" value="Return Another" class="button">
+        </form>
+        <form method="post" action="/" id="barcode">
+            {{ csrf_field() }}
+            <input type="submit" value="Menu" class="button">
+        </form>
     @endsection
 @endif
-@section('style')
-    <style>
-    </style>
+@section('script')
+    <script>
+        document.getElementById("barcode").focus();
+    </script>
 @endsection

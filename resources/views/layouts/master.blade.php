@@ -24,6 +24,14 @@
                 @endif
             @endif
         </div>
-        @yield('body')
+        <div class="full-height content flex-center">
+            <div class="main-content">
+                @yield('content')
+            </div>
+            <div class="fixed-button">
+                @yield('form')
+            </div>
+        </div>
+        @yield('script')
     </body>
 </html>

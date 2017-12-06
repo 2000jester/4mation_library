@@ -2,15 +2,17 @@
 @section('title')
     Checkout
 @endsection
-@section('body')
-    <div class="full-height content flex-center">
-        Thanks {{ unserialize(Cookie::get('user'))[0]->first_name }},</br>
-        your books have been borrowed </br></br>
-        <div class="button fixed-button">
-            <a href="/borrow">Borrow More</a></br>
-            <a href="/">Menu</a>
-        </div>
-    </div>
+@section('content')
+    Thanks {{ unserialize(Cookie::get('user'))[0]->first_name }},</br>
+    your books have been borrowed </br></br>
 @endsection
-@section('style')
+@section('form')
+    <form method="post" action="/borrow">
+        {{ csrf_field() }}
+        <input type="submit" value="Borrow More" class="button">
+    </form>
+    <form method="post" action="/">
+        {{ csrf_field() }}
+        <input type="submit" value="Menu" class="button">
+    </form>
 @endsection
