@@ -23,8 +23,8 @@
                 <tbody class="dispBlock-overAuto book-list-height">
                     @for($i = 0; $i<count($bookInfo); $i++)
                     <tr>
-                        <td class="book-list-left-width"><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->title }} </a></td>
-                        <td class="book-list-right-width"><a href="{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->author }} </a></td>
+                        <td class="book-list-left-width"><a href="books/{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->title }} </a></td>
+                        <td class="book-list-right-width">{{ $bookInfo[$i]->author }}</td>
                     </tr>
                     @endfor
                 </tbody>

@@ -58,3 +58,9 @@ Route::post('/displayBooks', 'BooksController@displayBooks');
 //reserve a book
 Route::get('/reserveBook', 'BooksController@reserveBook');
 Route::post('/reserveBook', 'BooksController@reserveBook');
+//individual book page
+Route::get('/books/{barcode}','BooksController@get');
+Route::post('/books/{barcode}','BooksController@get');
+//book reserve
+Route::get('/reserve/{barcode}','BooksController@reserve');
+Route::post('/reserve/{barcode}','BooksController@reserve');

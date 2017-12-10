@@ -45,4 +45,22 @@ class BooksController extends Controller{
         $results = BookFuncs::searchBookByPhraseTrait(request('phrase'));
         return view('pages.displayBooks', ['phrase' => request('phrase'),'bookInfo' => $results]);
     }
+    public function get($barcode){
+        $bookData = BookFuncs::getBookTrait($barcode);
+        $borrowed = UserBookFuncs::getUserBookByBookTrait($barcode);
+        if(empty($borrowed[0])){
+            $borrowed = false;
+        } else {
+            $borrowed = true;
+        }
+        if(empty($bookData[0]->date_reserved)){
+            $reserved = false;
+        } else {
+            $reserved = true;
+        }
+        return view('pages.displayBook', array('bookData'=>$bookData, 'borrowed'=>$borrowed, 'reserved'=>$reserved));
+    }
+    public function reserve($barcode){
+        
+    }
 }

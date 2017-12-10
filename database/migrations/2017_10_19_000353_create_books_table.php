@@ -21,6 +21,8 @@ class CreateBooksTable extends Migration
             $table->string('file');
             $table->string('genres');
             $table->string('barcode');
+            $table->string('reserved');
+            $table->string('date_reserved');
         });
     }
 
