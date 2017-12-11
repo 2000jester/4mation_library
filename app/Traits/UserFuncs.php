@@ -27,4 +27,8 @@ trait UserFuncs{
     public static function reserveBookTrait($barcode, $username){
         return users::reserveBookInDB($barcode, $username);
     }
+
+    public static function getAllUsersTrait(){
+        return users::getAllUsersFromDB();
+    }
 }

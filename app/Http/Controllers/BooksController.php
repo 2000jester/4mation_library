@@ -50,6 +50,7 @@ class BooksController extends Controller{
         Funcs::checkUserTrait();
         $bookData = BookFuncs::getBookTrait($barcode);
         $borrowed = UserBookFuncs::getUserBookByBookTrait($barcode);
+        $numberOfReserves = BookFuncs::getNumberOfReservesTrait($barcode);
         if(empty($borrowed[0])){
             $borrowed = false;
         } else {
@@ -60,6 +61,11 @@ class BooksController extends Controller{
         } else {
             $reserved = true;
         }
-        return view('pages.displayBook', array('bookData'=>$bookData, 'borrowed'=>$borrowed, 'reserved'=>$reserved));
+        return view('pages.displayBook', array(
+            'bookData'=>$bookData, 
+            'borrowed'=>$borrowed, 
+            'reserved'=>$reserved, 
+            'numberOfReserves'=>$numberOfReserves
+        ));
     }
 }

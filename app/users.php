@@ -34,4 +34,8 @@ class users extends Model
             ]);
         return true;
     }
+
+    public static function getAllUsersFromDB(){
+        return DB::table('users')->select("*")->get();
+    }
 }

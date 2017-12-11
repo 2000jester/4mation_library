@@ -8,8 +8,12 @@
 @section('content')
     Author : {{ $bookData[0]->author }}</br>
     Year : {{ $bookData[0]->year }}</br>
-    borrowed : {{ $borrowed }}</br>
-    reserved : {{ $reserved }}</br>
+    @if($borrowed == true)
+        Available : No</br>
+    @else
+        Available : Yes</br>
+    @endif
+    Number of Reserves : {{ $numberOfReserves }}</br>
 @endsection
 @section('form')
     <form method="post" action="/reserve/{{ $bookData[0]->barcode }}" id="reserve">

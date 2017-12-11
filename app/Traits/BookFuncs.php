@@ -39,4 +39,7 @@ trait BookFuncs{
     public static function searchBookByPhraseTrait($phrase){
         return books::searchBookByPhraseFromDB($phrase);
     }
+    public static function getNumberOfReservesTrait($username){
+        return books::getNumberofReservesFromDB($username);
+    }
 }
