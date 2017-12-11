@@ -19,4 +19,8 @@ trait UserFuncs{
     public static function getUserByLastNameTrait($lastName){
         return users::getUserFromDBByLastName($lastName);
     }
+
+    public static function setupUserReservedTrait($username){
+        users::setupUserReservedInDB($username);
+    }
 }

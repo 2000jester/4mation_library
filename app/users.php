@@ -19,4 +19,8 @@ class users extends Model
     public static function getUserFromDBByLastName($lastName){
         return DB::table('users')->select()->where('last_name', '=', $lastName)->get();
     }
+
+    public static function setupUserReservedInDB($username){
+        return DB::table('users')->where('username', '=', $username)->update(['reserved'=>serialize([])]);
+    }
 }

@@ -117,4 +117,7 @@ class UsersController extends Controller{
         }
         return view('pages.displayUser', ['user'=>Funcs::getCookieTrait('data')[0],'books'=>Funcs::getCookieTrait('data')[1]]);
     }
+    public function setupUserReserved($username){
+        UserFuncs::setupUserReservedTrait($username);
+    }
 }

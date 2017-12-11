@@ -25,10 +25,9 @@ class books extends Model
     }
 
     public static function reserveBookInDB($barcode, $username){
-        DB::table('books')->where('barcode','=',$barcode)
+        DB::table('users')->where('username','=',$username)
             ->update([
-                'date_reserved' => date('d.m.y'),
-                'reserved'      => $username
+                'reserved' => date('d.m.y'),
             ]);
         return true;
     }

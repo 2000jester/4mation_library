@@ -8,6 +8,8 @@
 @section('content')
     Author : {{ $bookData[0]->author }}</br>
     Year : {{ $bookData[0]->year }}</br>
+    borrowed : {{ $borrowed }}</br>
+    reserved : {{ $reserved }}</br>
 @endsection
 @section('form')
     <form method="post" action="/reserve/{{ $bookData[0]->barcode }}" id="reserve">
@@ -21,9 +23,9 @@
     </form>
 @endsection
 @section('formAnchor')
-    @if($borrowed == true)
+    @if($borrowed == true && $reserved == false)
         <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
-    @elseif($reserved == true)
+    @elseif($borrowed == true && $reserved == true)
         <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
     @else
         <a onClick="document.getElementById('borrow').submit();" class="button">Borrow</a></br>
