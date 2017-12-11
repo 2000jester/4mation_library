@@ -19,20 +19,30 @@
     <form method="post" action="/reserve/{{ $bookData[0]->barcode }}" id="reserve">
         {{ csrf_field() }}
     </form>
+    <form method="post" action="/unreserve/{{ $bookData[0]->barcode }}" id="unreserve">
+        {{ csrf_field() }}
+    </form>
     <form method="post" action="/borrow" id="borrow">
         {{ csrf_field() }}
+        <input type="hidden" name="barcode" value="{{$bookData[0]->barcode}}"/>
     </form>
     <form method="post" action="/menu" id="menu">
         {{ csrf_field() }}
     </form>
 @endsection
 @section('formAnchor')
-    @if($borrowed == true && $reserved == false)
-        <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
-    @elseif($borrowed == true && $reserved == true)
-        <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
-    @else
+    @if($borrowed == false)
         <a onClick="document.getElementById('borrow').submit();" class="button">Borrow</a></br>
+    @else
+        @if($reservedByCurrentUser == true)
+            <a onClick="document.getElementById('unreserve').submit();" class="button">Cancel Reservation</a></br>
+        @else
+            @if($borrowed == true && $reserved == false)
+                <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
+            @elseif($borrowed == true && $reserved == true)
+                <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
+            @endif
+        @endif
     @endif
     <a onClick="document.getElementById('menu').submit();" class="button">Menu</a></br>
 @endsection

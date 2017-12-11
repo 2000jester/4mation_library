@@ -19,7 +19,10 @@ class UserBooksController extends Controller{
     public function borrow(){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
-        return view('pages.borrow')->with('bookData', BookFuncs::getBookDataTrait(Funcs::getCookieTrait('books')));
+        return view('pages.borrow', array(
+            'bookData'=>BookFuncs::getBookDataTrait(Funcs::getCookieTrait('books')),
+            'barcode'=>request('barcode')
+        ));
     }
     public function checkout(){
         Funcs::sendPageCookieTrait();

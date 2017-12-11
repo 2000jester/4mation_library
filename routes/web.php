@@ -66,3 +66,6 @@ Route::get('/reserve/{barcode}','UsersController@reserve');
 Route::post('/reserve/{barcode}','UsersController@reserve');
 //one time user setup
 Route::get('/setup/{username}', 'UsersController@setupUserReserved');
+//cancel reservation
+Route::get('/unreserve/{barcode}', 'UsersController@unreserve');
+Route::post('/unreserve/{barcode}', 'UsersController@unreserve');

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use App\Traits\Funcs;
 use App\Traits\BookFuncs;
 use App\Traits\UserBookFuncs;
+use App\Traits\UserFuncs;
 
 class BooksController extends Controller{
 
     use Funcs;
     use BookFuncs;
     use UserBookFuncs;
+    use UserFuncs;
 
     public function setBooksCookie(){
         Funcs::checkUserTrait();
@@ -48,24 +50,31 @@ class BooksController extends Controller{
     public function get($barcode){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
+
         $bookData = BookFuncs::getBookTrait($barcode);
+
         $borrowed = UserBookFuncs::getUserBookByBookTrait($barcode);
+        $borrowed = empty($borrowed[0]) ? false : true;
+
         $numberOfReserves = BookFuncs::getNumberOfReservesTrait($barcode);
-        if(empty($borrowed[0])){
-            $borrowed = false;
-        } else {
-            $borrowed = true;
+        $reserved = $numberOfReserves > 0 ? true : false;
+
+        $userReserves = UserFuncs::getUserByUsernameTrait(Funcs::getCookieTrait('user')[0]->username)[0]->reserved;
+        $userReserves = unserialize($userReserves);
+
+        $reservedByCurrentUser = false;
+        for($i = 0; $i < count($userReserves); $i++){
+            if($userReserves[$i][0] == $barcode){
+                $reservedByCurrentUser = true;
+            }
         }
-        if(empty($bookData[0]->date_reserved)){
-            $reserved = false;
-        } else {
-            $reserved = true;
-        }
+
         return view('pages.displayBook', array(
             'bookData'=>$bookData, 
             'borrowed'=>$borrowed, 
             'reserved'=>$reserved, 
-            'numberOfReserves'=>$numberOfReserves
+            'numberOfReserves'=>$numberOfReserves,
+            'reservedByCurrentUser'=>$reservedByCurrentUser
         ));
     }
 }

@@ -21,7 +21,7 @@
 @section('form')
     <form method="post" action="/setBooksCookie" id="barcode">
         {{ csrf_field() }}
-        <input type="text" name="barcode" autofocus="autofocus" autocomplete="off">
+        <input type="text" value="{{$barcode}}" name="barcode" autofocus="autofocus" autocomplete="off">
     </form>
     @if (!empty(unserialize(Cookie::get('books'))))
         <div class="fixed-button">
