@@ -33,16 +33,12 @@
 @section('formAnchor')
     @if($borrowed == false)
         <a onClick="document.getElementById('borrow').submit();" class="button">Borrow</a></br>
-    @else
-        @if($reservedByCurrentUser == true)
-            <a onClick="document.getElementById('unreserve').submit();" class="button">Cancel Reservation</a></br>
-        @else
-            @if($borrowed == true && $reserved == false)
-                <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
-            @elseif($borrowed == true && $reserved == true)
-                <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
-            @endif
-        @endif
+    @elseif($reservedByCurrentUser == true)
+        <a onClick="document.getElementById('unreserve').submit();" class="button">Cancel Reservation</a></br>
+    @elseif($borrowed == true && $reserved == false)
+        <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
+    @elseif($borrowed == true && $reserved == true)
+        <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
     @endif
     <a onClick="document.getElementById('menu').submit();" class="button">Menu</a></br>
 @endsection

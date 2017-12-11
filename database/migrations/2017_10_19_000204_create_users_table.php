@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->boolean('admin');
             $table->string('password');
-            $table->string('reserved');
         });
     }
 

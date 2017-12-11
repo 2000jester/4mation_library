@@ -5,11 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\books;
 use Illuminate\Support\Facades\DB;
-use App\Traits\UserFuncs;
 
 class books extends Model{
-
-    use UserFuncs;
     
     public static function getAllFromDB(){
         return books::all();

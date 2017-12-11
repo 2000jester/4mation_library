@@ -21,4 +21,8 @@ class user_books extends Model
             ['user'=>$username,'book'=>$barcode,'date_borrowed'=>date("d.m.y")]
         );
     }
+    public static function isBorrowedInDB($barcode){
+        $result = DB::table('user_books')->select()->where('book','=',$barcode)->get();
+        return empty($result[0]) ? false : true;
+    }
 }
