@@ -21,11 +21,15 @@ class books extends Model
     }
 
     public static function searchBookByPhraseFromDB($phrase){
-        return DB::select(DB::raw("SELECT * FROM books WHERE title LIKE '%$phrase%' OR author LIKE '%$phrase%'"));
+        return DB::table('books')->select()->where('title','like','%'.$phrase.'%')->orWhere('author','like','%'.$phrase.'%')->orWhere('barcode','like','%'.$phrase.'%')->get();
     }
 
     public static function reserveBookInDB($barcode, $username){
-        $query = ("UPDATE books SET date_reserved = ".date('d.m.y').", reserved = $username WHERE barcode = $barcode");
-        return DB::select(DB::raw($query))->get();
+        DB::table('books')->where('barcode','=',$barcode)
+            ->update([
+                'date_reserved' => date('d.m.y'),
+                'reserved'      => $username
+            ]);
+        return true;
     }
 }
