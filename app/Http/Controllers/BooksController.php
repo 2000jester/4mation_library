@@ -62,14 +62,4 @@ class BooksController extends Controller{
         }
         return view('pages.displayBook', array('bookData'=>$bookData, 'borrowed'=>$borrowed, 'reserved'=>$reserved));
     }
-    public function reserve($barcode){
-        $user = Funcs::getCookieTrait('user');
-        $userBookData = UserBookFuncs::getUserBookByBookTrait($barcode);
-        if($userBookData[0]->user == $user[0]->username){
-            return view('pages.reserve', array('error'=>true,'message'=>'Sorry, you have already borrowed this book'));
-        } else {
-            BookFuncs::reserveBookTrait($barcode, $user[0]->username);
-            return view('pages.reserve', array('error'=>false,'message'=>'Book has been successfully reserved'));
-        }
-    }
 }

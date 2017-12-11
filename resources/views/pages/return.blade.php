@@ -45,7 +45,7 @@
         </form>
     @endsection
 @endif
-@if($returned = false)
+@if($returned == false)
     @section('formAnchor')
         <a onClick="document.getElementById('barcode').submit();" class="button">Return</a></br>
         <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>

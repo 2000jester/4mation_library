@@ -23,4 +23,15 @@ class users extends Model
     public static function setupUserReservedInDB($username){
         return DB::table('users')->where('username', '=', $username)->update(['reserved'=>serialize([])]);
     }
+
+    public static function reserveBookInDB($barcode, $username){
+        $userReserved = users::getUserFromDBByUsername($username)[0]->reserved;
+        $userReserved = unserialize($userReserved);
+        array_push($userReserved, [$barcode,date('d.m.y')]);
+        DB::table('users')->where('username','=',$username)
+            ->update([
+                'reserved' => serialize($userReserved),
+            ]);
+        return true;
+    }
 }

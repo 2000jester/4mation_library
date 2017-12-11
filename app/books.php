@@ -23,12 +23,4 @@ class books extends Model
     public static function searchBookByPhraseFromDB($phrase){
         return DB::table('books')->select()->where('title','like','%'.$phrase.'%')->orWhere('author','like','%'.$phrase.'%')->orWhere('barcode','like','%'.$phrase.'%')->get();
     }
-
-    public static function reserveBookInDB($barcode, $username){
-        DB::table('users')->where('username','=',$username)
-            ->update([
-                'reserved' => date('d.m.y'),
-            ]);
-        return true;
-    }
 }

@@ -23,4 +23,8 @@ trait UserFuncs{
     public static function setupUserReservedTrait($username){
         users::setupUserReservedInDB($username);
     }
+
+    public static function reserveBookTrait($barcode, $username){
+        return users::reserveBookInDB($barcode, $username);
+    }
 }
