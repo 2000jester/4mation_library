@@ -62,10 +62,8 @@ Route::post('/reserveBook', 'BooksController@reserveBook');
 Route::get('/books/{barcode}','BooksController@get');
 Route::post('/books/{barcode}','BooksController@get');
 //book reserve
-Route::get('/reserve/{barcode}','UsersController@reserve');
-Route::post('/reserve/{barcode}','UsersController@reserve');
-//one time user setup
-Route::get('/setup/{username}', 'UsersController@setupUserReserved');
+Route::get('/reserve/{barcode}','ReservationsController@reserve');
+Route::post('/reserve/{barcode}','ReservationsController@reserve');
 //cancel reservation
-Route::get('/unreserve/{barcode}', 'UsersController@unreserve');
-Route::post('/unreserve/{barcode}', 'UsersController@unreserve');
+Route::get('/unreserve/{barcode}', 'ReservationsController@unreserve');
+Route::post('/unreserve/{barcode}', 'ReservationsController@unreserve');

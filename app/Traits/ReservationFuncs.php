@@ -9,4 +9,7 @@ trait ReservationFuncs{
     public static function doesUserHaveReservedTrait($barcode, $username){
         return reservations::doesUserHaveReservedInDB($barcode, $username);
     }
+    public static function reserveBookTrait($barcode, $username){
+        return reservations::reserveBookInDB($barcode, $username);
+    }
 }

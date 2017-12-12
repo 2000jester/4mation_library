@@ -25,4 +25,11 @@ class user_books extends Model
         $result = DB::table('user_books')->select()->where('book','=',$barcode)->get();
         return empty($result[0]) ? false : true;
     }
+    public static function doesUserHaveBorrowedInDB($barcode, $username){
+        $result = DB::table('user_books')->select()->where([
+            ['user','=',$username],
+            ['book','=',$barcode]
+        ])->get();
+        return empty($result[0]) ? false : true;
+    }
 }

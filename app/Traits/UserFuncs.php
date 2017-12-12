@@ -16,14 +16,6 @@ trait UserFuncs{
         return users::getUserFromDBByLastName($lastName);
     }
 
-    public static function setupUserReservedTrait($username){
-        users::setupUserReservedInDB($username);
-    }
-
-    public static function reserveBookTrait($barcode, $username){
-        return users::reserveBookInDB($barcode, $username);
-    }
-
     public static function getAllUsersTrait(){
         return users::getAllUsersFromDB();
     }

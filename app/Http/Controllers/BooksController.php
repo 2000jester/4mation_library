@@ -58,13 +58,15 @@ class BooksController extends Controller{
         $numberOfReserves = ReservationFuncs::getNumberOfReservationsTrait($barcode);
         $reserved = $numberOfReserves > 0 ? true : false;
         $reservedByCurrentUser = ReservationFuncs::doesUserHaveReservedTrait($barcode, Funcs::getCookieTrait('user')[0]->username);
+        $borrowedByCurrentUser = UserBookFuncs::doesUserHaveBorrowedTrait($barcode, Funcs::getCookieTrait('user')[0]->username);
 
         return view('pages.displayBook', array(
             'bookData'=>$bookData, 
             'borrowed'=>$borrowed, 
             'reserved'=>$reserved, 
             'numberOfReserves'=>$numberOfReserves,
-            'reservedByCurrentUser'=>$reservedByCurrentUser
+            'reservedByCurrentUser'=>$reservedByCurrentUser,
+            'borrowedByCurrentUser'=>$borrowedByCurrentUser
         ));
     }
 }

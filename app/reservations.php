@@ -18,4 +18,9 @@ class reservations extends Model{
         ])->get();
         return empty($results[0]) ? false : true;
     }
+    public static function reserveBookInDB($barcode, $username){
+        return DB::table('reservations')->insert(
+            ['user'=>$username,'book'=>$barcode,'date_reserved'=>date("d.m.y")]
+        );
+    }
 }

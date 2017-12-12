@@ -20,8 +20,10 @@ trait UserBookFuncs{
     public static function getUserBookByUserTrait($username){
         return user_books::getUserBookFromDBByUser($username);
     }
-
     public static function isBorrowedTrait($barcode){
         return user_books::isBorrowedInDB($barcode);
+    }
+    public static function doesUserHaveBorrowedTrait($barcode, $username){
+        return user_books::doesUserHaveBorrowedInDB($barcode, $username);
     }
 }
