@@ -44,11 +44,11 @@ Route::get('/checkDupes', 'BooksController@checkDupes');
 Route::get('/userLookup', 'UsersController@userLookup');
 Route::post('/userLookup', 'UsersController@userLookup');
 //get the user data
-Route::get('/searchUser', 'UsersController@searchUser');
-Route::post('/searchUser', 'UsersController@searchUser');
+Route::get('/searchUsers', 'UsersController@searchUsers');
+Route::post('/searchUsers', 'UsersController@searchUsers');
 //display the user data
-Route::get('/displayUser', 'UsersController@displayUser');
-Route::post('/displayUser', 'UsersController@displayUser');
+Route::get('/displayUsers', 'UsersController@displayUsers');
+Route::post('/displayUsers', 'UsersController@displayUsers');
 //search for book by phrase
 Route::get('/searchForPhrase', 'BooksController@searchForPhrase');
 Route::post('/searchForPhrase', 'BooksController@searchForPhrase');

@@ -8,20 +8,20 @@
     </head>
     <body>
         <div class="topright-nav">
-            @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/returnBook' && $_SERVER['REQUEST_URI'] != '/checkout')
-                <a href="/">menu</a>
-            @endif
             @if ($_SERVER['REQUEST_URI'] != '/login' && $_SERVER['REQUEST_URI'] != '/loginAdmin')
-                @if (!empty(Cookie::get('user')))
-                    <a href="/logout">logout</a>
-                @elseif (empty(Cookie::get('user')))
-                    <a href="/login">login</a>
-                @endif
                 @if(!empty(Cookie::get('user')))
                     @if (unserialize(Cookie::get('user'))[0]->admin == 1 && empty(Cookie::get('admin')))
                         <a href="/loginAdmin">admin</a>
                     @endif
                 @endif
+                @if (!empty(Cookie::get('user')))
+                    <a href="/logout">logout</a>
+                @elseif (empty(Cookie::get('user')))
+                    <a href="/login">login</a>
+                @endif
+            @endif
+            @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/returnBook' && $_SERVER['REQUEST_URI'] != '/checkout')
+                <a href="/">menu</a>
             @endif
         </div>
         <div class="full-height content flex-center @yield('divStyle')">

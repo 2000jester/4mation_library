@@ -19,4 +19,8 @@ trait UserFuncs{
     public static function getAllUsersTrait(){
         return users::getAllUsersFromDB();
     }
+
+    public static function userIsLikePhraseTrait($phrases){
+        return users::userIsLikePhraseFromDB($phrases);
+    }
 }

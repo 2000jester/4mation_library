@@ -16,6 +16,7 @@
                     - {{ $book->title }} </br>
             @endforeach
         </div>
+        Please scan a book or enter the barcode
     @endif
 @endsection
 @section('form')

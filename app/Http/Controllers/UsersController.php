@@ -63,45 +63,23 @@ class UsersController extends Controller{
         return view('pages.userLookup');
     }
 
-    public function searchUser(){
+    public function DisplayUsers(){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
         Funcs::checkAdminTrait();
         if(Funcs::getCookieTrait('lastPage') != "/userLookup"){
             return redirect('/userLookup');
         }
-        $user = UserFuncs::getUserByUsernameTrait(request('username'));
-        if(empty($user[0]->first_name)){
-            $user = UserFuncs::getUserByFirstNameTrait(request('username'));
+        if(request('phrase') == ""){
+            return redirect('/userLookup');
         }
-        if(empty($user[0]->first_name)){
-            $user = UserFuncs::getUserByLastNameTrait(request('username'));
-        }
-        if(empty($user[0]->first_name)){
-            $names = explode(' ', request('username'));
-            $firstSearch = UserFuncs::getUserByFirstNameTrait(ucfirst($names[0]));
-            $secondSearch = UserFuncs::getUserByLastNameTrait(ucfirst($names[1]));
-            if($firstSearch == $secondSearch){
-                $user = $firstSearch;
-            }
-        }
-        if(empty($user[0]->first_name)){
-            $names = explode(' ', request('username'));
-            array_push($names,$names[0]);
-            $names[0] = $names[1];
-            $names[1] = $names[2];
-            $firstSearch = UserFuncs::getUserByFirstNameTrait(ucfirst($names[0]));
-            $secondSearch = UserFuncs::getUserByLastNameTrait(ucfirst($names[1]));
-            if($firstSearch == $secondSearch){
-                $user = $firstSearch;
-            }
-        }
-        $books = UserBookFuncs::getUserBookByUserTrait($user[0]->username);
+        $results = UserFuncs::userIsLikePhraseTrait(explode(' ', request('phrase')));
+
+        /*$books = UserBookFuncs::getUserBookByUserTrait($user[0]->username);
         for($i = 0; $i<count($books); $i++){
             $books[$i] = BookFuncs::getBookTrait($books[$i]->book);
-        }
-        $data = [$user,$books];
-        return redirect('/displayUser')->withCookie(cookie('data', serialize($data), 1));
+        }*/
+        return view('pages.displayUsers', array('users'=>$results,'phrase'=>request('phrase')));
     }
 
     public function displayUser(){

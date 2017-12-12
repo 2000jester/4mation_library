@@ -189,4 +189,28 @@
     .book-list-right-width{
         width: calc((100vw - 220px) * 0.3);
     }
+
+    .user-list-height{
+        height: calc(100vh - 300px);
+    }
+
+    .user-list-first-width{
+        width: calc((100vw - 220px) * 0.2);
+    }
+
+    .user-list-second-width{
+        width: calc((100vw - 220px) * 0.2);
+    }
+
+    .user-list-third-width{
+        width: calc((100vw - 220px) * 0.2);
+    }
+
+    .user-list-fourth-width{
+        width: calc((100vw - 220px) * 0.2);
+    }
+
+    .user-list-fifth-width{
+        width: calc((100vw - 220px) * 0.2);
+    }
 </style>
