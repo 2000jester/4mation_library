@@ -63,7 +63,7 @@ class UsersController extends Controller{
         return view('pages.userLookup');
     }
 
-    public function DisplayUsers(){
+    public function displayUsers(){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
         Funcs::checkAdminTrait();
@@ -74,25 +74,12 @@ class UsersController extends Controller{
             return redirect('/userLookup');
         }
         $results = UserFuncs::userIsLikePhraseTrait(explode(' ', request('phrase')));
-
-        /*$books = UserBookFuncs::getUserBookByUserTrait($user[0]->username);
-        for($i = 0; $i<count($books); $i++){
-            $books[$i] = BookFuncs::getBookTrait($books[$i]->book);
-        }*/
         return view('pages.displayUsers', array('users'=>$results,'phrase'=>request('phrase')));
     }
 
-    public function displayUser(){
-        Funcs::sendPageCookieTrait();
-        Funcs::checkUserTrait();
-        Funcs::checkAdminTrait();
-        if(Funcs::getCookieTrait('lastPage') != "/searchUser"){
-            return redirect('/userLookup');
-        }
-        Funcs::sendPageCookieTrait();
-        if(empty(Funcs::getCookieTrait('data'))){
-            return redirect('userLookup');
-        }
-        return view('pages.displayUser', ['user'=>Funcs::getCookieTrait('data')[0],'books'=>Funcs::getCookieTrait('data')[1]]);
+    public function get($username){
+        $books = UserBookFuncs::getUserBookByUserTrait($username);
+        $user = UserFuncs::getUserByUsernameTrait($username);
+        return view('pages.displayUser', array('user'=>$user, 'books'=>$books));
     }
 }

@@ -43,10 +43,7 @@ Route::get('/checkDupes', 'BooksController@checkDupes');
 //Search a user
 Route::get('/userLookup', 'UsersController@userLookup');
 Route::post('/userLookup', 'UsersController@userLookup');
-//get the user data
-Route::get('/searchUsers', 'UsersController@searchUsers');
-Route::post('/searchUsers', 'UsersController@searchUsers');
-//display the user data
+//display search reults
 Route::get('/displayUsers', 'UsersController@displayUsers');
 Route::post('/displayUsers', 'UsersController@displayUsers');
 //search for book by phrase
@@ -67,3 +64,6 @@ Route::post('/reserve/{barcode}','ReservationsController@reserve');
 //cancel reservation
 Route::get('/unreserve/{barcode}', 'ReservationsController@unreserve');
 Route::post('/unreserve/{barcode}', 'ReservationsController@unreserve');
+//display individual user
+Route::get('/users/{username}', 'UsersController@get');
+Route::post('/users/{username}', 'UsersController@get');

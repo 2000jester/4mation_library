@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('title')
-    Search for {{ $phrase }}
+    Results for {{ $phrase }}
 @endsection
 @section('header')
-    <h1>Search for {{ $phrase }}</h1>
+    <h1>Search Results for {{ $phrase }}</h1>
 @endsection
 @section('content')
     <div class="left-align">
@@ -29,7 +29,7 @@
                         <td class="user-list-first-width"><a href="users/{{ $users[$i]->username }}"> {{ $users[$i]->username }} </a></td>
                         <td class="user-list-second-width"><a href="users/{{ $users[$i]->username }}"> {{ $users[$i]->first_name }} </a></td>
                         <td class="user-list-third-width"><a href="users/{{ $users[$i]->username }}"> {{ $users[$i]->last_name }} </a></td>
-                        <td class="user-list-fourth-width"><a href="teams/{{ $users[$i]->team }}"> {{ $users[$i]->team }} </a></td>
+                        <td class="user-list-fourth-width"> {{ $users[$i]->team }} </td>
                         @if($users[$i]->admin == 1)
                             <td class="user-list-fifth-width">True</td>
                         @else
