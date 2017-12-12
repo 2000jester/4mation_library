@@ -12,7 +12,7 @@
         <a href="/borrow">Borrow</a>
         <a href="/return">Return</a>
         <a href="/bookLookup">Search</a>
-        <a href="/reserve">Reserve</a>
+        <a href="/help">Help</a>
         @if(!empty(unserialize(Cookie::get('admin'))))
             <div class="dropdown">
                 <button onclick="dropDown()" class="dropbtn">Admin Functions</button>

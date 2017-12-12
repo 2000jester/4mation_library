@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\DB;
 class user_books extends Model
 {
     public static function getUserBookFromDBByBook($barcode){
-        return DB::table('user_books')->select()->where('book', '=', $barcode)->get();
+        return DB::table('user_books')->select()->where([['book', '=', $barcode],['date_returned','=','']])->get();
     }
     public static function getUserBookFromDBByUser($username){
-        return DB::table('user_books')->select()->where('user', '=', $username)->get();
+        return DB::table('user_books')->select()->where([['user', '=', $username],['date_returned','=','']])->get();
     }
     public static function returnUserBookFromDB($barcode){
-        return DB::table('user_books')->where('book', '=', $barcode)->update(['date_returned'=>date("Y-m-d H:i:s")]);
+        return DB::table('user_books')->where([['book', '=', $barcode],['date_returned','=','']])->update(['date_returned'=>date("Y-m-d H:i:s")]);
     }
     public static function addUserBookToDB($username, $barcode){
         DB::table('user_books')->insert(
@@ -22,13 +22,14 @@ class user_books extends Model
         );
     }
     public static function isBorrowedInDB($barcode){
-        $result = DB::table('user_books')->select()->where('book','=',$barcode)->get();
+        $result = DB::table('user_books')->select()->where([['book','=',$barcode],['date_returned','=','']])->get();
         return empty($result[0]) ? false : true;
     }
     public static function doesUserHaveBorrowedInDB($barcode, $username){
         $result = DB::table('user_books')->select()->where([
             ['user','=',$username],
-            ['book','=',$barcode]
+            ['book','=',$barcode],
+            ['date_returned','=','']
         ])->get();
         return empty($result[0]) ? false : true;
     }

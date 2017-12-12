@@ -67,3 +67,6 @@ Route::post('/unreserve/{barcode}', 'ReservationsController@unreserve');
 //display individual user
 Route::get('/users/{username}', 'UsersController@get');
 Route::post('/users/{username}', 'UsersController@get');
+//help page
+Route::get('/help', 'UserBooksController@help');
+Route::post('/help', 'UserBooksController@help');

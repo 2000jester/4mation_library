@@ -3,11 +3,7 @@
     {{ $user[0]->first_name }} {{ $user[0]->last_name }}
 @endsection
 @section('header')
-    <h1>{{ $user[0]->first_name }} {{ $user[0]->last_name }} - 
-        @if($user[0]->admin == 1) 
-            Admin 
-        @endif 
-    {{ $user[0]->team }}</h1>
+    <h1>{{ $user[0]->first_name }} {{ $user[0]->last_name }}</h1>
 @endsection
 @section('content')
 
@@ -16,7 +12,11 @@
     <form method="post" action="/menu" id="menu">
         {{ csrf_field() }}
     </form>
+    <form method="post" action="/userLookup" id="userLookup">
+        {{ csrf_field() }}
+    </form>
 @endsection
 @section('formAnchor')
+    <a onClick="document.getElementById('userLookup').submit();" class="button">Search Another</a>
     <a onClick="document.getElementById('menu').submit();" class="button">Menu</a></br>
 @endsection
