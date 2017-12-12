@@ -23,4 +23,10 @@ class reservations extends Model{
             ['user'=>$username,'book'=>$barcode,'date_reserved'=>date("d.m.y")]
         );
     }
+    public static function unreserveBookInDB($barcode, $username){
+        return DB::table('reservations')->where([
+            ['user','=',$username],
+            ['book','=',$barcode]
+        ])->delete();
+    }
 }

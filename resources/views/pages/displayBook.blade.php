@@ -29,16 +29,27 @@
     <form method="post" action="/menu" id="menu">
         {{ csrf_field() }}
     </form>
+    <form method="post" action="/login" id="login">
+        {{ csrf_field() }}
+    </form>
 @endsection
 @section('formAnchor')
-    @if($borrowed == false)
-        <a onClick="document.getElementById('borrow').submit();" class="button">Borrow</a></br>
-    @elseif($reservedByCurrentUser == true)
-        <a onClick="document.getElementById('unreserve').submit();" class="button">Cancel Reservation</a></br>
-    @elseif($borrowed == true && $reserved == false)
-        <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
-    @elseif($borrowed == true && $reserved == true)
-        <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
+    @if($user == false && $borrowed == false)
+        <a onClick="document.getElementById('login').submit();" class="button">Login To Borrow</a></br>
+    @elseif($user == false && $borrowed == true && $numberOfReserves == 0)
+        <a onClick="document.getElementById('login').submit();" class="button">Login To Reserve</a></br>
+    @elseif($user == false && $borrowed == true && $numberOfReserves > 0)
+        <a onClick="document.getElementById('login').submit();" class="button">Login To Add Or Cancel Reservations</a></br>
+    @else
+        @if($borrowed == false)
+            <a onClick="document.getElementById('borrow').submit();" class="button">Borrow</a></br>
+        @elseif($reservedByCurrentUser == true)
+            <a onClick="document.getElementById('unreserve').submit();" class="button">Cancel Reservation</a></br>
+        @elseif($borrowed == true && $reserved == false)
+            <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
+        @elseif($borrowed == true && $reserved == true)
+            <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
+        @endif
     @endif
     <a onClick="document.getElementById('menu').submit();" class="button">Menu</a></br>
 @endsection

@@ -4,7 +4,7 @@
 @endsection
 @section('header')
     @if($error == false)
-        <h1>Reserve Successful</h1>
+        <h1>Successful</h1>
     @else
         <h1><h1>Ooops!</h1></h1>
     @endif
