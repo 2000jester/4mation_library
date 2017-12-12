@@ -42,5 +42,5 @@
 @endsection
 @section('formAnchor')
     <a onClick="document.getElementById('bookLookup').submit();" class="button">Search Again</a>
-    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a></br>
+    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection

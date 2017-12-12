@@ -18,6 +18,6 @@
     </form>
 @endsection
 @section('formAnchor')
-    <a onClick="document.getElementById('borrowMore').submit();" class="button">Borrow More</a></br>
+    <a onClick="document.getElementById('borrowMore').submit();" class="button">Borrow More</a>
     <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection

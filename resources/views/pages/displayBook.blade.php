@@ -35,21 +35,21 @@
 @endsection
 @section('formAnchor')
     @if($user == false && $borrowed == false)
-        <a onClick="document.getElementById('login').submit();" class="button">Login To Borrow</a></br>
+        <a onClick="document.getElementById('login').submit();" class="button">Login To Borrow</a>
     @elseif($user == false && $borrowed == true && $numberOfReserves == 0)
-        <a onClick="document.getElementById('login').submit();" class="button">Login To Reserve</a></br>
+        <a onClick="document.getElementById('login').submit();" class="button">Login To Reserve</a>
     @elseif($user == false && $borrowed == true && $numberOfReserves > 0)
-        <a onClick="document.getElementById('login').submit();" class="button">Login To Add Or Cancel Reservations</a></br>
+        <a onClick="document.getElementById('login').submit();" class="button">Login To Add Or Cancel Reservations</a>
     @else
         @if($borrowed == false)
-            <a onClick="document.getElementById('borrow').submit();" class="button">Borrow</a></br>
+            <a onClick="document.getElementById('borrow').submit();" class="button">Borrow</a>
         @elseif($reservedByCurrentUser == true)
-            <a onClick="document.getElementById('unreserve').submit();" class="button">Cancel Reservation</a></br>
+            <a onClick="document.getElementById('unreserve').submit();" class="button">Cancel Reservation</a>
         @elseif($borrowed == true && $reserved == false)
-            <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a></br>
+            <a onClick="document.getElementById('reserve').submit();" class="button">Reserve</a>
         @elseif($borrowed == true && $reserved == true)
-            <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a></br>
+            <a onClick="document.getElementById('reserve').submit();" class="button">Join Reserve Queue</a>
         @endif
     @endif
-    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a></br>
+    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection

@@ -107,8 +107,8 @@
     .fixed-button{
         position:fixed;
         bottom: 35px;
-        left: 50%;
-        transform: translate(-50%);
+        /*left: 50%;
+        transform: translate(-50%);*/
     }
 
     .fixed-th{

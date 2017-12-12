@@ -47,17 +47,17 @@
 @endif
 @if($returned == false)
     @section('formAnchor')
-        <a onClick="document.getElementById('barcode').submit();" class="button">Return</a></br>
+        <a onClick="document.getElementById('barcode').submit();" class="button">Return</a>
         <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
     @endsection
 @elseif($returned == false && $error == false)
     @section('formAnchor')
-        <a onClick="document.getElementById('barcode').submit();" class="button">Return</a></br>
+        <a onClick="document.getElementById('barcode').submit();" class="button">Return</a>
         <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
     @endsection
 @else
     @section('formAnchor')
-        <a onClick="document.getElementById('barcode').submit();" class="button">Return Another</a></br>
+        <a onClick="document.getElementById('barcode').submit();" class="button">Return Another</a>
         <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
     @endsection
 @endif
