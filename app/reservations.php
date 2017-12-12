@@ -20,7 +20,7 @@ class reservations extends Model{
     }
     public static function reserveBookInDB($barcode, $username){
         return DB::table('reservations')->insert(
-            ['user'=>$username,'book'=>$barcode,'date_reserved'=>date("d.m.y")]
+            ['user'=>$username,'book'=>$barcode,'date_reserved'=>date("Y-m-d H:i:s")]
         );
     }
     public static function unreserveBookInDB($barcode, $username){

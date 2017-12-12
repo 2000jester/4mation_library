@@ -14,11 +14,11 @@ class user_books extends Model
         return DB::table('user_books')->select()->where('user', '=', $username)->get();
     }
     public static function returnUserBookFromDB($barcode){
-        return DB::table('user_books')->where('book', '=', $barcode)->update(['date_returned'=>date("d.m.y")]);
+        return DB::table('user_books')->where('book', '=', $barcode)->update(['date_returned'=>date("Y-m-d H:i:s")]);
     }
     public static function addUserBookToDB($username, $barcode){
         DB::table('user_books')->insert(
-            ['user'=>$username,'book'=>$barcode,'date_borrowed'=>date("d.m.y"),'date_returned'=>'']
+            ['user'=>$username,'book'=>$barcode,'date_borrowed'=>date("Y-m-d H:i:s"),'date_returned'=>'']
         );
     }
     public static function isBorrowedInDB($barcode){
