@@ -195,22 +195,14 @@
     }
 
     .user-list-first-width{
-        width: calc((100vw - 220px) * 0.2);
+        width: calc((100vw - 220px) * 0.333);
     }
 
     .user-list-second-width{
-        width: calc((100vw - 220px) * 0.2);
+        width: calc((100vw - 220px) * 0.333);
     }
 
     .user-list-third-width{
-        width: calc((100vw - 220px) * 0.2);
-    }
-
-    .user-list-fourth-width{
-        width: calc((100vw - 220px) * 0.2);
-    }
-
-    .user-list-fifth-width{
-        width: calc((100vw - 220px) * 0.2);
+        width: calc((100vw - 220px) * 0.333);
     }
 </style>

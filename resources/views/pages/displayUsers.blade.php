@@ -19,8 +19,6 @@
                     <th class="user-list-first-width">Username</th>
                     <th class="user-list-second-width">First Name</th>
                     <th class="user-list-third-width">Last Name</th>
-                    <th class="user-list-fourth-width">Team</th>
-                    <th class="user-list-fifth-width">Admin</th>
                 </tr>
                 </thead>
                 <tbody class="dispBlock-overAuto user-list-height">
@@ -29,12 +27,6 @@
                         <td class="user-list-first-width"><a href="users/{{ $users[$i]->username }}"> {{ $users[$i]->username }} </a></td>
                         <td class="user-list-second-width"><a href="users/{{ $users[$i]->username }}"> {{ $users[$i]->first_name }} </a></td>
                         <td class="user-list-third-width"><a href="users/{{ $users[$i]->username }}"> {{ $users[$i]->last_name }} </a></td>
-                        <td class="user-list-fourth-width"> {{ $users[$i]->team }} </td>
-                        @if($users[$i]->admin == 1)
-                            <td class="user-list-fifth-width">True</td>
-                        @else
-                            <td class="user-list-fifth-width">False</td>
-                        @endif
                     </tr>
                     @endfor
                 </tbody>
