@@ -17,6 +17,7 @@ class CreateUserBooksTable extends Migration
             $table->string('user');
             $table->string('book');
             $table->string('date_borrowed');
+            $table->string('date_returned');
         });
     }
 

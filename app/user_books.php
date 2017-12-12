@@ -13,12 +13,12 @@ class user_books extends Model
     public static function getUserBookFromDBByUser($username){
         return DB::table('user_books')->select()->where('user', '=', $username)->get();
     }
-    public static function deleteUserBookFromDB($barcode){
-        return DB::table('user_books')->where('book', '=', $barcode)->delete();
+    public static function returnUserBookFromDB($barcode){
+        return DB::table('user_books')->where('book', '=', $barcode)->update(['date_returned'=>date("d.m.y")]);
     }
     public static function addUserBookToDB($username, $barcode){
         DB::table('user_books')->insert(
-            ['user'=>$username,'book'=>$barcode,'date_borrowed'=>date("d.m.y")]
+            ['user'=>$username,'book'=>$barcode,'date_borrowed'=>date("d.m.y"),'date_returned'=>'']
         );
     }
     public static function isBorrowedInDB($barcode){
