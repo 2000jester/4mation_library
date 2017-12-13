@@ -1,5 +1,5 @@
 <style>
-    body {
+    /*body {
         background-color: #fff;
         color: #636b6f;
         font-family: 'Raleway', sans-serif;
@@ -119,8 +119,6 @@
     .fixed-button{
         position:fixed;
         bottom: 35px;
-        /*left: 50%;
-        transform: translate(-50%);*/
     }
 
     .fixed-th{
@@ -287,5 +285,5 @@
 
     .icon-float{
         float:right;
-    }
+    }*/
 </style>

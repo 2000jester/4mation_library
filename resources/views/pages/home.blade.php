@@ -3,7 +3,7 @@
     Home
 @endsection
 @section('content')
-    <div class="title">
+    <div class="container">
         <div id="content-logo">
             <a href="/">{{ Html::image('photos/logo.png', "logo", array('id' => 'home-logo')) }}</a>
         </div>
