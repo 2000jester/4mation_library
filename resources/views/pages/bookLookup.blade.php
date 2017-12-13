@@ -3,7 +3,7 @@
     Book Search
 @endsection
 @section('header')
-    <h1>Book Search</h1>
+    <h1><div>Book Search</div><div class="icon-pos"><i class="fa fa-search"></i></div></h1>
 @endsection
 @section('content')
     <div class="login-content">

@@ -3,17 +3,18 @@
     {{ $bookData[0]->title }}
 @endsection
 @section('header')
-    <h1>{{ $bookData[0]->title }}</h1>
+    <h1><div>{{ $bookData[0]->title }}</div><div class="icon-pos"><i class="fa fa-book"></i></div></h1>
 @endsection
 @section('content')
-    Author : {{ $bookData[0]->author }}</br>
-    Year : {{ $bookData[0]->year }}</br>
+    Author : {{ $bookData[0]->author }}</br></br>
+    Year : {{ $bookData[0]->year }}</br></br>
     @if($borrowed == true)
-        Available : No</br>
+        Available : No</br></br>
     @else
-        Available : Yes</br>
+        Available : Yes</br></br>
     @endif
-    Number of Reserves : {{ $numberOfReserves }}</br>
+    Number of Reserves : {{ $numberOfReserves }}</br></br>
+    Genres : {{ $bookData[0]->genres }}</br></br>
 @endsection
 @section('form')
     <form method="post" action="/reserve/{{ $bookData[0]->barcode }}" id="reserve">

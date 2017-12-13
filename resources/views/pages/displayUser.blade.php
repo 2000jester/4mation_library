@@ -5,7 +5,7 @@
 @section('header')
     <h1><div>{{ $user[0]->first_name }} {{ $user[0]->last_name }} ( {{ $user[0]->username }} )</div>
     @if($user[0]->admin == 1)
-        <div class="admin-icon-pos"><i class="fa fa-user"></i></div></h1>
+        <div class="icon-pos"><i class="fa fa-user"></i></div></h1>
     @endif
 @endsection
 @section('content')

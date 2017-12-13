@@ -3,7 +3,7 @@
     Admin Login
 @endsection
 @section('header')
-    <h1>Admin Login</h1>
+    <h1><div>Admin Login</div><div class="icon-pos"><i class="fa fa-sign-in"></i></div></h1>
 @endsection
 @section('content')
     Please enter your passord bellow</br>

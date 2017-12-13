@@ -3,7 +3,7 @@
     Checkout
 @endsection
 @section('header')
-    <h1>Checkout</h1>
+    <h1><div>Checkout</div><div class="icon-pos"><i class="fa fa-shopping-cart"></i></div></h1>
 @endsection
 @section('content')
     Thanks {{ unserialize(Cookie::get('user'))[0]->first_name }},</br>

@@ -4,9 +4,9 @@
 @endsection
 @section('header')
     @if($error == false)
-        <h1>Successful</h1>
+        <h1><div>Successful</div><div class="icon-pos"><i class="fa fa-check"></i></div></h1>
     @else
-        <h1><h1>Ooops!</h1></h1>
+        <h1><div>Ooops</div><div class="icon-pos"><i class="fa fa-close"></i></div></h1>
     @endif
 @endsection
 @section('content')

@@ -3,7 +3,7 @@
     Return
 @endsection
 @section('header')
-    <h1>Return</h1>
+    <h1><div>Return</div><div class="icon-pos"><i class="fa fa-archive"></i></div></h1>
 @endsection
 @if ($returned == false)
     @if($error == true)

@@ -3,7 +3,7 @@
     Duplicate Barcodes
 @endsection
 @section('header')
-    <h1>Duplicate Barcodes</h1>
+    <h1><div>Duplicate Barcodes</div><div class="icon-pos"><i class="fa fa-barcode"></i></div></h1>
 @endsection
 @section('content')
         @for($i = 0; $i < count($dupes); $i++)

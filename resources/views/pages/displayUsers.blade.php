@@ -3,7 +3,7 @@
     Results for {{ $phrase }}
 @endsection
 @section('header')
-    <h1>Search Results for {{ $phrase }}</h1>
+    <h1><div>Search results for "{{ $phrase }}"</div><div class="icon-pos"><i class="fa fa-users"></i></div></h1>
 @endsection
 @section('content')
     <div class="left-align">

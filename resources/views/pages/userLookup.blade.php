@@ -3,7 +3,7 @@
     Search a User
 @endsection
 @section('header')
-    <h1>Search a User</h1>
+    <h1><div>Search A User</div><div class="icon-pos"><i class="fa fa-search"></i></div></h1>
 @endsection
 @section('content')
     Please enter the users username or name bellow

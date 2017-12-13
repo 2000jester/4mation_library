@@ -263,7 +263,7 @@
         width:82%;
     }
 
-    .admin-icon-pos{
+    .icon-pos{
         float:right;
         margin-top:-57px;
     }
