@@ -32,4 +32,7 @@ class reservations extends Model{
     public static function getReservationsByUserFromDB($username){
         return DB::table('reservations')->select()->where('user','=',$username)->get();
     }
+    public static function getNextInLineFromDB($barcode){
+        return DB::table('reservations')->select()->where('book','=',$barcode)->orderBy('date_reserved','asc')->limit(1)->get();
+    }
 }

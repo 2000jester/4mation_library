@@ -25,4 +25,9 @@ trait Funcs{
     public static function removeCookieTrait($cookie){
         Cookie::queue(Cookie::forget($cookie));
     }
+    public static function sendMail($to,$subject,$message,$from){
+        // $message = wordwrap($message, 100, "\r\n");
+        $from = 'From: '.$from;
+        mail($to, $subject, $message,$from);
+    }
 }

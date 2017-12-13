@@ -21,19 +21,4 @@ class books extends Model{
     public static function searchBookByPhraseFromDB($phrase){
         return DB::table('books')->select()->where('title','like','%'.$phrase.'%')->orWhere('author','like','%'.$phrase.'%')->orWhere('barcode','like','%'.$phrase.'%')->get();
     }
-
-    public static function getNumberOfReservesFromDB($barcode){
-        $count = 0;
-        $allUsers = UserFuncs::getallUsersTrait();
-        for($i = 0; $i < count($allUsers); $i++){
-            $unserialized = $allUsers[$i]->reserved;
-            $serialized = unserialize($unserialized);
-            for($j = 0; $j < count($serialized); $j++){
-                if($serialized[$j][0] == $barcode){
-                    $count++;
-                }
-            }
-        }
-        return $count;
-    }
 }

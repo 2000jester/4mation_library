@@ -18,4 +18,7 @@ trait ReservationFuncs{
     public static function getReservationsByUserTrait($username){
         return reservations::getReservationsByUserFromDB($username);
     }
+    public static function getNextInLineTrait($barcode){
+        return reservations::getNextInLineFromDB($barcode);
+    }
 }

@@ -21,7 +21,7 @@
                     <a href="/login">login</a>
                 @endif
             @endif
-            @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/returnBook' && $_SERVER['REQUEST_URI'] != '/checkout')
+            @if($_SERVER['REQUEST_URI'] != '/')
                 <a href="/">menu</a>
             @endif
         </div>

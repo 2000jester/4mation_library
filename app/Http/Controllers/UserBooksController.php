@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Traits\Funcs;
 use App\Traits\BookFuncs;
 use App\Traits\UserBookFuncs;
+use App\Traits\ReservationFuncs;
 use App\Traits\UserFuncs;
 
 class UserBooksController extends Controller{
@@ -10,6 +11,7 @@ class UserBooksController extends Controller{
     use Funcs;
     use BookFuncs;
     use UserBookFuncs;
+    use ReservationFuncs;
     use UserFuncs;
 
     public function home(){
@@ -32,20 +34,6 @@ class UserBooksController extends Controller{
         }
         $books = Funcs::getCookieTrait('books');
         for($i = 0; $i< count($books); $i++){
-            $bookToBeReturned = UserBookFuncs::getUserBookByBookTrait($books[$i]);
-            if(!empty($bookToBeReturned[0])){
-                $user = UserFuncs::getUserTrait($bookToBeReturned[0]->user);
-
-                $message = "Hello ".$user[0]->first_name.",\rthe book you had on loan called '".BookFuncs::getBookTrait($bookToBeReturned[0]->book)[0]->title."',\rhas been loaned by another user.";
-                $message = wordwrap($message, 70, "\r\n");
-
-                $subject = '4Mation Library';
-
-                $from = 'From: 4mation-library \r\n';
-
-                mail($user[0]->email, $subject, $message, $from);
-                UserBookFuncs::returnBookTrait($books[$i]);
-            }
             UserBookFuncs::borrowBookTrait(Funcs::getCookieTrait('user')[0]->username,$books[$i]);
         }
             
@@ -58,6 +46,13 @@ class UserBooksController extends Controller{
     }
     public function returnBook(){
         if(UserBookFuncs::returnBookTrait(request('barcode')) > 0){
+            $nextUser = ReservationFuncs::getNextInLineTrait(request('barcode'));
+            if(!empty($nextUser[0])){
+                $user = UserFuncs::getUserByUsernameTrait($nextUser[0]->user);
+                $book = BookFuncs::getBookTrait(request('barcode'));
+                Funcs::sendMail($user[0]->email,'Book Available','Hello '.$user[0]->first_name.','."\r".'The book you had on reserve, '.$book[0]->title.', is now available. Please look in the reserved section of the library shelves.','4mation-library');
+                ReservationFuncs::unreserveBookTrait(request('barcode'), $user[0]->username);
+            }
             return view('pages.return',array('returned'=>true,'error'=>false));
         } else {
             return view('pages.return', array('returned'=>false,'error'=>true));
