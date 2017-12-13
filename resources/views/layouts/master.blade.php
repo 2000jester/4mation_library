@@ -4,6 +4,7 @@
         @include('layouts.style')
         <title>Library - @yield('title')</title>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <script src="https://use.fontawesome.com/6c369d3d4b.js"></script>
         @yield('style')
     </head>
     <body>

@@ -3,7 +3,10 @@
     {{ $user[0]->first_name }} {{ $user[0]->last_name }}
 @endsection
 @section('header')
-    <h1>{{ $user[0]->first_name }} {{ $user[0]->last_name }}</h1>
+    <h1><div>{{ $user[0]->first_name }} {{ $user[0]->last_name }} ( {{ $user[0]->username }} )</div>
+    @if($user[0]->admin == 1)
+        <div class="admin-icon-pos"><i class="fa fa-user"></i></div></h1>
+    @endif
 @endsection
 @section('content')
     @section('divStyle')

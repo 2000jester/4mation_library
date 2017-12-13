@@ -269,4 +269,9 @@
         font-size: 23px;
         width:82%;
     }
+
+    .admin-icon-pos{
+        float:right;
+        margin-top:-57px;
+    }
 </style>
