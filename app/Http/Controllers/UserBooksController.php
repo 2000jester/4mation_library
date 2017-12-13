@@ -29,12 +29,16 @@ class UserBooksController extends Controller{
     public function checkout(){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
+        $user = Funcs::getCookieTrait('user');
         if(empty(Funcs::getCookieTrait('books'))){
             return redirect('/borrow');
         }
         $books = Funcs::getCookieTrait('books');
         for($i = 0; $i< count($books); $i++){
-            UserBookFuncs::borrowBookTrait(Funcs::getCookieTrait('user')[0]->username,$books[$i]);
+            if($user[0]->username != ReservationFuncs::getNextInLineTrait($books[$i])[0]->user){
+                return redirect('/borrow');
+            }
+            UserBookFuncs::borrowBookTrait($user[0]->username,$books[$i]);
         }
             
         Funcs::removeCookieTrait('books');
@@ -50,8 +54,7 @@ class UserBooksController extends Controller{
             if(!empty($nextUser[0])){
                 $user = UserFuncs::getUserByUsernameTrait($nextUser[0]->user);
                 $book = BookFuncs::getBookTrait(request('barcode'));
-                Funcs::sendMail($user[0]->email,'Book Available','Hello '.$user[0]->first_name.','."\r".'The book you had on reserve, '.$book[0]->title.', is now available. Please look in the reserved section of the library shelves.','4mation-library');
-                ReservationFuncs::unreserveBookTrait(request('barcode'), $user[0]->username);
+                Funcs::sendMail($user[0]->email,'Book Available','Hello '.$user[0]->first_name.', The book you had on reserve, '.$book[0]->title.', is now available. Please look in the reserved section of the library shelves.','4mation-library');
             }
             return view('pages.return',array('returned'=>true,'error'=>false));
         } else {
