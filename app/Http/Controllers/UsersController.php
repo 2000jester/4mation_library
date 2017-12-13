@@ -80,6 +80,9 @@ class UsersController extends Controller{
     }
 
     public function get($username){
+        Funcs::sendPageCookieTrait();
+        Funcs::checkUserTrait();
+        Funcs::checkAdminTrait();
         $user = UserFuncs::getUserByUsernameTrait($username);
 
         $tempBooks = UserBookFuncs::getUserBookByUserTrait($username);

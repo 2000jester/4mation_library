@@ -220,38 +220,31 @@
         -webkit-justify-content: space-around;
         flex-wrap: nowrap;
         -webkit-flex-wrap: nowrap;
-        width: 100vw;
-        height: calc(100vh - 315px);
+        width: 85vw;
+        height: 425px;
     }
 
     div.user-child{
-        margin: 5px;
         text-align: center;
-        padding: 10px;
-        width: 50vw;
+        width: 60vw;
+        padding-left:3%;
     }
 
     div.user-borrows{
-        height: 50%;
+        height: 100%;
     }
 
     div.user-reserves{
-        height: 50%;
+        height: 100%;
     }
 
     .user-borrows-height{
-        height: calc(425px / 2 - 95px);
+        height: calc(425px - 90px);
     }
 
     .user-lists{
-        font-size: 20px;
-    }
-
-    .user-details-parent{
-        padding-top:14.5%;
-    }
-    .user-details-child{
-        padding:1%;
+        font-size: 18px;
+        height: 100%;
     }
 
     .user-borrows-width{
