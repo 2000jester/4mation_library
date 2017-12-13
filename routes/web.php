@@ -46,15 +46,9 @@ Route::post('/userLookup', 'UsersController@userLookup');
 //display search reults
 Route::get('/displayUsers', 'UsersController@displayUsers');
 Route::post('/displayUsers', 'UsersController@displayUsers');
-//search for book by phrase
-Route::get('/searchForPhrase', 'BooksController@searchForPhrase');
-Route::post('/searchForPhrase', 'BooksController@searchForPhrase');
 //return book info 
 Route::get('/displayBooks', 'BooksController@displayBooks');
 Route::post('/displayBooks', 'BooksController@displayBooks');
-//reserve a book
-Route::get('/reserveBook', 'BooksController@reserveBook');
-Route::post('/reserveBook', 'BooksController@reserveBook');
 //individual book page
 Route::get('/books/{barcode}','BooksController@get');
 Route::post('/books/{barcode}','BooksController@get');

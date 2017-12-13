@@ -13,13 +13,9 @@
         {{ csrf_field() }}
         {{Form::text('phrase', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
     </form>
-    <form method="post" action="/" id="menu">
-        {{ csrf_field() }}
-    </form>
 @endsection
 @section('formAnchor')
     <a onClick="document.getElementById('phrase').submit();" class="button">Search</a>
-    <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection
 @section('script')
     <script>

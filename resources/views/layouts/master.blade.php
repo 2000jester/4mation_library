@@ -39,4 +39,19 @@
         </div>
         @yield('script')
     </body>
+    <script>
+        window.addEventListener('resize', function(event){
+            if(window.innerWidth < 600){
+                var buttons = document.getElementsByClassName("button");
+                for(var i = 0; i<buttons.length;i++){
+                    buttons[i].setAttribute('class','button-small');
+                }
+            } else if(window.innerWidth > 600){
+                var buttons = document.getElementsByClassName("button-small");
+                for(var i = 0; i<buttons.length;i++){
+                    buttons[i].setAttribute('class','button');
+                }
+            }
+        });
+    </script>
 </html>

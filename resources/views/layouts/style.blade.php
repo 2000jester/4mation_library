@@ -67,6 +67,18 @@
         font-size: 18px;
         width: 180px;
     }
+    .button-small{
+        margin-top: 20px;
+        background-color: #5EC0D5;
+        border: none;
+        color: white;
+        padding: 10px 26px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        width: 100px;
+    }
 
     a:link{
         text-decoration: none;
@@ -266,5 +278,14 @@
     .icon-pos{
         float:right;
         margin-top:-57px;
+    }
+
+    .icon-pos-small{
+        float:right;
+        margin-top:-7px;
+    }
+
+    .icon-float{
+        float:right;
     }
 </style>

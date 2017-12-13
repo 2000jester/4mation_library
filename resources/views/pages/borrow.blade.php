@@ -49,6 +49,5 @@
 @if(empty(unserialize(Cookie::get('books'))))
     @section('formAnchor')
         <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
-        <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
     @endsection
 @endif
