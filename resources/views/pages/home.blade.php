@@ -5,14 +5,14 @@
 @section('content')
     <div class="title">
         <div id="content-logo">
-            {{ Html::image('photos/logo.png', "logo", array('id' => 'home-logo')) }}
+            <a href="/">{{ Html::image('photos/logo.png', "logo", array('id' => 'home-logo')) }}</a>
         </div>
     </div>
     <div class="links">
-        <a href="/borrow">Borrow</a>
-        <a href="/return">Return</a>
-        <a href="/bookLookup">Search</a>
-        <a href="/help">Help</a>
+        <a href="/borrow">Borrow <i class="fa fa-shopping-cart"></i></a>
+        <a href="/return">Return <i class="fa fa-archive"></i></a>
+        <a href="/bookLookup">Search <i class="fa fa-search"></i></a>
+        <a href="/help">Help <i class="fa fa-question"></i></a>
         @if(!empty(unserialize(Cookie::get('admin'))))
             <div class="dropdown">
                 <button onclick="dropDown()" class="dropbtn">Admin Functions</button>
