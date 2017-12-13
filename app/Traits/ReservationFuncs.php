@@ -15,4 +15,7 @@ trait ReservationFuncs{
     public static function unreserveBookTrait($barcode, $username){
         return reservations::unreserveBookInDB($barcode, $username);
     }
+    public static function getReservationsByUserTrait($username){
+        return reservations::getReservationsByUserFromDB($username);
+    }
 }

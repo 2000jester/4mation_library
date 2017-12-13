@@ -29,4 +29,7 @@ class reservations extends Model{
             ['book','=',$barcode]
         ])->delete();
     }
+    public static function getReservationsByUserFromDB($username){
+        return DB::table('reservations')->select()->where('user','=',$username)->get();
+    }
 }

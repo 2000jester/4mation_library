@@ -205,4 +205,68 @@
     .user-list-third-width{
         width: calc((100vw - 220px) * 0.333);
     }
+
+    div.user-parent{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+        -webkit-justify-content: space-around;
+        flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+        width: 100vw;
+        height: calc(100vh - 315px);
+    }
+
+    div.user-child{
+        margin: 5px;
+        text-align: center;
+        padding: 10px;
+        width: 50vw;
+    }
+
+    div.user-borrows{
+        height: 50%;
+    }
+
+    div.user-reserves{
+        height: 50%;
+    }
+
+    .user-borrows-height{
+        height: calc(425px / 2 - 95px);
+    }
+
+    .user-lists{
+        font-size: 20px;
+    }
+
+    .user-details-parent{
+        padding-top:14.5%;
+    }
+    .user-details-child{
+        padding:1%;
+    }
+
+    .user-borrows-width{
+        width: calc((100vw - 416px) * 0.5);
+    }
+
+    .left-text{
+        text-align: left;
+    }
+
+    .user-list-header{
+        border-bottom: 1px solid #5EC0D5;
+        text-align: left;
+        padding: 10px;
+        font-size: 23px;
+        width:82%;
+    }
 </style>

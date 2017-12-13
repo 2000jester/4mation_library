@@ -5,6 +5,7 @@ use App\Traits\Funcs;
 use App\Traits\UserFuncs;
 use App\Traits\UserBookFuncs;
 use App\Traits\BookFuncs;
+use App\Traits\ReservationFuncs;
 
 class UsersController extends Controller{
 
@@ -12,6 +13,7 @@ class UsersController extends Controller{
     use UserFuncs;
     use UserBookFuncs;
     use BookFuncs;
+    use ReservationFuncs;
 
 
     public function login(){
@@ -78,8 +80,19 @@ class UsersController extends Controller{
     }
 
     public function get($username){
-        $books = UserBookFuncs::getUserBookByUserTrait($username);
         $user = UserFuncs::getUserByUsernameTrait($username);
-        return view('pages.displayUser', array('user'=>$user, 'books'=>$books));
+
+        $tempBooks = UserBookFuncs::getUserBookByUserTrait($username);
+        $books = [];
+        for($i = 0; $i<count($tempBooks);$i++){
+            array_push($books, BookFuncs::getBookTrait($tempBooks[$i]->book)[0]);
+        }
+
+        $tempReservations = ReservationFuncs::getReservationsByUserTrait($username);
+        $reservations = [];
+        for($i = 0; $i<count($tempReservations);$i++){
+            array_push($reservations, BookFuncs::getBookTrait($tempReservations[$i]->book)[0]);
+        }
+        return view('pages.displayUser', array('user'=>$user, 'books'=>$books, 'reservations'=>$reservations));
     }
 }
