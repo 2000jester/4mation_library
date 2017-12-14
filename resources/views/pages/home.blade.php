@@ -3,26 +3,51 @@
     Home
 @endsection
 @section('content')
-    <div class="container">
-        <div id="content-logo">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
             <a href="/">{{ Html::image('photos/logo.png', "logo", array('id' => 'home-logo')) }}</a>
         </div>
     </div>
-    <div class="links">
-        <a href="/borrow">Borrow <i class="fa fa-shopping-cart"></i></a>
-        <a href="/return">Return <i class="fa fa-archive"></i></a>
-        <a href="/bookLookup">Search <i class="fa fa-search"></i></a>
-        <a href="/help">Help <i class="fa fa-question"></i></a>
-        @if(!empty(unserialize(Cookie::get('admin'))))
-            <div class="dropdown">
-                <button onclick="dropDown()" class="dropbtn">Admin Functions</button>
-                <div id="adminFunctions" class="dropdown-content">
-                    <a href="/userLookup">Search a User <div class="icon-float"><i class="fa fa-search"></i></div></a>
-                    <a href="/checkDupes">Check Duplicate Barcodes <div class="icon-pos-small"><i class="fa fa-barcode"></i></div></a>
+    @if(!empty(unserialize(Cookie::get('admin'))))
+        <div class="row links" style="padding-left:10%;padding-right:10%;">
+            <div class="col-lg-2 offset-lg-1">
+                <a href="/borrow">Borrow <i class="fa fa-shopping-cart links-pad"></i></a>
+            </div>
+            <div class="col-lg-2">
+                <a href="/return">Return <i class="fa fa-archive links-pad"></i></a>
+            </div>
+            <div class="col-lg-2"> 
+                <a href="/bookLookup">Search <i class="fa fa-search links-pad"></i></a>
+            </div>
+            <div class="col-lg-2">    
+                <a href="/help">Help <i class="fa fa-question links-pad" style="margin-bottom: 15%"></i></a>
+            </div>
+            <div class="col-lg-2">  
+                <div class="dropdown">
+                    <button onclick="dropDown()" class="dropbtn">Admin Funcs</button>
+                    <div id="adminFunctions" class="dropdown-content">
+                        <a href="/userLookup">Search a User <div class="icon-float"><i class="fa fa-search"></i></div></a>
+                        <a href="/checkDupes">Check Duplicate Barcodes <div class="icon-pos-small"><i class="fa fa-barcode"></i></div></a>
+                    </div>
                 </div>
             </div>
-        @endif
-    </div>
+        </div>
+    @elseif(empty(unserialize(Cookie::get('admin'))))
+        <div class="row links">
+            <div class="col-lg-2 offset-lg-2 links-pad">
+                <a href="/borrow">Borrow <i class="fa fa-shopping-cart links-pad"></i></a>
+            </div>
+            <div class="col-lg-2 links-pad">
+                <a href="/return">Return <i class="fa fa-archive links-pad"></i></a>
+            </div>
+            <div class="col-lg-2 links-pad"> 
+                <a href="/bookLookup">Search <i class="fa fa-search links-pad"></i></a>
+            </div>
+            <div class="col-lg-2 links-pad">    
+                <a href="/help">Help <i class="fa fa-question links-pad" style="margin-bottom: 15%"></i></a>
+            </div>
+        </div>
+    @endif
 @endsection
 @section('script')
     <script>

@@ -40,7 +40,7 @@
         {{ csrf_field() }}
     </form>
 @endsection
-@section('formAnchor')
+@section('buttonBar')
     <a onClick="document.getElementById('bookLookup').submit();" class="button">Search Again</a>
     <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection

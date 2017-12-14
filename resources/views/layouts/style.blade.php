@@ -1,132 +1,39 @@
 <style>
-    /*body {
+    body{
         background-color: #fff;
         color: #636b6f;
         font-family: 'Raleway', sans-serif;
-        font-weight: 100;
-        height: 100vh;
-        margin: 0;
+        text-decoration: none;
     }
-
-    .full-height {
-        height: 100vh;
+    .container{
+        max-width:100%;
     }
-
-    .flex-center {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    #home-logo{
+        width:100%;
+        padding-top:18%;
     }
-
-    .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-    }
-
-    .content {
-        text-align: center;
-        font-size: 30px;
-    }
-
-    .links > a {
+    div.links a{
         color: #636b6f;
-        padding: 0 25px;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: .1rem;
         text-decoration: none;
         text-transform: uppercase;
     }
-
-    .topright-nav{
+    div.links div{
+        text-align: center;
+    }
+    div.nav a{
+        color: #636b6f;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: .1rem;
+        text-decoration: none;
         text-transform: uppercase;
-        position: fixed;
-        right: 10px;
-        top: 10px;
     }
-
-    .topright-nav a{
-        text-decoration: none;
-        color: #636b6f;
-    }
-
-    .button{
-        margin-top: 20px;
-        background-color: #5EC0D5;
-        border: none;
-        color: white;
-        padding: 15px 38px;
+    div.nav div{
         text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 18px;
-        width: 180px;
     }
-    .button-small{
-        margin-top: 20px;
-        background-color: #5EC0D5;
-        border: none;
-        color: white;
-        padding: 10px 26px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        width: 100px;
-    }
-
-    a:link{
-        text-decoration: none;
-        text-color: black;
-    }
-
-    a:visited{
-        text-decoration: none;
-        text-color: black;
-    }
-
-    .small-list{
-        font-size: 18px;
-        padding-top: 3vh;
-        padding-bottom: 6vh;
-    }
-
-    .left-align{
-        text-align:left;
-        font-size: 20px;
-        padding-left:110px;
-        padding-right:110px;
-    }
-
-    .user-data{
-        font-size: 30px;
-    }
-
-    .justify-content-normal{
-        justify-content: normal;
-    }
-
-    .main-content{
-        height: calc(100vh - 265px);
-        overflow: auto;
-    }
-
-    .fixed-button{
-        position:fixed;
-        bottom: 35px;
-    }
-
-    .fixed-th{
-        position:fixed;
-        margin-top: -26px;
-        background-color: white;
-    }
-
     .dropbtn {
         background-color: #5EC0D5;
         color: white;
@@ -136,12 +43,10 @@
         cursor: pointer;
         text-transform: uppercase;
     }
-
     .dropdown {
         position: relative;
         display: inline-block;
     }
-
     .dropdown-content {
         display: none;
         position: absolute;
@@ -151,7 +56,6 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
     }
-
     .dropdown-content a {
         color: black;
         padding: 12px 16px;
@@ -159,131 +63,185 @@
         display: block;
         font-size: 20px;
     }
-
     .dropdown a:hover {
         background-color: #f1f1f1;
     }
-
     .show {
         display:block;
     }
-
-    #home-logo{
-        width: 50%;
-    }
-
-    .header{
-        width: 85%;
+    .links-pad{
+        padding-top:15%;
     }
     
-    .header h1{
+    a:link, a:visited, a:hover, a:active{
+        text-decoration: none;
+        text-color: black;
+        outline: 0;
+    }
+    .button{
+        margin-top:20px;
+        background-color: #5EC0D5;
+        border: none;
+        color: white;
+        padding: 15px 38px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        width: 180px;
+        cursor: pointer;
+    }
+    .shown{
+        display: block;
+    }
+    .hidden{
+        display: none;
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Normal Height Page
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    .header-container-nh{
+       padding-top:3%;
+    }
+    .header-icon-nh{
+        text-align:right;
+    }
+    .header-nh{ 
+        padding:initial;
+    }
+    .header-nh h1{
         border-bottom: 1px solid #5EC0D5;
-        text-align: left;
         padding: 15px;
         font-size: 45px;
     }
-
-    .dispBlock-overAuto{
-        display: block;
-        overflow: auto;
-    }
-
-    .book-list-height{
-        height: calc(100vh - 300px);
-    }
-
-    .book-list-left-width{
-        width: calc((100vw - 220px) * 0.7);
-    }
-
-    .book-list-right-width{
-        width: calc((100vw - 220px) * 0.3);
-    }
-
-    .user-list-height{
-        height: calc(100vh - 300px);
-    }
-
-    .user-list-first-width{
-        width: calc((100vw - 220px) * 0.333);
-    }
-
-    .user-list-second-width{
-        width: calc((100vw - 220px) * 0.333);
-    }
-
-    .user-list-third-width{
-        width: calc((100vw - 220px) * 0.333);
-    }
-
-    div.user-parent{
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-flex-flow: row wrap;
-        justify-content: space-around;
-        -webkit-justify-content: space-around;
-        flex-wrap: nowrap;
-        -webkit-flex-wrap: nowrap;
-        width: 85vw;
-        height: 425px;
-    }
-
-    div.user-child{
+    .content-text-nh{
+        font-size: 25px;
         text-align: center;
-        width: 60vw;
-        padding-left:3%;
     }
-
-    div.user-borrows{
-        height: 100%;
+    .content-container-nh{
+        padding-top:3%;
     }
-
-    div.user-reserves{
-        height: 100%;
+    .form-container-nh{
+        padding-top:3%;
     }
-
-    .user-borrows-height{
-        height: calc(425px - 90px);
+    .form-input-nh{
+        text-align: center;
     }
-
-    .user-lists{
-        font-size: 18px;
-        height: 100%;
+    .button-container-nh{
+        padding-bottom:2%;
     }
-
-    .user-borrows-width{
-        width: calc((100vw - 416px) * 0.5);
+    .form-button-nh{
+        text-align:center;
     }
-
-    .left-text{
-        text-align: left;
+    @media (max-width: 768px) {
+        .header-container-nh{
+            padding-top:15%;
+        }
+        .content-text-nh{
+            font-size: 17px;
+        }
+        .content-container-nh{
+            padding-top:10%;
+        }
+        .button-nh{
+            margin-top:10px;
+            padding: 12px 30px;
+            font-size: 14px;
+            width: 120px;
+        }
+        .form-container-nh{
+            padding-top:10%;
+        }
     }
-
-    .user-list-header{
-        border-bottom: 1px solid #5EC0D5;
-        text-align: left;
-        padding: 10px;
-        font-size: 23px;
-        width:82%;
+    @media (min-width: 768px) and (max-width: 868px) {
+        .header-container-nh{
+            padding-top:13%;
+        }
+        .content-text-nh{
+            font-size: 19px;
+        }
+        .content-container-nh{
+            padding-top:9%;
+        }
+        .button-nh{
+            margin-top:13px;
+            padding: 12px 32px;
+            font-size: 15px;
+            width: 135px;
+        }
+        .form-container-nh{
+            padding-top:8%;
+        }
     }
-
-    .icon-pos{
-        float:right;
-        margin-top:-57px;
+    @media (min-width: 868px) and (max-width: 968px) {
+        .header-container-nh{
+            padding-top:11%;
+        }
+        .content-text-nh{
+            font-size: 21px;
+        }
+        .content-container-nh{
+            padding-top:7%;
+        }
+        .button-nh{
+            margin-top:15px;
+            padding: 13px 34px;
+            font-size: 16px;
+            width: 150px;
+        }
+        .form-container-nh{
+            padding-top:6%;
+        }
     }
-
-    .icon-pos-small{
-        float:right;
-        margin-top:-7px;
+    @media (min-width: 968px) and (max-width: 1068px) {
+        .header-container-nh{
+            padding-top:9%;
+        }
+        .content-text-nh{
+            font-size: 23px;
+        }
+        .content-container-nh{
+            padding-top:5%;
+        }
+        .button-nh{
+            margin-top:17px;
+            padding: 14px 36px;
+            font-size: 17px;
+            width: 165px;
+        }
+        .form-container-nh{
+            padding-top:4%;
+        }
     }
+    @media (min-width: 1068px) and (max-width: 1168px) {
+        .header-container-nh{
+            padding-top:7%;
+        }
+        .content-text-nh{
+            font-size: 25px;
+        }
+        .content-container-nh{
+            padding-top:3%;
+        }
+        .button-nh{
+            margin-top:20px;
+            padding: 15px 38px;
+            font-size: 18px;
+            width: 180px;
+        }
+        .form-container-nh{
+            padding-top:3%;
+        }
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    .icon-float{
-        float:right;
-    }*/
+    Very Compact Height Page
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    
+    @media (min-height: 1px) and (max-height: 315px) {
+
+    }
 </style>

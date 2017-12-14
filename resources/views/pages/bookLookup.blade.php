@@ -17,7 +17,7 @@
         {{Form::text('phrase', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
     </form>
 @endsection
-@section('formAnchor')
+@section('buttonBar')
     <a onClick="document.getElementById('phrase').submit();" class="button">Search</a>
 @endsection
 @section('script')
