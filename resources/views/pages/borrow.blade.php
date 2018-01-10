@@ -31,26 +31,30 @@
     </div>
 @endsection
 @section('form')
-    <form method="post" action="/setBooksCookie" id="barcode">
-        {{ csrf_field() }}
-        <input type="text" value="{{$barcode}}" name="barcode" autofocus="autofocus" autocomplete="off">
-    </form>
-    <form method="post" action="/" id="menu">
-        {{ csrf_field() }}
-    </form>
-    @if (!empty(unserialize(Cookie::get('books'))))
-        <div class="fixed-button">
-            <form method="post" action="/checkout" id="checkout">
+    <div class="row form-container-nh">
+        <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-3 form-input-nh">
+            <form method="post" action="/setBooksCookie" id="barcode">
+                {{ csrf_field() }}
+                <input type="text" value="{{$barcode}}" name="barcode" autofocus="autofocus" autocomplete="off">
+            </form>
+            <form method="post" action="/" id="menu">
                 {{ csrf_field() }}
             </form>
-            <form method="post" action="/clearCart" id="clearCart">
-                {{ csrf_field() }}
-            </form>
+            @if (!empty(unserialize(Cookie::get('books'))))
+                <div class="fixed-button">
+                    <form method="post" action="/checkout" id="checkout">
+                        {{ csrf_field() }}
+                    </form>
+                    <form method="post" action="/clearCart" id="clearCart">
+                        {{ csrf_field() }}
+                    </form>
+                </div>
+            @endif
         </div>
-    @endif
+    </div>
 @endsection
 @if(!empty(unserialize(Cookie::get('books'))))
-    @section('formAnchor')
+    @section('buttonBar')
         <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
         <a onClick="document.getElementById('checkout').submit();" class="button">Checkout</a>
         <a onClick="document.getElementById('clearCart').submit();" class="button">Clear Cart</a>
