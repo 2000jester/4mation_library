@@ -3,7 +3,14 @@
     Borrow
 @endsection
 @section('header')
-    <h1><div>Borrow</div><div class="icon-pos"><i class="fa fa-shopping-cart"></i></div></h1>
+    <div class="row header-container-nh">
+        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header-nh">
+            <h1>Borrow</h1>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon-nh header-nh">
+            <h1><i class="fa fa-shopping-cart"></i></h1>
+        </div>
+    </div>
 @endsection
 @section('content')
     @if (empty(Cookie::get('books')))
