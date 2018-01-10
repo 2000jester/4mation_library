@@ -13,18 +13,22 @@
     </div>
 @endsection
 @section('content')
-    @if (empty(Cookie::get('books')))
-        Welcome {{ unserialize(Cookie::get('user'))[0]->first_name }}!
-        Please scan a book or enter the barcode to start
-    @elseif (!empty($bookData))
-        Your Cart :
-        <div class="small-list">
-            @foreach ($bookData as $book)
-                    - {{ $book->title }} </br>
-            @endforeach
+    <div class="row content-container-nh">
+        <div class="col-lg-8 offset-lg-2 content-text-nh">
+            @if (empty(Cookie::get('books')))
+                Welcome {{ unserialize(Cookie::get('user'))[0]->first_name }}!
+                Please scan a book or enter the barcode to start
+            @elseif (!empty($bookData))
+                Your Cart :
+                <div class="small-list">
+                    @foreach ($bookData as $book)
+                        - {{ $book->title }} </br>
+                    @endforeach
+                </div>
+                Please scan a book or enter the barcode
+            @endif
         </div>
-        Please scan a book or enter the barcode
-    @endif
+    </div>
 @endsection
 @section('form')
     <form method="post" action="/setBooksCookie" id="barcode">
