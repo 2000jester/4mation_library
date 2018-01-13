@@ -3,18 +3,29 @@
     {{ $bookData[0]->title }}
 @endsection
 @section('header')
-    <h1><div>{{ $bookData[0]->title }}</div><div class="icon-pos"><i class="fa fa-book"></i></div></h1>
+    <div class="row header-container-nh">
+        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header-nh">
+            <h1>{{ $bookData[0]->title }}</h1>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon-nh header-nh">
+            <h1><i class="fa fa-book"></i></h1>
+        </div>
+    </div>
 @endsection
 @section('content')
-    Author : {{ $bookData[0]->author }}</br></br>
-    Year : {{ $bookData[0]->year }}</br></br>
-    @if($borrowed == true)
-        Available : No</br></br>
-    @else
-        Available : Yes</br></br>
-    @endif
-    Number of Reserves : {{ $numberOfReserves }}</br></br>
-    Genres : {{ $bookData[0]->genres }}</br></br>
+    <div class="row content-container-nh">
+        <div class="col-lg-8 offset-lg-2 content-text-nh">
+            Author : {{ $bookData[0]->author }}</br></br>
+            Year : {{ $bookData[0]->year }}</br></br>
+            @if($borrowed == true)
+                Available : No</br></br>
+            @else
+                Available : Yes</br></br>
+            @endif
+            Number of Reserves : {{ $numberOfReserves }}</br></br>
+            Genres : {{ $bookData[0]->genres }}</br></br>
+        </div>
+    </div>
 @endsection
 @section('form')
     <form method="post" action="/reserve/{{ $bookData[0]->barcode }}" id="reserve">
@@ -34,7 +45,7 @@
         {{ csrf_field() }}
     </form>
 @endsection
-@section('formAnchor')
+@section('buttonBar')
     @if($user == false && $borrowed == false)
         <a onClick="document.getElementById('login').submit();" class="button">Login To Borrow</a>
     @elseif($user == false && $borrowed == true && $numberOfReserves == 0)

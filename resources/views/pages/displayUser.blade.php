@@ -3,14 +3,20 @@
     {{ $user[0]->first_name }} {{ $user[0]->last_name }}
 @endsection
 @section('header')
-    <h1><div>{{ $user[0]->first_name }} {{ $user[0]->last_name }} ( {{ $user[0]->username }} ) -
-    @if($user[0]->admin == 1)
-        Admin
-    @endif
+    <div class="row header-container-nh">
+        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header-nh">
+            <h1>{{ $user[0]->first_name }} {{ $user[0]->last_name }} ( {{ $user[0]->username }} )
+                @if($user[0]->admin == 1)
+                    - Admin
+                @endif
+            </h1>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon-nh header-nh">
+            @if($user[0]->admin == 1)
+                <h1><i class="fa fa-user"></i></h1>
+            @endif
+        </div>
     </div>
-    @if($user[0]->admin == 1)
-        <div class="icon-pos"><i class="fa fa-user"></i></div></h1>
-    @endif
 @endsection
 @section('content')
     @section('divStyle')
@@ -70,14 +76,18 @@
     </div>
 @endsection
 @section('form')
-    <form method="post" action="/menu" id="menu">
-        {{ csrf_field() }}
-    </form>
-    <form method="post" action="/userLookup" id="userLookup">
-        {{ csrf_field() }}
-    </form>
+    <div class="row form-container-nh">
+        <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-3 form-input-nh">
+            <form method="post" action="/menu" id="menu">
+                {{ csrf_field() }}
+            </form>
+            <form method="post" action="/userLookup" id="userLookup">
+                {{ csrf_field() }}
+            </form>
+        </div>
+    </div>
 @endsection
-@section('formAnchor')
+@section('buttonBar')
     <a onClick="document.getElementById('userLookup').submit();" class="button">Search Another</a>
     <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
 @endsection
