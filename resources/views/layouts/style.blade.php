@@ -97,6 +97,29 @@
     .hidden{
         display: none;
     }
+
+    .book-list-height{
+        height: calc(100vh - 410px);
+    }
+
+    .dispBlock-overAuto{
+        display: block;
+        overflow: auto;
+    }
+
+    .book-list-left-width{
+        width: calc((100vw - 220px) * 0.7);
+    }
+
+    .book-list-right-width{
+        width: calc((100vw - 220px) * 0.3);
+    }
+
+    .table{
+        text-align: left;
+        font-size: 20px;
+    }
+
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Normal Height Page
@@ -121,7 +144,7 @@
         text-align: center;
     }
     .content-container-nh{
-        padding-top:3%;
+        padding-top:55px;
     }
     .form-container-nh{
         padding-top:3%;
