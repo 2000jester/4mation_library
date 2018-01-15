@@ -24,10 +24,10 @@
             </div>
             <div class="col-lg-2">  
                 <div class="dropdown">
-                    <button onclick="dropDown()" class="dropbtn">Admin Funcs</button>
+                    <button onclick="dropDown()" class="dropbtn">Admin Funcs <i class="fa fa-user"></i></button>
                     <div id="adminFunctions" class="dropdown-content">
-                        <a href="/userLookup">Search a User <div class="icon-float"><i class="fa fa-search"></i></div></a>
-                        <a href="/checkDupes">Check Duplicate Barcodes <div class="icon-pos-small"><i class="fa fa-barcode"></i></div></a>
+                        <a href="/userLookup">Search a User <i class="fa fa-search"></i></a>
+                        <a href="/checkDupes">Check Duplicate Barcodes <i class="fa fa-barcode"></i></a>
                     </div>
                 </div>
             </div>

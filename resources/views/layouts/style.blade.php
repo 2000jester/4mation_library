@@ -46,12 +46,14 @@
     .dropdown {
         position: relative;
         display: inline-block;
+        padding-top: 12px;
     }
     .dropdown-content {
         display: none;
         position: absolute;
         background-color: #f9f9f9;
         min-width: 250px;
+        width: 300px;
         overflow: auto;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -78,7 +80,7 @@
         text-color: black;
         outline: 0;
     }
-    .button{
+    .button, .button:not([href]):not([tabindex]){
         margin-top:20px;
         background-color: #5EC0D5;
         border: none;
@@ -88,8 +90,9 @@
         text-decoration: none;
         display: inline-block;
         font-size: 18px;
-        width: 180px;
+        width: 185px;
         cursor: pointer;
+        white-space: nowrap;
     }
     .shown{
         display: block;
@@ -177,6 +180,11 @@
         .form-container-nh{
             padding-top:10%;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-top: 2px;
+        }
     }
     @media (min-width: 768px) and (max-width: 868px) {
         .header-container-nh{
@@ -196,6 +204,11 @@
         }
         .form-container-nh{
             padding-top:8%;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-top: 4px;
         }
     }
     @media (min-width: 868px) and (max-width: 968px) {
@@ -217,6 +230,11 @@
         .form-container-nh{
             padding-top:6%;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-top: 6px;
+        }
     }
     @media (min-width: 968px) and (max-width: 1068px) {
         .header-container-nh{
@@ -236,6 +254,11 @@
         }
         .form-container-nh{
             padding-top:4%;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-top: 8px;
         }
     }
     @media (min-width: 1068px) and (max-width: 1168px) {
@@ -257,14 +280,10 @@
         .form-container-nh{
             padding-top:3%;
         }
-    }
-    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    Very Compact Height Page
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    
-    @media (min-height: 1px) and (max-height: 315px) {
-
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-top: 10px;
+        }
     }
 </style>
