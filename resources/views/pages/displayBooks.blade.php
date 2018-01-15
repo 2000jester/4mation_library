@@ -4,7 +4,7 @@
 @endsection
 @section('header')
     <div class="row header-container">
-        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header">
+        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-1 col-sm-8 offset-sm-1 col-10 header">
             <h1>Search results for "{{ $phrase }}"</h1>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon header">
@@ -14,7 +14,7 @@
 @endsection
 @section('content')
     <div class="row content-container">
-        <div class="col-lg-8 offset-lg-2 content-text">
+        <div class="col-lg-8 offset-lg-2 col-sm-8 offset-sm-1 content-text">
             @section('divStyle')
                 justify-content-normal
             @endsection

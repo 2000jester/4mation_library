@@ -243,7 +243,7 @@
         .content-container{
             padding-top:7%;
         }
-{
+        .button{
             margin-top:15px;
             padding: 13px 34px;
             font-size: 16px;
@@ -537,7 +537,7 @@
     }
     @media (min-width: 500px) and (max-width: 600px){
         .header-container{
-            padding-top:2%;
+            padding-top:15%;
         }
         .header h1{
             padding: 7px;
@@ -547,7 +547,30 @@
     @media (min-width: 600px) and (max-width: 700px){
         .header h1{
             padding: 10px;
-            font-size: 35px;
+            font-size: 34px;
+        }
+    }
+    @media (min-width: 700px) and (max-width: 800px){
+        .header h1{
+            padding: 10px;
+            font-size: 36px;
+        }
+        .table-content-height{
+            height: calc(100vh - 450px);
+        }
+    }
+    @media (min-width: 800px) and (max-width: 900px){
+        .header h1{
+            padding: 10px;
+            font-size: 38px;
+        }
+        .table-content-height{
+            height: calc(100vh - 470px);
+        }
+    }
+    @media (min-width: 90px) and (max-width: 1070px){
+        .table-content-height{
+            height: calc(100vh - 460px);
         }
     }
     @media (max-height: 300px){
