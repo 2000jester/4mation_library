@@ -443,7 +443,7 @@
     }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Media Queries with special scenarios
+    280px to 420px wide
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
     @media (min-height: 350px) and (max-height: 500px) and (min-width: 280px) and (max-width: 420px){
@@ -478,6 +478,7 @@
             padding-top: 30%;
         }
     }
+    /*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
     @media (min-height: 600px) and (max-height: 800px) and (min-width: 280px) and (max-width: 650px){
         .links-pad{
             padding-top:10%;
@@ -500,6 +501,71 @@
         } 
         .dropdown {
             padding-top: 15%;
+        }
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Header
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    @media (max-width: 300px){
+        .header-container{
+            padding-top:12%;
+        }
+        .header h1{
+            padding: 2px;
+            font-size: 17px;
+        }
+    }
+    @media (min-width: 300px) and (max-width: 400px){
+        .header-container{
+            padding-top:10%;
+        }
+        .header h1{
+            padding: 3px;
+            font-size: 20px;
+        }
+    }
+    @media (min-width: 400px) and (max-width: 500px){
+        .header-container{
+            padding-top:15%;
+        }
+        .header h1{
+            padding: 5px;
+            font-size: 25px;
+        }
+    }
+    @media (min-width: 500px) and (max-width: 600px){
+        .header-container{
+            padding-top:2%;
+        }
+        .header h1{
+            padding: 7px;
+            font-size: 30px;
+        }
+    }
+    @media (min-width: 600px) and (max-width: 700px){
+        .header h1{
+            padding: 10px;
+            font-size: 35px;
+        }
+    }
+    @media (max-height: 300px){
+        .header h1{
+            padding: 2px;
+            font-size: 17px;
+        }
+        .content-text{
+            font-size:15px;
+        }
+    }
+    @media (min-height: 300px) and (max-height: 400px){
+        .header-container{
+            padding-top:2%;
+        }
+        .header h1{
+            padding: 2px;
+            font-size: 17px;
         }
     }
 </style>
