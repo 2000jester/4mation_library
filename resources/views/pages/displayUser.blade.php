@@ -3,15 +3,15 @@
     {{ $user[0]->first_name }} {{ $user[0]->last_name }}
 @endsection
 @section('header')
-    <div class="row header-container-nh">
-        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header-nh">
+    <div class="row header-container">
+        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header">
             <h1>{{ $user[0]->first_name }} {{ $user[0]->last_name }} ( {{ $user[0]->username }} )
                 @if($user[0]->admin == 1)
                     - Admin
                 @endif
             </h1>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon-nh header-nh">
+        <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon header">
             @if($user[0]->admin == 1)
                 <h1><i class="fa fa-user"></i></h1>
             @endif
@@ -76,8 +76,8 @@
     </div>
 @endsection
 @section('form')
-    <div class="row form-container-nh">
-        <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-3 form-input-nh">
+    <div class="row form-container">
+        <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-3 form-input">
             <form method="post" action="/menu" id="menu">
                 {{ csrf_field() }}
             </form>

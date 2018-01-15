@@ -12,6 +12,9 @@
         width:100%;
         padding-top:18%;
     }
+    .logo-container{
+        text-align:center;
+    }
     div.links a{
         color: #636b6f;
         font-size: 12px;
@@ -134,168 +137,369 @@
     .user-list-third-width{
         width: calc((100vw - 220px) * 0.333);
     }
-
+    .header-container{
+        padding-top:3%;
+     }
+     .header-icon{
+         text-align:right;
+     }
+     .header{ 
+         padding:initial;
+     }
+     .header h1{
+         border-bottom: 1px solid #5EC0D5;
+         padding: 15px;
+         font-size: 45px;
+     }
+     .content-text{
+         font-size: 25px;
+         text-align: center;
+     }
+     .content-container{
+         padding-top:55px;
+     }
+     .form-container{
+         padding-top:3%;
+     }
+     .form-input{
+         text-align: center;
+     }
+     .button-container{
+         padding-bottom:2%;
+     }
+     .form-button{
+         text-align:center;
+     }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Normal Height Page
+    Width Media Queries
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    .header-container-nh{
-       padding-top:3%;
-    }
-    .header-icon-nh{
-        text-align:right;
-    }
-    .header-nh{ 
-        padding:initial;
-    }
-    .header-nh h1{
-        border-bottom: 1px solid #5EC0D5;
-        padding: 15px;
-        font-size: 45px;
-    }
-    .content-text-nh{
-        font-size: 25px;
-        text-align: center;
-    }
-    .content-container-nh{
-        padding-top:55px;
-    }
-    .form-container-nh{
-        padding-top:3%;
-    }
-    .form-input-nh{
-        text-align: center;
-    }
-    .button-container-nh{
-        padding-bottom:2%;
-    }
-    .form-button-nh{
-        text-align:center;
-    }
     @media (max-width: 768px) {
-        .header-container-nh{
+        .header-container{
             padding-top:15%;
         }
-        .content-text-nh{
+        .content-text{
             font-size: 17px;
         }
-        .content-container-nh{
+        .content-container{
             padding-top:10%;
         }
-        .button-nh{
+        .button{
             margin-top:10px;
             padding: 12px 30px;
             font-size: 14px;
             width: 120px;
         }
-        .form-container-nh{
+        .form-container{
             padding-top:10%;
         }
         .dropdown {
-            position: relative;
-            display: inline-block;
-            padding-top: 0px;
+            padding-top: 1px;
+        }
+        .links-pad{
+            padding-top:4%;
+        } 
+        #home-logo{
+            width:60%
         }
     }
     @media (min-width: 768px) and (max-width: 868px) {
-        .header-container-nh{
+        .header-container{
             padding-top:13%;
         }
-        .content-text-nh{
+        .content-text{
             font-size: 19px;
         }
-        .content-container-nh{
+        .content-container{
             padding-top:9%;
         }
-        .button-nh{
+        .button{
             margin-top:13px;
             padding: 12px 32px;
             font-size: 15px;
             width: 135px;
         }
-        .form-container-nh{
+        .form-container{
             padding-top:8%;
         }
         .dropdown {
-            position: relative;
-            display: inline-block;
             padding-top: 3px;
+        }
+        .links-pad{
+            padding-top:4%;
+        } 
+        #home-logo{
+            width:70%;
         }
     }
     @media (min-width: 868px) and (max-width: 968px) {
-        .header-container-nh{
+        .header-container{
             padding-top:11%;
         }
-        .content-text-nh{
+        .content-text{
             font-size: 21px;
         }
-        .content-container-nh{
+        .content-container{
             padding-top:7%;
         }
-        .button-nh{
+{
             margin-top:15px;
             padding: 13px 34px;
             font-size: 16px;
             width: 150px;
         }
-        .form-container-nh{
+        .form-container{
             padding-top:6%;
         }
         .dropdown {
-            position: relative;
-            display: inline-block;
             padding-top: 5px;
         }
+        .links-pad{
+            padding-top:5%;
+        } 
+        #home-logo{
+            width:80%;
+        }
     }
-    @media (min-width: 968px) and (max-width: 1068px) {
-        .header-container-nh{
+    @media (min-width: 968px) and (max-width: 1000px) {
+        .header-container{
             padding-top:9%;
         }
-        .content-text-nh{
+        .content-text{
             font-size: 23px;
         }
-        .content-container-nh{
+        .content-container{
             padding-top:5%;
         }
-        .button-nh{
+        .button{
             margin-top:17px;
             padding: 14px 36px;
             font-size: 17px;
             width: 165px;
         }
-        .form-container-nh{
+        .form-container{
             padding-top:4%;
         }
         .dropdown {
-            position: relative;
-            display: inline-block;
             padding-top: 7px;
         }
+        .links-pad{
+            padding-top:5%;
+        } 
+        #home-logo{
+            width:90%;
+        }
+    }
+    @media (min-width: 1000px) and (max-width: 1068px) {
+        .header-container{
+            padding-top:9%;
+        }
+        .content-text{
+            font-size: 23px;
+        }
+        .content-container{
+            padding-top:5%;
+        }
+        .button{
+            margin-top:17px;
+            padding: 14px 36px;
+            font-size: 17px;
+            width: 165px;
+        }
+        .form-container{
+            padding-top:4%;
+        }
+        .dropdown {
+            padding-top: 7px;
+        }
+        .links-pad{
+            padding-top:40%;
+        } 
     }
     @media (min-width: 1068px) and (max-width: 1168px) {
-        .header-container-nh{
+        .header-container{
             padding-top:7%;
         }
-        .content-text-nh{
+        .content-text{
             font-size: 25px;
         }
-        .content-container-nh{
+        .content-container{
             padding-top:3%;
         }
-        .button-nh{
+        .button{
             margin-top:20px;
             padding: 15px 38px;
             font-size: 18px;
             width: 180px;
         }
-        .form-container-nh{
+        .form-container{
             padding-top:3%;
         }
         .dropdown {
-            position: relative;
-            display: inline-block;
             padding-top: 10px;
+        }
+        .links-pad{
+            padding-top:40%;
+        } 
+    }
+    @media (min-width: 1168px) and (max-width: 1250px) {
+        .links-pad{
+            padding-top:35%;
+        } 
+    }
+    @media (min-width: 1250px) and (max-width: 1406px) {
+        .links-pad{
+            padding-top:33%;
+        } 
+    }
+    @media (min-width: 1406px) and (max-width: 1590px) {
+        .links-pad{
+            padding-top:20%;
+        } 
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Height Media Queries
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    @media (min-height: 1px) and (max-height: 400px) {
+        #home-logo{
+            width:30%;
+            padding-top:1px;
+        }
+        .dropdown {
+            padding-top: 2%;
+        }
+        .header-container{
+            padding-top:0%;
+        }
+    }
+    @media (min-height: 400px) and (max-height: 500px) {
+        #home-logo{
+            width:40%;
+            padding-top:3%;
+        }
+        .dropdown {
+            padding-top: 4%;
+        }
+        .header-container{
+            padding-top:0%;
+        }
+    }
+    @media (min-height: 500px) and (max-height: 600px) {
+        #home-logo{
+            width:50%;
+            padding-top:5%;
+        }
+        .dropdown {
+            padding-top: 6%;
+        }
+        .header-container{
+            padding-top:1%;
+        }
+    }
+    @media (min-height: 600px) and (max-height: 700px) {
+        #home-logo{
+            width:60%;
+            padding-top:7%;
+        }
+        .dropdown {
+            padding-top: 10%;
+        }
+        .header-container{
+            padding-top:1%;
+        }
+    }
+    @media (min-height: 700px) and (max-height: 800px) {
+        #home-logo{
+            width:70%;
+            padding-top:10%;
+        }
+        .dropdown {
+            padding-top: 13%;
+        }
+        .header-container{
+            padding-top:2%;
+        }
+    }
+    @media (min-height: 800px) and (max-height: 900px) {
+        #home-logo{
+            width:80%;
+            padding-top:13%;
+        }
+        .header-container{
+            padding-top:2%;
+        }
+    }
+    @media (min-height: 900px) and (max-height: 1000px) {
+        #home-logo{
+            width:90%;
+            padding-top:17%;
+        }
+        .header-container{
+            padding-top:2%;
+        }
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Media Queries with special scenarios
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    @media (min-height: 350px) and (max-height: 500px) and (min-width: 280px) and (max-width: 420px){
+        .links-pad{
+            padding-top:5%;
+        } 
+        .dropdown {
+            padding-top: 5%;
+        }
+    }
+    @media (min-height: 500px) and (max-height: 650px) and (min-width: 280px) and (max-width: 420px){
+        .links-pad{
+            padding-top:15%;
+        } 
+        .dropdown {
+            padding-top: 15%;
+        }
+    }
+    @media (min-height: 650px) and (max-height: 800px) and (min-width: 280px) and (max-width: 420px){
+        .links-pad{
+            padding-top:20%;
+        } 
+        .dropdown {
+            padding-top: 20%;
+        }
+    }
+    @media (min-height: 800px) and (max-height: 1000px) and (min-width: 280px) and (max-width: 420px){
+        .links-pad{
+            padding-top:30%;
+        } 
+        .dropdown {
+            padding-top: 30%;
+        }
+    }
+    @media (min-height: 600px) and (max-height: 800px) and (min-width: 280px) and (max-width: 650px){
+        .links-pad{
+            padding-top:10%;
+        } 
+        .dropdown {
+            padding-top: 10%;
+        }
+    }
+    @media (min-height: 800px) and (max-height: 1000px) and (min-width: 280px) and (max-width: 650px){
+        .links-pad{
+            padding-top:10%;
+        } 
+        .dropdown {
+            padding-top: 20%;
+        }
+    }
+    @media (min-height: 800px) and (max-height: 1000px) and (min-width: 280px) and (max-width: 800px){
+        .links-pad{
+            padding-top:15%;
+        } 
+        .dropdown {
+            padding-top: 15%;
         }
     }
 </style>

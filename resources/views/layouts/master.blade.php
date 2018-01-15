@@ -36,8 +36,8 @@
                 @yield('header')
                 @yield('content')
                 @yield('form')
-                <div class="row button-container-nh fixed-bottom">
-                    <div class="col-12 form-button-nh">
+                <div class="row button-container fixed-bottom">
+                    <div class="col-12 form-button">
                         @yield('buttonBar')
                     </div>
                 </div>

@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 logo-container">
             <a href="/">{{ Html::image('photos/logo.png', "logo", array('id' => 'home-logo')) }}</a>
         </div>
     </div>
@@ -20,7 +20,7 @@
                 <a href="/bookLookup">Search <i class="fa fa-search links-pad"></i></a>
             </div>
             <div class="col-lg-2">    
-                <a href="/help">Help <i class="fa fa-question links-pad" style="margin-bottom: 15%"></i></a>
+                <a href="/help">Help <i class="fa fa-question links-pad"></i></a>
             </div>
             <div class="col-lg-2">  
                 <div class="dropdown">
