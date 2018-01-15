@@ -24,7 +24,7 @@
             </div>
             <div class="col-lg-2">  
                 <div class="dropdown">
-                    <button onclick="dropDown()" class="dropbtn">Admin Funcs <i class="fa fa-user"></i></button>
+                    <button class="dropbtn">Admin Funcs <i class="fa fa-user"></i></button>
                     <div id="adminFunctions" class="dropdown-content">
                         <a href="/userLookup">Search a User <i class="fa fa-search"></i></a>
                         <a href="/checkDupes">Check Duplicate Barcodes <i class="fa fa-barcode"></i></a>
@@ -51,25 +51,10 @@
 @endsection
 @section('script')
     <script>
-        function dropDown() {
-            document.getElementById("adminFunctions").classList.toggle("show");
-        }
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-
-        var elems = document.querySelectorAll(".main-content");
-        [].forEach.call(elems, function(el) {
-            el.classList.remove("main-content");
+        $( document ).ready(function() {
+            $('.dropbtn').on('click',function(){
+                $('.dropdown-content').slideToggle('fast');
+            });
         });
     </script>
 @endsection

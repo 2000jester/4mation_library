@@ -175,6 +175,38 @@
     Width Media Queries
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    @media (max-width: 350px) and (max-height: 400px){
+        .dropdown-content {
+            min-width: 100px;
+            width: 300px;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+        .dropbtn {
+            background-color: #5EC0D5;
+            color: white;
+            padding: 10px;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    }
+    @media (max-width: 550px) {
+        .dropdown-content {
+            min-width: 100px;
+            width: 158.95px;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 10px 14px;
+        }
+    }
     @media (max-width: 768px) {
         .header-container{
             padding-top:15%;
@@ -358,6 +390,14 @@
             padding-top:20%;
         } 
     }
+    @media (min-width: 800px) and (max-width: 990px){
+        .dropdown {
+            padding-top: 10%;
+        }
+        .links-pad{
+            padding-top:10%;
+        } 
+    }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Height Media Queries
@@ -365,7 +405,7 @@
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
     @media (min-height: 1px) and (max-height: 400px) {
         #home-logo{
-            width:30%;
+            width:38%;
             padding-top:1px;
         }
         .dropdown {
@@ -432,7 +472,7 @@
             padding-top:2%;
         }
     }
-    @media (min-height: 900px) and (max-height: 1000px) {
+    @media (min-height: 900px) and (max-height: 1080px) {
         #home-logo{
             width:90%;
             padding-top:17%;
@@ -456,26 +496,42 @@
     }
     @media (min-height: 500px) and (max-height: 650px) and (min-width: 280px) and (max-width: 420px){
         .links-pad{
-            padding-top:15%;
+            padding-top:5%;
         } 
         .dropdown {
-            padding-top: 15%;
+            padding-top: 5%;
         }
     }
     @media (min-height: 650px) and (max-height: 800px) and (min-width: 280px) and (max-width: 420px){
         .links-pad{
-            padding-top:20%;
+            padding-top:10%;
         } 
         .dropdown {
-            padding-top: 20%;
+            padding-top: 10%;
         }
     }
-    @media (min-height: 800px) and (max-height: 1000px) and (min-width: 280px) and (max-width: 420px){
+    @media (min-height: 800px) and (max-height: 1080px) and (min-width: 280px) and (max-width: 420px){
         .links-pad{
             padding-top:30%;
         } 
         .dropdown {
             padding-top: 30%;
+        }
+    }
+    @media (min-height: 650px) and (max-height: 800px) and (max-width: 990px){
+        .links-pad{
+            padding-top:5%;
+        } 
+        .dropdown {
+            padding-top: 5%;
+        }
+    }
+    @media (min-height: 280px) and (max-height: 650px) and (max-width: 990px){
+        .links-pad{
+            padding-top:5%;
+        } 
+        .dropdown {
+            padding-top: 5%;
         }
     }
     /*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -487,7 +543,7 @@
             padding-top: 10%;
         }
     }
-    @media (min-height: 800px) and (max-height: 1000px) and (min-width: 280px) and (max-width: 650px){
+    @media (min-height: 800px) and (max-height: 1080px) and (min-width: 280px) and (max-width: 650px){
         .links-pad{
             padding-top:10%;
         } 
@@ -495,7 +551,15 @@
             padding-top: 20%;
         }
     }
-    @media (min-height: 800px) and (max-height: 1000px) and (min-width: 280px) and (max-width: 800px){
+    @media (min-height: 800px) and (max-height: 1080px) and (min-width: 500px) and (max-width: 800px){
+        .links-pad{
+            padding-top:7%;
+        } 
+        .dropdown {
+            padding-top: 7%;
+        }
+    }
+    @media (min-height: 800px) and (max-height: 1080px) and (min-width: 280px) and (max-width: 500px){
         .links-pad{
             padding-top:15%;
         } 
@@ -516,6 +580,9 @@
             padding: 2px;
             font-size: 17px;
         }
+        .table{
+            font-size: 12px;
+        }
     }
     @media (min-width: 300px) and (max-width: 400px){
         .header-container{
@@ -525,6 +592,9 @@
             padding: 3px;
             font-size: 20px;
         }
+        .table{
+            font-size: 14px;
+        }
     }
     @media (min-width: 400px) and (max-width: 500px){
         .header-container{
@@ -533,6 +603,9 @@
         .header h1{
             padding: 5px;
             font-size: 25px;
+        }
+        .table{
+            font-size: 17px;
         }
     }
     @media (min-width: 500px) and (max-width: 600px){
@@ -544,16 +617,21 @@
             font-size: 30px;
         }
     }
+    @media (max-width: 575px){
+        .header h1{
+            text-align: center;
+        }
+    }
     @media (min-width: 600px) and (max-width: 700px){
         .header h1{
             padding: 10px;
-            font-size: 34px;
+            font-size: 33px;
         }
     }
     @media (min-width: 700px) and (max-width: 800px){
         .header h1{
             padding: 10px;
-            font-size: 36px;
+            font-size: 34px;
         }
         .table-content-height{
             height: calc(100vh - 450px);
@@ -562,15 +640,18 @@
     @media (min-width: 800px) and (max-width: 900px){
         .header h1{
             padding: 10px;
-            font-size: 38px;
+            font-size: 35px;
         }
         .table-content-height{
             height: calc(100vh - 470px);
         }
     }
-    @media (min-width: 90px) and (max-width: 1070px){
+    @media (min-width: 900px) and (max-width: 1070px){
         .table-content-height{
             height: calc(100vh - 460px);
+        }
+        .header h1{
+            font-size: 36px;
         }
     }
     @media (max-height: 300px){
@@ -589,6 +670,69 @@
         .header h1{
             padding: 2px;
             font-size: 17px;
+        }
+    }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Table
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+    @media (min-height: 450px) and (max-height: 560px){
+        .table-content-height{
+            height: calc(100vh - 360px);
+        }
+        .table{
+            font-size: 17px;
+        }
+        .content-container{
+            padding-top: 2%;
+        }
+    }
+    @media (min-height: 300px) and (max-height: 450px){
+        .table-content-height{
+            height: calc(100vh - 290px);
+        }
+        .table{
+            text-align: left;
+            font-size: 14px;
+        }
+        .content-container{
+            padding-top: 1%;
+        }
+        .button-container{
+            padding-top: 0%;
+        }
+    }
+    @media (max-height: 300px){
+        .table-content-height{
+            height: calc(100vh - 300px);
+        }
+        .table{
+            text-align: left;
+            font-size: 13px;
+        }
+        .content-container{
+            padding-top: 0%;
+        }
+        .form-container{
+            padding-top: 0%;
+        }
+    }
+    @media (max-width: 992px){
+        .user-list-first-width{
+            width: calc((100vw) * 0.333);
+        }
+        
+        .user-list-second-width{
+            width: calc((100vw) * 0.333);
+        }
+        
+        .user-list-third-width{
+            width: calc((100vw) * 0.333);
+        }
+        .dropdown-content {
+            min-width: 100px;
+            width: 158.95px;
         }
     }
 </style>
