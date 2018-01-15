@@ -90,7 +90,7 @@
         text-decoration: none;
         display: inline-block;
         font-size: 18px;
-        width: 185px;
+        width: 210px;
         cursor: pointer;
         white-space: nowrap;
     }
@@ -101,7 +101,7 @@
         display: none;
     }
 
-    .book-list-height{
+    .table-content-height{
         height: calc(100vh - 410px);
     }
 
@@ -121,6 +121,18 @@
     .table{
         text-align: left;
         font-size: 20px;
+    }
+
+    .user-list-first-width{
+        width: calc((100vw - 220px) * 0.333);
+    }
+    
+    .user-list-second-width{
+        width: calc((100vw - 220px) * 0.333);
+    }
+    
+    .user-list-third-width{
+        width: calc((100vw - 220px) * 0.333);
     }
 
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -183,7 +195,7 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            padding-top: 2px;
+            padding-top: 0px;
         }
     }
     @media (min-width: 768px) and (max-width: 868px) {
@@ -208,7 +220,7 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            padding-top: 4px;
+            padding-top: 3px;
         }
     }
     @media (min-width: 868px) and (max-width: 968px) {
@@ -233,7 +245,7 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            padding-top: 6px;
+            padding-top: 5px;
         }
     }
     @media (min-width: 968px) and (max-width: 1068px) {
@@ -258,7 +270,7 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            padding-top: 8px;
+            padding-top: 7px;
         }
     }
     @media (min-width: 1068px) and (max-width: 1168px) {

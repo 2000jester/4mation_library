@@ -15,31 +15,29 @@
 @section('content')
     <div class="row content-container-nh">
         <div class="col-lg-8 offset-lg-2 content-text-nh">
-            <div class="left-align">
-                @section('divStyle')
-                    justify-content-normal
-                @endsection
-                @if(count($bookInfo) == 0)
-                    There were no results for the phrase "{{ $phrase }}"
-                @else
-                    <table style="width: 100%" class="table table-striped table-hover">
-                        <thead class="dispBlock-overAuto">
+            @section('divStyle')
+                justify-content-normal
+            @endsection
+            @if(count($bookInfo) == 0)
+                There were no results for the phrase "{{ $phrase }}"
+            @else
+                <table style="width: 100%" class="table table-striped table-hover">
+                    <thead class="dispBlock-overAuto">
+                    <tr>
+                        <th class="book-list-left-width">Title</th>
+                        <th class="book-list-right-width">Author</th>
+                    </tr>
+                    </thead>
+                    <tbody class="dispBlock-overAuto table-content-height">
+                        @for($i = 0; $i<count($bookInfo); $i++)
                         <tr>
-                            <th class="book-list-left-width">Title</th>
-                            <th class="book-list-right-width">Author</th>
+                            <td class="book-list-left-width"><a href="books/{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->title }} </a></td>
+                            <td class="book-list-right-width">{{ $bookInfo[$i]->author }}</td>
                         </tr>
-                        </thead>
-                        <tbody class="dispBlock-overAuto book-list-height">
-                            @for($i = 0; $i<count($bookInfo); $i++)
-                            <tr>
-                                <td class="book-list-left-width"><a href="books/{{ $bookInfo[$i]->barcode }}"> {{ $bookInfo[$i]->title }} </a></td>
-                                <td class="book-list-right-width">{{ $bookInfo[$i]->author }}</td>
-                            </tr>
-                            @endfor
-                        </tbody>
-                    </table>
-                @endif
-            </div>
+                        @endfor
+                    </tbody>
+                </table>
+            @endif
         </div>
     </div>
 @endsection
