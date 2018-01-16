@@ -15,7 +15,7 @@
 @section('content')
     <div class="row content-container">
         <div class="col-lg-12 content-text">
-            @if (!empty(Cookie::get('books')) && !empty($bookData))
+            @if (!empty(unserialize(Cookie::get('books'))) && !empty($bookData))
                 <div class="row">
                     <div class="col-lg-4 offset-lg-2">
                         Please scan a book or enter the barcode
@@ -53,7 +53,7 @@
 @endsection
 @section('form')
     <div class="row form-container">
-            @if (empty(Cookie::get('books')) && empty($bookData))
+            @if (empty(unserialize(Cookie::get('books'))) && empty($bookData))
             <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-2 form-input">
                 <form method="post" action="/setBooksCookie" id="barcode">
                     {{ csrf_field() }}
