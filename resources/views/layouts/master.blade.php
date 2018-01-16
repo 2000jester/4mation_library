@@ -32,33 +32,12 @@
                     @endif
                 </div>
             </div>
-            <div class="shown">
-                @yield('header')
-                @yield('content')
-                @yield('form')
-                <div class="row button-container fixed-bottom">
-                    <div class="col-12 form-button">
-                        @yield('buttonBar')
-                    </div>
-                </div>
-            </div>
-            <div class="hidden">
-                <div class="row">
-                    <div class="col-lg-4 offset-lg-2">
-                        @yield('header')
-                    </div>
-                    <div class="col-lg-4">
-                        @yield('content')
-                        @yield('form')
-                        <div class="row button-container fixed-bottom">
-                            <div class="form-button">
-                                @yield('doubleButtonBar')
-                            </div>
-                            <div class="col-12 form-button">
-                                @yield('buttonBar')
-                            </div>
-                        </div>
-                    </div>
+            @yield('header')
+            @yield('content')
+            @yield('form')
+            <div class="row button-container fixed-bottom">
+                <div class="col-12 form-button">
+                    @yield('buttonBar')
                 </div>
             </div>
             @yield('script')

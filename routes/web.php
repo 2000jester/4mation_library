@@ -64,3 +64,6 @@ Route::post('/users/{username}', 'UsersController@get');
 //help page
 Route::get('/help', 'UserBooksController@help');
 Route::post('/help', 'UserBooksController@help');
+//remove from cart
+Route::get('/removeFromCart/{barcode}', 'UserBooksController@removeFromCart');
+Route::post('/removeFromCart/{barcode}', 'UserBooksController@removeFromCart');

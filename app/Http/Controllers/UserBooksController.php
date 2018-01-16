@@ -72,4 +72,20 @@ class UserBooksController extends Controller{
         Funcs::removeCookieTrait('books');
         return redirect('/borrow');
     }
+    public function removeFromCart($barcode){
+        $books = Funcs::getCookieTrait('books');
+        if(in_array($barcode,$books)){
+            $key = array_search($barcode,$books);
+            unset($books[$key]);
+        }
+        function reindex(&$the_array) {
+            $temp = $the_array;
+            $the_array = array();
+            foreach($temp as $value) {
+                $the_array[] = $value; 
+            } 
+        }  
+        reindex($books);
+        return redirect('/borrow')->withCookie(cookie('books', serialize($books)));
+    }
 }

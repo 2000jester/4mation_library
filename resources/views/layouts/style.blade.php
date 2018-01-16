@@ -15,6 +15,10 @@
     .logo-container{
         text-align:center;
     }
+    .userCartTable-container{
+        padding-top: 3%;
+        text-align: center;
+    }
     div.links a{
         color: #636b6f;
         font-size: 12px;
@@ -170,6 +174,31 @@
      .form-button{
          text-align:center;
      }
+     .borrow-form{
+         height: 32px;
+         width: 168px;
+     }
+     .borrowForm-container{
+        padding-top: 10%;
+    }
+     .borrowForm-containerPadded{
+        padding-top: 45%;
+    }
+    .verticalLine{
+        border-left: solid #a0a4a5;
+    }
+    .fa-times{
+        color: red;
+    }
+    .fa-times:hover{
+        color: crimson;
+    }
+    .fa-times:active{
+        color: grey;
+    }
+    .align-right{
+        text-align: right;
+    }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Width Media Queries
