@@ -54,15 +54,19 @@
     </div>
 @endsection
 @if(!empty(unserialize(Cookie::get('books'))))
-    @section('buttonBar')
-        <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
-        <a onClick="document.getElementById('checkout').submit();" class="button">Checkout</a>
-        <a onClick="document.getElementById('clearCart').submit();" class="button">Clear Cart</a>
-        <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
+    @section('doubleButtonBar')
+        <div class="col-lg-3 offset-lg-2">
+            <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
+            <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
+        </div>
+        <div class="col-lg-3 offset-lg-2">
+            <a onClick="document.getElementById('checkout').submit();" class="button">Checkout</a>
+            <a onClick="document.getElementById('clearCart').submit();" class="button">Clear Cart</a>
+        </div>
     @endsection
 @endif
 @if(empty(unserialize(Cookie::get('books'))))
-    @section('formAnchor')
+    @section('buttonBar')
         <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
     @endsection
 @endif

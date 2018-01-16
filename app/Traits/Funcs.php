@@ -11,6 +11,7 @@ trait Funcs{
     }
     public static function checkUserTrait($dataToBeStored = ''){
         if(empty(Funcs::getCookieTrait('user'))){
+            Funcs::removeCookieTrait('bookInfo');
             Cookie::queue(Cookie::forever('dataToBeStored',serialize($dataToBeStored)));
             \App::abort(302, '', ['Location' => '/login']);
         }

@@ -51,6 +51,9 @@
                         @yield('content')
                         @yield('form')
                         <div class="row button-container fixed-bottom">
+                            <div class="form-button">
+                                @yield('doubleButtonBar')
+                            </div>
                             <div class="col-12 form-button">
                                 @yield('buttonBar')
                             </div>
