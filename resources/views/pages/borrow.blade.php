@@ -17,7 +17,7 @@
         <div class="col-lg-8 offset-lg-2 content-text">
             @if (empty(Cookie::get('books')))
                 Welcome {{ unserialize(Cookie::get('user'))[0]->first_name }}!
-                Please scan a book or enter the barcode to start {{ $dataToBeStored }}
+                Please scan a book or enter the barcode to start
             @elseif (!empty($bookData))
                 Your Cart :
                 <div class="small-list">
@@ -35,7 +35,7 @@
         <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-3 form-input">
             <form method="post" action="/setBooksCookie" id="barcode">
                 {{ csrf_field() }}
-                <input type="text" value="{{$barcode}}" name="barcode" autofocus="autofocus" autocomplete="off">
+                <input type="text" value="{{ $dataToBeStored }}" name="barcode" autofocus="autofocus" autocomplete="off">
             </form>
             <form method="post" action="/" id="menu">
                 {{ csrf_field() }}

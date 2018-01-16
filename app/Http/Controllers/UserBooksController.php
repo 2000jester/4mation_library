@@ -21,10 +21,12 @@ class UserBooksController extends Controller{
     public function borrow(){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
+        $dataToBeStored = Funcs::getCookieTrait('dataToBeStored');
+        Funcs::removeCookieTrait('dataToBeStored');
         return view('pages.borrow', array(
             'bookData'=>BookFuncs::getBookDataTrait(Funcs::getCookieTrait('books')),
             'barcode'=>request('barcode'),
-            'dataToBeStored'=>Funcs::getCookieTrait('dataToBeStored')
+            'dataToBeStored'=>$dataToBeStored
         ));
     }
     public function checkout(){
