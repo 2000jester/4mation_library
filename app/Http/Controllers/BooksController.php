@@ -16,7 +16,7 @@ class BooksController extends Controller{
     use ReservationFuncs;
 
     public function setBooksCookie(){
-        Funcs::checkUserTrait();
+        Funcs::checkUserTrait(request('barcode'));
         if(empty(BookFuncs::getBookTrait(request('barcode'))[0])){
             return redirect("/borrow");
         }

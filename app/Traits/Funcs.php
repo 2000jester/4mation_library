@@ -9,8 +9,9 @@ trait Funcs{
     public static function getCookieTrait($cookieName){
         return unserialize(Cookie::get($cookieName));
     }
-    public static function checkUserTrait(){
+    public static function checkUserTrait($dataToBeStored = ''){
         if(empty(Funcs::getCookieTrait('user'))){
+            Cookie::queue(Cookie::forever('dataToBeStored',serialize($dataToBeStored)));
             \App::abort(302, '', ['Location' => '/login']);
         }
     }

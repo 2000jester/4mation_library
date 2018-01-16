@@ -23,7 +23,8 @@ class UserBooksController extends Controller{
         Funcs::checkUserTrait();
         return view('pages.borrow', array(
             'bookData'=>BookFuncs::getBookDataTrait(Funcs::getCookieTrait('books')),
-            'barcode'=>request('barcode')
+            'barcode'=>request('barcode'),
+            'dataToBeStored'=>Funcs::getCookieTrait('dataToBeStored')
         ));
     }
     public function checkout(){

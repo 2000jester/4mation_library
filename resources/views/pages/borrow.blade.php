@@ -17,7 +17,7 @@
         <div class="col-lg-8 offset-lg-2 content-text">
             @if (empty(Cookie::get('books')))
                 Welcome {{ unserialize(Cookie::get('user'))[0]->first_name }}!
-                Please scan a book or enter the barcode to start
+                Please scan a book or enter the barcode to start {{ $dataToBeStored }}
             @elseif (!empty($bookData))
                 Your Cart :
                 <div class="small-list">
