@@ -3,14 +3,18 @@
     Borrow
 @endsection
 @section('header')
-    <div class="row header-container">
-        <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header">
-            <h1>Borrow</h1>
+    @if (!empty(unserialize(Cookie::get('books'))) && !empty($bookData))
+        <div class="row header-container d-none d-lg-flex">
+    @else
+        <div class="row header-container">
+    @endif
+            <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header">
+                <h1>Borrow</h1>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon header">
+                <h1><i class="fa fa-shopping-cart"></i></h1>
+            </div>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon header">
-            <h1><i class="fa fa-shopping-cart"></i></h1>
-        </div>
-    </div>
 @endsection
 @section('content')
     <div class="row content-container">
@@ -20,7 +24,7 @@
                     <div class="col-lg-4 offset-lg-2">
                         Please scan a book or enter the barcode
                         <div class="row borrowForm-containerPadded">
-                            <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-2 form-input">
+                            <div class="col-lg-4 offset-lg-2 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-4 offset-3 form-input">
                                 <form method="post" action="/setBooksCookie" id="barcode">
                                     {{ csrf_field() }}
                                     <input type="text" value="{{ $dataToBeStored }}" name="barcode" autofocus="autofocus" autocomplete="off" class="borrow-form">
@@ -85,11 +89,11 @@
         <div class="row">
             <div class="col-lg-4 offset-lg-2">
                 <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
-                <a onClick="document.getElementById('menu').submit();" class="button">Menu</a>
+                <a onClick="document.getElementById('menu').submit();" class="button d-none d-lg-inline-block">Menu</a>
             </div>
             <div class="col-lg-4">
                 <a onClick="document.getElementById('checkout').submit();" class="button">Checkout</a>
-                <a onClick="document.getElementById('clearCart').submit();" class="button">Clear Cart</a>
+                <a onClick="document.getElementById('clearCart').submit();" class="button d-none d-lg-inline-block">Clear Cart</a>
             </div>
         </div>
     @endsection

@@ -48,14 +48,14 @@ class UsersController extends Controller{
     }
     public function setAdminCookie(){
         Funcs::sendPageCookieTrait();
-        return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('admin', serialize(true), 5));
+        return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('admin', serialize(true), 30));
     }
     public function setUserCookie(){
         $user = UserFuncs::getUserByUsernameTrait(request('username'));
         if(count($user) == 0){
             return redirect('/login');
         }
-        return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('user', serialize($user), 5));
+        return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('user', serialize($user), 30));
     }
 
     public function userLookup(){
