@@ -21,10 +21,10 @@
         <div class="col-lg-12 content-text">
             @if (!empty(unserialize(Cookie::get('books'))) && !empty($bookData))
                 <div class="row">
-                    <div class="col-lg-4 offset-lg-2">
+                    <div class="col-lg-4 offset-lg-2 topElement-container">
                         Please scan a book or enter the barcode
                         <div class="row borrowForm-containerPadded">
-                            <div class="col-lg-4 offset-lg-2 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-4 offset-3 form-input">
+                            <div class="col-lg-4 offset-lg-3 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-4 offset-3 form-input">
                                 <form method="post" action="/setBooksCookie" id="barcode">
                                     {{ csrf_field() }}
                                     <input type="text" value="{{ $dataToBeStored }}" name="barcode" autofocus="autofocus" autocomplete="off" class="borrow-form">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 verticalLine">
+                    <div class="col-lg-4 bottomElement-container">
                         Your Cart
                         <div class="userCartTable-container">
                             <table style="width: 100%" class="table table-hover">
@@ -87,11 +87,11 @@
 @if(!empty(unserialize(Cookie::get('books'))))
     @section('buttonBar')
         <div class="row">
-            <div class="col-lg-4 offset-lg-2">
+            <div class="col-lg-4 offset-lg-2 borrowButtons-container">
                 <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
                 <a onClick="document.getElementById('menu').submit();" class="button d-none d-lg-inline-block">Menu</a>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 cartButtons-container">
                 <a onClick="document.getElementById('checkout').submit();" class="button">Checkout</a>
                 <a onClick="document.getElementById('clearCart').submit();" class="button d-none d-lg-inline-block">Clear Cart</a>
             </div>

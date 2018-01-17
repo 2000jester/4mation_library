@@ -10,9 +10,21 @@
         .logo-container{
             text-align:center;
         }
+        .topElement-container{
+
+        }
+        .bottomElement-container{
+            border-left: solid #a0a4a5;
+        }
         .userCartTable-container{
             padding-top: 3%;
             text-align: center;
+        }
+        .borrowButtons-container{
+
+        }
+        .cartButtons-container{
+
         }
         .header-container{
             padding-top:3%;
@@ -212,9 +224,6 @@
         Content Styles
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-        .verticalLine{
-            border-left: solid #a0a4a5;
-        }
         body{
             background-color: #fff;
             color: #636b6f;
@@ -226,7 +235,6 @@
         Desktop Media Queries
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-    
         @media (max-width: 990px){
             .links-pad{
                  padding-top: 5%;
@@ -244,8 +252,48 @@
             .header h1{
                 font-size: 36px;
             }
+            .borrowForm-containerPadded{
+                padding-top: 30px;
+            }
+            .cartButtons-container{
+                width: 50%;
+            }
+            .borrowButtons-container{
+                width: 50%;
+            }
+            .topElement-container{
+                padding-bottom: 100px;
+            }
+            .bottomElement-container{
+                border-left: none;
+            }
+            .book-list-left-width{
+                width: calc((100vw) * 0.7);
+            }
+            .book-list-right-width{
+                width: calc((100vw) * 0.3);
+            }
+            .userCartTable-container{
+                padding-top: 30px;
+                width: 50%;
+                margin-left: 25%;
+            }
+            .table-content-height{
+                height: calc(100vh - 440px);
+            }
         }
-
+        @media (min-width: 990px) and (max-width: 1152px){
+            .button, .button:not([href]):not([tabindex]){
+                font-size: 14px;
+                width: 150px;
+            } 
+        }
+        @media (min-width: 1152px) and (max-width: 1332px){
+            .button, .button:not([href]):not([tabindex]){
+                font-size: 16px;
+                width: 170px;
+            } 
+        }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Mobile Media Queries
