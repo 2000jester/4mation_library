@@ -21,4 +21,8 @@ class books extends Model{
     public static function searchBookByPhraseFromDB($phrase){
         return DB::table('books')->select()->where([['title','like','%'.$phrase.'%'],['deleted','=','0']])->orWhere([['author','like','%'.$phrase.'%'],['deleted','=','0']])->orWhere([['barcode','like','%'.$phrase.'%'],['deleted','=','0']])->get();
     }
+
+    public static function deleteBookFromDB($barcode){
+        return DB::table('books')->where([['barcode','=',$barcode],['deleted','=','0']])->update(['deleted' => 1]);
+    }
 }

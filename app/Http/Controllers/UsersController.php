@@ -47,7 +47,6 @@ class UsersController extends Controller{
         }
     }
     public function setAdminCookie(){
-        Funcs::sendPageCookieTrait();
         return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('admin', serialize(true), 30));
     }
     public function setUserCookie(){

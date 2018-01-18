@@ -116,7 +116,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-10">
-                                                    <a href="/bookEdit" class="navbarLinks">Book Add / Edit / Delete</a>
+                                                    <a href="/bookAdd" class="navbarLinks">Add book to system</a>
                                                 </div>
                                                 <div class="col-lg-2">
                                                     <a href="/userLookup" class="navbarLinks">
@@ -126,7 +126,9 @@
                                             </div>
                                         @endif
                                         @if(!empty(Cookie::get('user')))
-                                            <hr>
+                                            @if(($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home') || !empty(unserialize(Cookie::get('admin'))))
+                                                <hr>
+                                            @endif
                                             <div class="row">
                                                 <div class="col-lg-10">
                                                     <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}"class="navbarLinks">My Account</a>

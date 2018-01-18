@@ -85,4 +85,20 @@ class BooksController extends Controller{
             ));
         }
     }
+
+    public function deleteBook($barcode){
+        Funcs::checkUserTrait();
+        Funcs::checkAdminTrait();
+        if(!empty(BookFuncs::getBookTrait($barcode))){
+            if(BookFuncs::deleteBookTrait($barcode)){
+                $url = "books/".$barcode;
+                $url = "/".$url;
+                if(Funcs::getCookieTrait('lastPage') != $url){
+                    return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('successMessage',serialize('Book was successfully deleted!')));
+                } else {
+                    return redirect('/')->withCookie(cookie('successMessage',serialize('Book was successfully deleted!')));
+                }
+            }
+        }
+    }
 }

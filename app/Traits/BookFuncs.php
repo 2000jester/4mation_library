@@ -42,4 +42,7 @@ trait BookFuncs{
     public static function getNumberOfReservesTrait($username){
         return books::getNumberofReservesFromDB($username);
     }
+    public static function deleteBookTrait($barcode){
+        return books::deleteBookFromDB($barcode);
+    }
 }

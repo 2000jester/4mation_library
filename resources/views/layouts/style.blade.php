@@ -60,6 +60,9 @@
         div.links div{
             text-align: center;
         }
+        .links:hover{
+            color: black;
+        }
         div.nav a{
             color: #636b6f;
             font-size: 12px;
@@ -67,6 +70,9 @@
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+        }
+        div.nav a:hover{
+            color: black;
         }
         .nav{
             position:absolute;
@@ -100,7 +106,8 @@
             background-color: white;
         }
         .navbarDropdown{
-            text-align: left;        }
+            text-align: left;        
+        }
         div.nav a.navbarLinks{
             color: white;
             width: 100%;
@@ -111,6 +118,9 @@
         .lightButton:hover{
             background-color: #636b6f;
             color: white;
+        }
+        .navbar-toggler:hover{
+            background-color: #636b6f;
         }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
