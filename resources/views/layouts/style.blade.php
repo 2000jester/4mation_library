@@ -11,7 +11,7 @@
             text-align:center;
         }
         .topElement-container{
-
+            /*padding-top: 50px;*/
         }
         .bottomElement-container{
             border-left: solid #a0a4a5;
@@ -27,10 +27,10 @@
 
         }
         .header-container{
-            padding-top:3%;
+            padding-top:5%;
         }
         .content-container{
-            padding-top:55px;
+            padding-top:30px;
         }
         .form-container{
             padding-top:3%;
@@ -68,42 +68,10 @@
             text-decoration: none;
             text-transform: uppercase;
         }
-        div.nav div{
-            text-align: center;
-        }
-        .dropbtn {
-            background-color: #5EC0D5;
-            color: white;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            padding-top: 12px;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 250px;
-            width: 300px;
-            overflow: auto;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 20px;
-        }
-        .dropdown a:hover {
-            background-color: #f1f1f1;
+        .nav{
+            position:absolute;
+            width:100%;
+            z-index: 100;
         }
         .links-pad{
             padding-top:15%;
@@ -127,6 +95,18 @@
             cursor: pointer;
             white-space: nowrap;
         }
+        .navbar{
+            background-color: white;
+        }
+        .navbarDropdown{
+            text-align: left;        }
+        div.nav a.navbarLinks{
+            color: white;
+            width: 100%;
+        }
+        #navbarToggleExternalContent{
+            max-width:400px;
+        }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Image Styles
@@ -142,7 +122,7 @@
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
         .table-content-height{
-            height: calc(100vh - 410px);
+            height: calc(100vh - 430px);
         }
         .dispBlock-overAuto{
             display: block;
@@ -212,6 +192,12 @@
         .fa-times:active{
             color: grey;
         }
+        .fa-bars{
+            color: #5EC0D5;
+        }
+        .fa-bars:hover{
+            color: crimson;
+        }
         .align-right{
             text-align: right;
         }
@@ -230,21 +216,31 @@
             font-family: 'Raleway', sans-serif;
             text-decoration: none;
         }
+        .navbarDropdown hr{
+            border-color: white;
+        }
+    /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        Error Message Styling
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+        .userAlert{
+            padding-bottom: 30px;
+            position: absolute;
+            z-index: 50;
+            padding-left: 50px;
+        }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Desktop Media Queries
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-        @media (max-width: 990px){
+        @media (max-width: 991px){
             .links-pad{
                  padding-top: 5%;
             }
             #home-logo{
                 width: 70%;
-            }
-            .dropdown-content {
-                min-width: 100px;
-                width: 158.95px;
             }
             .content-text{
                 font-size: 18px;
@@ -253,7 +249,7 @@
                 font-size: 36px;
             }
             .borrowForm-containerPadded{
-                padding-top: 30px;
+                padding-top: 60px;
             }
             .cartButtons-container{
                 width: 50%;
@@ -262,7 +258,8 @@
                 width: 50%;
             }
             .topElement-container{
-                padding-bottom: 100px;
+                padding-bottom: 170px;
+                padding-top: 170px;
             }
             .bottomElement-container{
                 border-left: none;
@@ -279,7 +276,11 @@
                 margin-left: 25%;
             }
             .table-content-height{
-                height: calc(100vh - 440px);
+                height: calc(100vh - 670px);
+            }
+            .alreadyInCart{
+                padding-bottom: 30px;
+                padding-top: 50px;
             }
         }
         @media (min-width: 990px) and (max-width: 1152px){

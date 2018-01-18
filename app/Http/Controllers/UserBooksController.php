@@ -34,18 +34,21 @@ class UserBooksController extends Controller{
         Funcs::checkUserTrait();
         $user = Funcs::getCookieTrait('user');
         if(empty(Funcs::getCookieTrait('books'))){
-            return redirect('/borrow');
+            return redirect('/borrow')->withCookie(cookie('errorMessage', serialize("No books were in cart!")));
         }
         $books = Funcs::getCookieTrait('books');
         for($i = 0; $i< count($books); $i++){
-            if($user[0]->username != ReservationFuncs::getNextInLineTrait($books[$i])[0]->user){
-                return redirect('/borrow');
+            $reservation = ReservationFuncs::getNextInLineTrait($books[$i]);
+            if($reservation->count() != 0){
+                if($user[0]->username != $reservation[0]->user){
+                    return redirect('/borrow')->withCookie(cookie('errorMessage', serialize("Another user has '".$books[$i]->title."' on reserve!")));
+                }
             }
             UserBookFuncs::borrowBookTrait($user[0]->username,$books[$i]);
         }
             
         Funcs::removeCookieTrait('books');
-        return view('pages.checkout');
+        return redirect('/checkout')->withCookie(cookie('successMessage', serialize("Checkout successful!")));
     }
     public function return(){
         Funcs::sendPageCookieTrait();
@@ -59,9 +62,9 @@ class UserBooksController extends Controller{
                 $book = BookFuncs::getBookTrait(request('barcode'));
                 Funcs::sendMail($user[0]->email,'Book Available','Hello '.$user[0]->first_name.', The book you had on reserve, '.$book[0]->title.', is now available. Please look in the reserved section of the library shelves.','4mation-library');
             }
-            return view('pages.return',array('returned'=>true,'error'=>false));
+            return redirect('/return')->withCookie(cookie('successMessage', serialize("The book was returned successfully!")));
         } else {
-            return view('pages.return', array('returned'=>false,'error'=>true));
+            return redirect('/return')->withCookie(cookie('errorMessage', serialize("The book was unable to be returned!")));
         }
     }
     public function help(){

@@ -24,7 +24,7 @@
                     <div class="col-lg-4 offset-lg-2 topElement-container">
                         Please scan a book or enter the barcode
                         <div class="row borrowForm-containerPadded">
-                            <div class="col-lg-4 offset-lg-3 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-4 offset-3 form-input">
+                            <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-4 offset-4 form-input">
                                 <form method="post" action="/setBooksCookie" id="barcode">
                                     {{ csrf_field() }}
                                     <input type="text" value="{{ $dataToBeStored }}" name="barcode" autofocus="autofocus" autocomplete="off" class="borrow-form">
@@ -57,7 +57,7 @@
 @endsection
 @section('form')
     <div class="row form-container">
-            @if (empty(unserialize(Cookie::get('books'))) && empty($bookData))
+        @if (empty(unserialize(Cookie::get('books'))) && empty($bookData))
             <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-2 form-input">
                 <form method="post" action="/setBooksCookie" id="barcode">
                     {{ csrf_field() }}
@@ -89,7 +89,6 @@
         <div class="row">
             <div class="col-lg-4 offset-lg-2 borrowButtons-container">
                 <a onClick="document.getElementById('barcode').submit();" class="button">Add To Cart</a>
-                <a onClick="document.getElementById('menu').submit();" class="button d-none d-lg-inline-block">Menu</a>
             </div>
             <div class="col-lg-4 cartButtons-container">
                 <a onClick="document.getElementById('checkout').submit();" class="button">Checkout</a>

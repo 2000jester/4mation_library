@@ -82,8 +82,13 @@ class UsersController extends Controller{
     public function get($username){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();
-        Funcs::checkAdminTrait();
+        if(Funcs::getCookieTrait('user')[0]->username != $username){
+            Funcs::checkAdminTrait();
+        }
         $user = UserFuncs::getUserByUsernameTrait($username);
+        if($user->count() == 0){
+            return(redirect('/displayUsers'))->withCookie(cookie('errorMessage', serialize("User '".$username."' not found")));
+        }
 
         $tempBooks = UserBookFuncs::getUserBookByUserTrait($username);
         $books = [];

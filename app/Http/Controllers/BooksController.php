@@ -18,15 +18,15 @@ class BooksController extends Controller{
     public function setBooksCookie(){
         Funcs::checkUserTrait(request('barcode'));
         if(empty(BookFuncs::getBookTrait(request('barcode'))[0])){
-            return redirect("/borrow");
+            return redirect("/borrow")->withCookie(cookie('errorMessage', serialize('Invalid barcode')));;
         }
         if(!empty(Funcs::getCookieTrait('books')[0]) && in_array(request('barcode'), Funcs::getCookieTrait('books'))){
-            return redirect("/borrow");
+            return redirect("/borrow")->withCookie(cookie('errorMessage', serialize('Book already in cart!')));
         }
         $bookToAdd = UserBookFuncs::getUserBookByBookTrait(request('barcode'));
         if(!empty($bookToAdd[0])){
             if($bookToAdd[0]->user == Funcs::getCookieTrait('user')[0]->username){
-                return redirect('/borrow');
+                return redirect('/borrow')->withCookie(cookie('errorMessage', serialize('You already have this book on loan')));;
             }
         }
         if(empty(Funcs::getCookieTrait('books'))){
@@ -44,6 +44,7 @@ class BooksController extends Controller{
         return view('pages.dupes', ['dupes' => $results]);
     }
     public function bookLookup(){
+        Funcs::checkUserTrait();
         Funcs::sendPageCookieTrait();
         Funcs::removeCookieTrait('bookInfo');
         return view('pages.bookLookup');
