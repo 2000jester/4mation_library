@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->string('file');
             $table->string('genres');
             $table->string('barcode');
+            $table->boolean('deleted');
         });
     }
 

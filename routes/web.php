@@ -67,3 +67,6 @@ Route::post('/help', 'UserBooksController@help');
 //remove from cart
 Route::get('/removeFromCart/{barcode}', 'UserBooksController@removeFromCart');
 Route::post('/removeFromCart/{barcode}', 'UserBooksController@removeFromCart');
+//delete book
+Route::get('/books/delete/{barcode}', 'BooksController@deleteBook');
+Route::post('/books/delete/{barcode}', 'BooksController@deleteBook');

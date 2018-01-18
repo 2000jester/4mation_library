@@ -44,7 +44,6 @@ class BooksController extends Controller{
         return view('pages.dupes', ['dupes' => $results]);
     }
     public function bookLookup(){
-        Funcs::checkUserTrait();
         Funcs::sendPageCookieTrait();
         Funcs::removeCookieTrait('bookInfo');
         return view('pages.bookLookup');

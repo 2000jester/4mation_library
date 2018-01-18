@@ -94,6 +94,7 @@
             width: 210px;
             cursor: pointer;
             white-space: nowrap;
+            border-radius: .25rem;
         }
         .navbar{
             background-color: white;
@@ -106,6 +107,10 @@
         }
         #navbarToggleExternalContent{
             max-width:400px;
+        }
+        .lightButton:hover{
+            background-color: #636b6f;
+            color: white;
         }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -18,7 +18,7 @@
                     <nav class="navbar sticky-top navbar-light">
                         <div class="row" style="width:100%">
                             <div class="col-1">
-                                @if(!empty(Cookie::get('user')))
+                                @if( (($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/menu' || $_SERVER['REQUEST_URI'] == '/home') && !empty(Cookie::get('user'))) || ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home'))
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="fa fa-bars"></span>
                                     </button>
@@ -78,16 +78,6 @@
                             @if(!empty(Cookie::get('user')))
                                 <div class="navbarDropdown">
                                     <div class="col-lg-12">
-                                        <div class="row">
-                                            <div class="col-lg-10">
-                                                <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}"class="navbarLinks">My Account</a>
-                                            </div>
-                                            <div class="col-lg-2">
-                                                <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}" class="navbarLinks">
-                                                    <i class="fa fa-user-o"></i>
-                                                </a>
-                                            </div>
-                                        </div>
                                         @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home')
                                             <div class="row">
                                                 <div class="col-lg-10">
@@ -101,7 +91,9 @@
                                             </div>
                                         @endif
                                         @if(!empty(unserialize(Cookie::get('admin'))))
-                                            <hr>
+                                            @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home')
+                                                <hr>
+                                            @endif
                                             <div class="row">
                                                 <div class="col-lg-10">
                                                     <a href="/userLookup" class="navbarLinks">Search a User</a>
@@ -135,6 +127,16 @@
                                         @endif
                                         @if(!empty(Cookie::get('user')))
                                             <hr>
+                                            <div class="row">
+                                                <div class="col-lg-10">
+                                                    <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}"class="navbarLinks">My Account</a>
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}" class="navbarLinks">
+                                                        <i class="fa fa-user-o"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                             <div class="row">
                                                 <div class="col-lg-10">
                                                     <a href="/userLookup" class="navbarLinks">Logout</a>

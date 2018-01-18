@@ -48,7 +48,7 @@ class UserBooksController extends Controller{
         }
             
         Funcs::removeCookieTrait('books');
-        return redirect('/checkout')->withCookie(cookie('successMessage', serialize("Checkout successful!")));
+        return redirect('/borrow')->withCookie(cookie('successMessage', serialize("Checkout successful!")));
     }
     public function return(){
         Funcs::sendPageCookieTrait();
