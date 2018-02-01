@@ -13,6 +13,9 @@
         .topElement-container{
             /*padding-top: 50px;*/
         }
+        .checkbox-container{
+            padding-left: 30px;
+        }
         .bottomElement-container{
             border-left: solid #a0a4a5;
         }
@@ -43,6 +46,9 @@
         }
         .borrowForm-container{
             padding-top: 10%;
+        }
+        .barcodeEntry-container{
+            margin-left: 15px;
         }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -168,10 +174,10 @@
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
         .header-icon{
-             text-align:right;
+            text-align:right;
         }
         .header{ 
-             padding:initial;
+            padding:initial;
         }
         .header h1{
             border-bottom: 1px solid #5EC0D5;
@@ -192,6 +198,10 @@
         .borrow-form{
             height: 32px;
             width: 168px;
+        }
+        .genreSelect .form-check-input{
+            margin-left: 0;
+            padding-left: 100px;
         }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -220,6 +230,9 @@
             font-size: 25px;
             text-align: center;
         }
+        .ariaClose{
+            padding-left: 6px;
+        }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Content Styles
@@ -233,6 +246,26 @@
         }
         .navbarDropdown hr{
             border-color: white;
+        }
+        .dropdownElement{
+            padding-top: 10px;
+        }
+        .genreTags{
+            margin-top: 31px;
+            margin-bottom: 15px;
+            margin-left: -15px;
+        }
+        .genreTag{
+            margin-top: 0px;
+            background-color: #5EC0D5;
+            color: white;
+            margin: 2px;
+        }
+        .genreTagHidden{
+            visibility:hidden;
+        }
+        .genreTag:hover{
+            color: #636b6f;
         }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -252,7 +285,7 @@
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
         @media (max-width: 991px){
             .links-pad{
-                 padding-top: 5%;
+                padding-top: 5%;
             }
             #home-logo{
                 width: 70%;

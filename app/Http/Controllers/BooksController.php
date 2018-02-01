@@ -30,7 +30,7 @@ class BooksController extends Controller{
             }
         }
         if(empty(Funcs::getCookieTrait('books'))){
-            return redirect('/borrow')->withCookie(cookie('books', serialize([request('barcode')]), 5));
+            return redirect('/borrow')->withCookie(cookie('books', serialize([request('barcode')])));
         } else {
             $array = Funcs::getCookieTrait('books');
             array_push($array, request('barcode'));
@@ -100,5 +100,9 @@ class BooksController extends Controller{
                 }
             }
         }
+    }
+
+    public function bookAdd(){
+        return view('pages.bookAdd');
     }
 }

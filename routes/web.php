@@ -70,3 +70,6 @@ Route::post('/removeFromCart/{barcode}', 'UserBooksController@removeFromCart');
 //delete book
 Route::get('/books/delete/{barcode}', 'BooksController@deleteBook');
 Route::post('/books/delete/{barcode}', 'BooksController@deleteBook');
+//add book
+Route::get('/bookAdd', 'BooksController@bookAdd');
+Route::post('/bookAdd', 'BooksController@bookAdd');
