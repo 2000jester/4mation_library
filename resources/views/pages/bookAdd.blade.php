@@ -121,7 +121,6 @@
         if(invalidCount.length > 0){
             return false;
         }
-        console.log($('#inputTitle').val())
         if($('#inputTitle').val() == "" || $('#inputAuthorFirst').val() == "" || $('#inputAuthorSur').val() == "" || $('#inputBarcode').val() == ""){
             return false;
         }
