@@ -25,7 +25,10 @@
                         Available : Yes</br></br>
                     @endif
                     Number of Reserves : {{ $numberOfReserves }}</br></br>
-                    Genres : {{ $bookData[0]->genres }}</br></br>
+                    Genres : 
+                    @foreach($genres as $genre)
+                        </br> {{ $genre }}
+                    @endforeach</br></br>
                 </div>
             </div>
             <div class="row">

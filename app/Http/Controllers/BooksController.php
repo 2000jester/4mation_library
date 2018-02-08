@@ -7,6 +7,7 @@ use App\Traits\UserBookFuncs;
 use App\Traits\UserFuncs;
 use App\Traits\ReservationFuncs;
 use App\Traits\GenreFuncs;
+use App\Traits\BookGenreFuncs;
 
 class BooksController extends Controller{
 
@@ -16,6 +17,7 @@ class BooksController extends Controller{
     use UserFuncs;
     use ReservationFuncs;
     use GenreFuncs;
+    use BookGenreFuncs;
 
     public function setBooksCookie(){
         Funcs::checkUserTrait(request('barcode'));
@@ -62,12 +64,23 @@ class BooksController extends Controller{
             $borrowed = UserBookFuncs::isBorrowedTrait($barcode);
             $numberOfReserves = ReservationFuncs::getNumberOfReservationsTrait($barcode);
             $reserved = $numberOfReserves > 0 ? true : false;
+            $genres = BookGenreFuncs::getGenresByIdTrait($barcode);
+            $genresIdArray = array();
+            foreach($genres->toArray() as $genre){
+                array_push($genresIdArray, $genre->genre);
+            }
+            $genresIdArray = array_reverse($genresIdArray);
+            $genresArray = array();
+            foreach($genresIdArray as $id){
+                array_push($genresArray, GenreFuncs::getGenreByIdTrait($id)[0]->genre);
+            }                
             return view('pages.displayBook', array(
                 'user'=>false,
                 'bookData'=>$bookData, 
                 'borrowed'=>$borrowed, 
                 'reserved'=>$reserved,
-                'numberOfReserves'=>$numberOfReserves
+                'numberOfReserves'=>$numberOfReserves,
+                'genres'=>$genresArray
             ));
         } else {
             $bookData = BookFuncs::getBookTrait($barcode);

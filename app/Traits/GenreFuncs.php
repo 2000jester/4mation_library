@@ -10,4 +10,7 @@ trait GenreFuncs{
     public static function getAllGenresTrait(){
         return genre::getAllFromDB();
     }
+    public static function getGenreByIdTrait($id){
+        return genre::getGenreByIdFromDB($id);
+    }
 }

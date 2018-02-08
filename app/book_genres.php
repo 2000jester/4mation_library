@@ -15,4 +15,7 @@ class book_genres extends Model{
     public static function deleteAllFromDB(){
         return DB::table('book_genres')->delete();
     }
+    public static function getGenresByIdFromDB($barcode){
+        return DB::table('book_genres')->where('barcode','=',$barcode)->get();
+    }
 }

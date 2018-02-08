@@ -14,4 +14,7 @@ trait BookGenreFuncs{
     public static function deleteAllTrait(){
         return book_genres::deleteAllFromDB();
     }
+    public static function getGenresByIdTrait($barcode){
+        return book_genres::getGenresByIdFromDB($barcode);
+    }
 }
