@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class books extends Model{
     
     public static function getAllFromDB(){
-        return DB::table('books')->select()->where('deleted','=','0');
+        return DB::table('books')->select()->where('deleted','=','0')->get();
     }
     public static function checkDupesFromDB(){
         return DB::select(DB::raw("SELECT * FROM books WHERE barcode IN (SELECT barcode FROM(SELECT barcode, count(*) AS counted From books GROUP BY barcode HAVING counted > 1) AS barcodes) AND deleted = 0"));

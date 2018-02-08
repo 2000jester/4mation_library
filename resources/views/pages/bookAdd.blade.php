@@ -112,7 +112,7 @@
     });
 
     function addBook(){
-
+        console.log("please come back later when my dev has fixed things :)")
     }
 </script>
 @endsection

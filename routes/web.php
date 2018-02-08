@@ -73,3 +73,5 @@ Route::post('/books/delete/{barcode}', 'BooksController@deleteBook');
 //add book
 Route::get('/bookAdd', 'BooksController@bookAdd');
 Route::post('/bookAdd', 'BooksController@bookAdd');
+
+Route::get('/merge','BookGenresController@merge');
