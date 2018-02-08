@@ -261,7 +261,7 @@
             color: white;
             margin: 2px;
         }
-        .genreTagHidden{
+        .hidden{
             visibility:hidden;
         }
         .genreTag:hover{

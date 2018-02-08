@@ -6,6 +6,7 @@ use App\Traits\BookFuncs;
 use App\Traits\UserBookFuncs;
 use App\Traits\UserFuncs;
 use App\Traits\ReservationFuncs;
+use App\Traits\GenreFuncs;
 
 class BooksController extends Controller{
 
@@ -14,6 +15,7 @@ class BooksController extends Controller{
     use UserBookFuncs;
     use UserFuncs;
     use ReservationFuncs;
+    use GenreFuncs;
 
     public function setBooksCookie(){
         Funcs::checkUserTrait(request('barcode'));
@@ -87,8 +89,6 @@ class BooksController extends Controller{
     }
 
     public function deleteBook($barcode){
-        Funcs::checkUserTrait();
-        Funcs::checkAdminTrait();
         if(!empty(BookFuncs::getBookTrait($barcode))){
             if(BookFuncs::deleteBookTrait($barcode)){
                 $url = "books/".$barcode;
@@ -103,6 +103,10 @@ class BooksController extends Controller{
     }
 
     public function bookAdd(){
-        return view('pages.bookAdd');
+        Funcs::sendPageCookieTrait();
+        Funcs::checkUserTrait();
+        Funcs::checkAdminTrait();
+        $genres = GenreFuncs::getAllGenresTrait();
+        return view('pages.bookAdd')->with('genres',$genres);
     }
 }
