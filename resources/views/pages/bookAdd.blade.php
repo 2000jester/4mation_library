@@ -18,24 +18,30 @@
 @section('form')
     <div class="row form-container">
         <div class="col-12">
-            <form>
+            <form id="bookAddForm" action="addBookToDB" method="post">
+                <input type="hidden" name="genres" id="genres" />
                 <div class="row">
                     <div class="col-3 offset-2">
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" id="inputTitle" placeholder="Enter title" autocomplete="off">
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="form-group">
-                            <label for="author">Author</label>
-                            <input type="text" class="form-control" id="inputAuthor" placeholder="Enter Author" autocomplete="off">
+                            <label for="title">Title <span style="color:red">*</span></label>
+                            <input name="title" type="text" class="form-control" id="inputTitle" placeholder="Enter title" autocomplete="off">
                         </div>
                     </div>
                     <div class="col-2">
                         <div class="form-group">
+                            <label for="author">Author <span style="color:red">*</span></label>
+                            <input name="authorFirst" type="text" class="form-control" id="inputAuthorFirst" placeholder="Enter Firstname" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                            <div class="form-group">
+                                <input style="margin-top:32px;" name="authorSur" type="text" class="form-control" id="inputAuthorSur" placeholder="Enter Surname" autocomplete="off">
+                            </div>
+                        </div>
+                    <div class="col-1">
+                        <div class="form-group">
                             <label for="year">Year</label>
-                            <input type="number" class="form-control" id="inputyear" placeholder="Enter Year" autocomplete="off">
+                            <input name="year" type="text" class="form-control" id="inputYear" placeholder="Enter Year" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -51,10 +57,10 @@
                                     @foreach($genres as $genre)
                                         <div class="row dropdownElement">
                                             <div class="col-1 checkbox-container">
-                                                <input class="form-check-input" type="checkbox" value="{{ $genre->genreId }}" id="{{ $genre->genreId }}" onclick="removeGenreTag(this.id)">
+                                                <input class="form-check-input" type="checkbox" value="checkbox_genre_{{ $genre->id }}" id="checkbox_id_{{ $genre->id }}" onclick="removeGenreTag(this.id)">
                                             </div>
                                             <div class="col-9 genre-container">
-                                                <label class="form-check-label" for="{{ $genre->genreId }}">
+                                                <label class="form-check-label" for="checkbox_id_{{ $genre->id }}">
                                                     {{ $genre->genre }}
                                                 </label>
                                             </div>
@@ -72,8 +78,8 @@
                     </div>
                     <div class="col-5 barcodeEntry-container">
                         <div class="form-group">
-                            <label for="barcode">Barcode</label>
-                            <input type="text" class="form-control" id="inputBarcode" placeholder="Enter Barcode" autocomplete="off">
+                            <label for="barcode">Barcode <span style="color:red">*</span></label>
+                            <input name="barcode" type="text" class="form-control" id="inputBarcode" placeholder="Enter Barcode" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -83,10 +89,45 @@
     </div>
 @endsection
 @section('buttonBar')
-    <a onClick="addBook();" class="button">Add Book</a>
+    <a onclick="addBook()" class="button">Add Book</a>
 @endsection
 @section('script')
 <script type="application/javascript">
+    function hasNumber(string){
+        return /\d/.test(string);
+    }
+
+    function hasLetter(string){
+        return /[a-z]/i.test(string);
+    }
+
+    function valid(target){
+        $(target).removeClass('is-invalid')
+        $(target).addClass('is-valid')
+    }
+
+    function invalid(target){
+        $(target).removeClass('is-valid')
+        $(target).addClass('is-invalid')
+    }
+
+    function neutral(target){
+        $(target).removeClass('is-valid')
+        $(target).removeClass('is-invalid')
+    }
+
+    function validate(){
+        invalidCount = $('.is-invalid');
+        if(invalidCount.length > 0){
+            return false;
+        }
+        console.log($('#inputTitle').val())
+        if($('#inputTitle').val() == "" || $('#inputAuthorFirst').val() == "" || $('#inputAuthorSur').val() == "" || $('#inputBarcode').val() == ""){
+            return false;
+        }
+        return true;
+    }
+
     $('.form-check-input').prop('checked',false)
     function removeGenreTag(id){
         $('.btn-sm[id="'+id+'"]').remove();
@@ -111,8 +152,66 @@
         }
     });
 
+    $('#inputTitle').on('change', function(event){
+        value = event.currentTarget.value;
+        if(value == " " || value == ""){
+            invalid(this);
+        } else {
+            valid(this);
+        }
+    });
+
+    $('#inputAuthorFirst').on('change', function(event){
+        value = event.currentTarget.value;
+        if(value == " " || value == ""){
+            invalid(this);
+        } else if(hasNumber(value)){
+            invalid(this);
+        } else {
+            valid(this);
+        }
+    });
+
+    $('#inputAuthorSur').on('change', function(event){
+        value = event.currentTarget.value;
+        if(value == " " || value == ""){
+            invalid(this);
+        } else if(hasNumber(value)){
+            invalid(this);
+        } else {
+            valid(this);
+        }
+    });
+
+    $('#inputYear').on('change', function(event){
+        value = event.currentTarget.value;
+        if(hasLetter(value) || value == " "){
+            invalid(this);
+        } else if(value == ""){
+            neutral(this);
+        } else {
+            valid(this);
+        }
+    });
+
+    $('#inputBarcode').on('change', function(event){
+        value = event.currentTarget.value;
+        if(value == " " || value == ""){
+            invalid(this);
+        } else {
+            valid(this);
+        }
+    });
+
     function addBook(){
-        console.log("please come back later when my dev has fixed things :)")
+        if(validate()){
+            var genreList = [];
+            $('.genreTag').not('.tagForClone').each(function(){
+                genreList.push($(this).attr('id').replace('checkbox_id_',''));
+            });
+            genreList = genreList.join(",");
+            $('#bookAddForm').submit();
+        }
     }
 </script>
 @endsection

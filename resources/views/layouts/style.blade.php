@@ -211,6 +211,9 @@
         .fa-times{
             color: red;
         }
+        .is-valid{
+            border-color: limegreen !important;
+        }
         .fa-times:hover{
             color: crimson;
         }
