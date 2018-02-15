@@ -25,4 +25,22 @@ class books extends Model{
     public static function deleteBookFromDB($barcode){
         return DB::table('books')->where([['barcode','=',$barcode],['deleted','=','0']])->update(['deleted' => 1]);
     }
+
+    public static function addBookToDB($data){
+        DB::table('books')->insert([
+            'author'=>$data['authorFirst'].$data['authorSur'],
+            'title'=>$data['title'],
+            'year'=>$data['year'],
+            'barcode'=>$data['barcode'],
+            'file'=>'',
+            'deleted'=>'0'
+        ]);
+        $genres = explode(',', $data['genres']);
+        foreach($genres as $genre){
+            DB::table('book_genres')->insert([
+                'barcode'=>$data['barcode'],
+                'genre'=>$genre
+            ]);
+        }
+    }
 }

@@ -45,4 +45,7 @@ trait BookFuncs{
     public static function deleteBookTrait($barcode){
         return books::deleteBookFromDB($barcode);
     }
+    public static function addBookToDBTrait($data){
+        return books::addBookToDB($data);
+    }
 }

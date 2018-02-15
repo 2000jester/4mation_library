@@ -19,6 +19,7 @@
     <div class="row form-container">
         <div class="col-12">
             <form id="bookAddForm" action="addBookToDB" method="post">
+                {{ csrf_field() }}
                 <input type="hidden" name="genres" id="genres" />
                 <div class="row">
                     <div class="col-3 offset-2">
@@ -92,125 +93,112 @@
     <a onclick="addBook()" class="button">Add Book</a>
 @endsection
 @section('script')
-<script type="application/javascript">
-    function hasNumber(string){
-        return /\d/.test(string);
-    }
-
-    function hasLetter(string){
-        return /[a-z]/i.test(string);
-    }
-
-    function valid(target){
-        $(target).removeClass('is-invalid')
-        $(target).addClass('is-valid')
-    }
-
-    function invalid(target){
-        $(target).removeClass('is-valid')
-        $(target).addClass('is-invalid')
-    }
-
-    function neutral(target){
-        $(target).removeClass('is-valid')
-        $(target).removeClass('is-invalid')
-    }
-
-    function validate(){
-        invalidCount = $('.is-invalid');
-        if(invalidCount.length > 0){
-            return false;
+    <script type="application/javascript">
+        function hasNumber(string){
+            return /\d/.test(string);
         }
-        if($('#inputTitle').val() == "" || $('#inputAuthorFirst').val() == "" || $('#inputAuthorSur').val() == "" || $('#inputBarcode').val() == ""){
-            return false;
+        function hasLetter(string){
+            return /[a-z]/i.test(string);
         }
-        return true;
-    }
-
-    $('.form-check-input').prop('checked',false)
-    function removeGenreTag(id){
-        $('.btn-sm[id="'+id+'"]').remove();
-    }
-    function uncheckGenre(item){
-        $('#'+item.id).prop('checked',false);
-        $('.btn-sm[id="'+item.id+'"]').remove();
-    }
-
-    $('.dropdownElement').on('change', function(event){
-        if($(this).find('input').is(':checked')){
-            event.stopPropagation();
-            var genre = event.currentTarget.children[1].innerText;
-            var genreId = event.currentTarget.children[0].children[0].id;
-            var genreTag = $('.tagForClone').clone();
-            genreTag.removeClass('tagForClone');
-            genreTag.removeClass('hidden');
-            genreTag.prop('value',genre);
-            genreTag.prop('id',genreId);
-            genreTag.html(genre+'<span class="ariaClose" aria-hidden="true">&times;</span>');
-            $('.genreTags').append(genreTag);
+        function valid(target){
+            $(target).removeClass('is-invalid')
+            $(target).addClass('is-valid')
         }
-    });
-
-    $('#inputTitle').on('change', function(event){
-        value = event.currentTarget.value;
-        if(value == " " || value == ""){
-            invalid(this);
-        } else {
-            valid(this);
+        function invalid(target){
+            $(target).removeClass('is-valid')
+            $(target).addClass('is-invalid')
         }
-    });
-
-    $('#inputAuthorFirst').on('change', function(event){
-        value = event.currentTarget.value;
-        if(value == " " || value == ""){
-            invalid(this);
-        } else if(hasNumber(value)){
-            invalid(this);
-        } else {
-            valid(this);
+        function neutral(target){
+            $(target).removeClass('is-valid')
+            $(target).removeClass('is-invalid')
         }
-    });
-
-    $('#inputAuthorSur').on('change', function(event){
-        value = event.currentTarget.value;
-        if(value == " " || value == ""){
-            invalid(this);
-        } else if(hasNumber(value)){
-            invalid(this);
-        } else {
-            valid(this);
+        function validate(){
+            if($('.is-invalid').length > 0){
+                return false;
+            }
+            if($('#inputTitle').val() == "" || $('#inputAuthorFirst').val() == "" || $('#inputAuthorSur').val() == "" || $('#inputBarcode').val() == ""){
+                return false;
+            }
+            return true;
         }
-    });
-
-    $('#inputYear').on('change', function(event){
-        value = event.currentTarget.value;
-        if(hasLetter(value) || value == " "){
-            invalid(this);
-        } else if(value == ""){
-            neutral(this);
-        } else {
-            valid(this);
+        function removeGenreTag(id){
+            $('.btn-sm[id="'+id+'"]').remove();
         }
-    });
-
-    $('#inputBarcode').on('change', function(event){
-        value = event.currentTarget.value;
-        if(value == " " || value == ""){
-            invalid(this);
-        } else {
-            valid(this);
+        function uncheckGenre(item){
+            $('#'+item.id).prop('checked',false);
+            $('.btn-sm[id="'+item.id+'"]').remove();
         }
-    });
-
-    function addBook(){
-        if(validate()){
-            var genreList = [];
-            $('.genreTag').not('.tagForClone').each(function(){
-                genreList.push($(this).attr('id').replace('checkbox_id_',''));
-            });
-            genreList = genreList.join(",");
-            $('#bookAddForm').submit();
+        function addBook(){
+            if(validate()){
+                var genreList = [];
+                $('.genreTag').not('.tagForClone').each(function(){
+                    genreList.push($(this).attr('id').replace('checkbox_id_',''));
+                });
+                genreList = genreList.join(",");
+                $('#genres').val(genreList);
+                $('#bookAddForm').submit();
+            }
         }
-    }
-</script>
+        $('.form-check-input').prop('checked',false)
+        $('.dropdownElement').on('change', function(event){
+            if($(this).find('input').is(':checked')){
+                event.stopPropagation();
+                var genre = event.currentTarget.children[1].innerText;
+                var genreId = event.currentTarget.children[0].children[0].id;
+                var genreTag = $('.tagForClone').clone();
+                genreTag.removeClass('tagForClone');
+                genreTag.removeClass('hidden');
+                genreTag.prop('value',genre);
+                genreTag.prop('id',genreId);
+                genreTag.html(genre+'<span class="ariaClose" aria-hidden="true">&times;</span>');
+                $('.genreTags').append(genreTag);
+            }
+        });
+        $('#inputTitle').on('change', function(event){
+            value = event.currentTarget.value;
+            if(value == " " || value == ""){
+                invalid(this);
+            } else {
+                valid(this);
+            }
+        });
+        $('#inputAuthorFirst').on('change', function(event){
+            value = event.currentTarget.value;
+            if(value == " " || value == ""){
+                invalid(this);
+            } else if(hasNumber(value)){
+                invalid(this);
+            } else {
+                valid(this);
+            }
+        });
+        $('#inputAuthorSur').on('change', function(event){
+            value = event.currentTarget.value;
+            if(value == " " || value == ""){
+                invalid(this);
+            } else if(hasNumber(value)){
+                invalid(this);
+            } else {
+                valid(this);
+            }
+        });
+        $('#inputYear').on('change', function(event){
+            value = event.currentTarget.value;
+            if(hasLetter(value) || value == " "){
+                invalid(this);
+            } else if(value == ""){
+                neutral(this);
+            } else {
+                valid(this);
+            }
+        });
+        $('#inputBarcode').on('change', function(event){
+            value = event.currentTarget.value;
+            if(value == " " || value == ""){
+                invalid(this);
+            } else {
+                valid(this);
+            }
+        });
+    </script>
 @endsection

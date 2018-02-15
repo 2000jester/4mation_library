@@ -122,4 +122,32 @@ class BooksController extends Controller{
         $genres = GenreFuncs::getAllGenresTrait();
         return view('pages.bookAdd')->with('genres',$genres);
     }
+
+    public function addBookToDB(){
+        if(preg_match("/[a-z]/i", $_POST['year']) || $_POST['year']==""){
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+        }
+        if($_POST['year']==""){
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+        }
+        if(preg_match("/[0-9]/i", $_POST['authorFirst']) || $_POST['authorFirst']==""){
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+        }
+        if(preg_match("/[0-9]/i", $_POST['authorSur']) || $_POST['authorSur']==""){
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+        }
+        //genres
+        $genres = explode(",", $_POST['genres']);
+        
+        //barcode
+        if(BookFuncs::getBookTrait($_POST['barcode']) || $_POST['barcode']==""){
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+        }
+        if(BookFuncs::addBookToDBTrait($_POST)){
+            return redirect('/')->withCookie(cookie('successMessage',serialize('Book was successfully added!')));
+        } else {
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+        }
+        
+    }
 }
