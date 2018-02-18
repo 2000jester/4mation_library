@@ -156,7 +156,7 @@
         });
         $('#inputTitle').on('change', function(event){
             value = event.currentTarget.value;
-            if(value == " " || value == ""){
+            if(!value.replace(/\s/g, '').length || value == ""){
                 invalid(this);
             } else {
                 valid(this);
@@ -164,7 +164,7 @@
         });
         $('#inputAuthorFirst').on('change', function(event){
             value = event.currentTarget.value;
-            if(value == " " || value == ""){
+            if(!value.replace(/\s/g, '').length || value == ""){
                 invalid(this);
             } else if(hasNumber(value)){
                 invalid(this);
@@ -174,7 +174,7 @@
         });
         $('#inputAuthorSur').on('change', function(event){
             value = event.currentTarget.value;
-            if(value == " " || value == ""){
+            if(!value.replace(/\s/g, '').length || value == ""){
                 invalid(this);
             } else if(hasNumber(value)){
                 invalid(this);
@@ -184,7 +184,7 @@
         });
         $('#inputYear').on('change', function(event){
             value = event.currentTarget.value;
-            if(hasLetter(value) || value == " "){
+            if(hasLetter(value) || !value.replace(/\s/g, '').length){
                 invalid(this);
             } else if(value == ""){
                 neutral(this);
@@ -194,7 +194,7 @@
         });
         $('#inputBarcode').on('change', function(event){
             value = event.currentTarget.value;
-            if(value == " " || value == ""){
+            if(!value.replace(/\s/g, '').length || value == ""){
                 invalid(this);
             } else {
                 valid(this);
