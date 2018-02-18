@@ -125,16 +125,16 @@ class BooksController extends Controller{
 
     public function addBookToDB(){
         if(preg_match("/[a-z]/i", $_POST['year']) || $_POST['year']=="" || substr_count($_POST['year'], ' ') === strlen($_POST['year'])){
-            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('year')));
         }
         if($_POST['title']=="" || substr_count($_POST['title'], ' ') === strlen($_POST['title'])){
-            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('title')));
         }
         if(preg_match("/[0-9]/i", $_POST['authorFirst']) || $_POST['authorFirst']=="" || substr_count($_POST['authorFirst'], ' ') === strlen($_POST['authorFirst'])){
-            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('authorFirst')));
         }
         if(preg_match("/[0-9]/i", $_POST['authorSur']) || $_POST['authorSur']=="" || substr_count($_POST['authorSur'], ' ') === strlen($_POST['authorSur'])){
-            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('authorSur')));
         }
         //genres
         $genres = explode(",", $_POST['genres']);
