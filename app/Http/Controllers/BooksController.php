@@ -140,7 +140,7 @@ class BooksController extends Controller{
         $genres = explode(",", $_POST['genres']);
         
         //barcode
-        if(BookFuncs::getBookTrait($_POST['barcode']) || $_POST['barcode']==""){
+        if(!empty(BookFuncs::getBookTrait($_POST['barcode'])[0]) || $_POST['barcode']==""){
             return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
         }
         if(BookFuncs::addBookToDBTrait($_POST)){

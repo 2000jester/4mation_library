@@ -75,7 +75,7 @@
                     </nav>
                     <div class="collapse" id="navbarToggleExternalContent">
                         <div class="bg-dark p-4">
-                            @if(!empty(Cookie::get('user')))
+                            {{--@if(!empty(Cookie::get('user')))--}}
                                 <div class="navbarDropdown">
                                     <div class="col-lg-12">
                                         @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home')
@@ -152,7 +152,7 @@
                                         @endif
                                     </div>
                                 </div>
-                            @endif
+                            {{--@endif--}}
                         </div>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ class books extends Model{
     }
 
     public static function addBookToDB($data){
-        DB::table('books')->insert([
+        return DB::table('books')->insert([
             'author'=>$data['authorFirst'].$data['authorSur'],
             'title'=>$data['title'],
             'year'=>$data['year'],
