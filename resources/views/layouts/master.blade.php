@@ -3,6 +3,7 @@
     <head>
         <title>Library - @yield('title')</title>
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
@@ -106,7 +107,7 @@
                             </div>
                             @if(!empty(unserialize(Cookie::get('errorMessage'))))
                                 <div class="row">
-                                    <div class="col-8 offset-1 userAlert">
+                                    <div class="col-6 userAlert">
                                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -121,7 +122,7 @@
                             @endif
                             @if(!empty(unserialize(Cookie::get('successMessage'))))
                                 <div class="row">
-                                    <div class="col-8 offset-1 userAlert">
+                                    <div class="col-6 userAlert">
                                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -170,6 +171,6 @@
     <script>
         setTimeout(function(){ 
             $('button[data-dismiss="alert"]').trigger('click');
-         }, 5000);
+        }, 5000);
     </script>
 </html>

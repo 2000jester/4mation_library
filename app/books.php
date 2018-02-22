@@ -34,7 +34,7 @@ class books extends Model{
         $genres = explode(',', $data['genres']);
         if($genres[0]!=""){
             DB::table('books')->insert([
-                'author'=>$data['authorFirst'].$data['authorSur'],
+                'author'=>$data['author'],
                 'title'=>$data['title'],
                 'year'=>$data['year'],
                 'barcode'=>$data['barcode'],
@@ -49,7 +49,7 @@ class books extends Model{
             }
         } else {
             return DB::table('books')->insert([
-                'author'=>$data['authorFirst'].$data['authorSur'],
+                'author'=>$data['author'],
                 'title'=>$data['title'],
                 'year'=>$data['year'],
                 'barcode'=>$data['barcode'],
@@ -61,7 +61,7 @@ class books extends Model{
     public static function undoDeleteInDB($data){
         return DB::table('books')->where([['barcode','=',$data['barcode']],['deleted','=','1']])->update([
             'deleted' => 0,
-            'author'=>$data['authorFirst'].$data['authorSur'],
+            'author'=>$data['author'],
             'title'=>$data['title'],
             'year'=>$data['year'],
         ]);

@@ -5,7 +5,7 @@
 @section('header')
     <div class="row header-container">
         <div class="col-lg-6 offset-lg-2 col-md-6 offset-md-2 col-sm-8 offset-sm-1 col-10 header">
-            <h1>Add book to system</h1>
+            <h1>Add book to library</h1>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-1 col-2 header-icon header">
             <h1><i class="fa fa-book"></i></h1>
@@ -28,17 +28,12 @@
                             <input name="title" type="text" class="form-control" id="inputTitle" placeholder="Enter title" autocomplete="off">
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-4">
                         <div class="form-group">
                             <label for="author">Author <span style="color:red">*</span></label>
-                            <input name="authorFirst" type="text" class="form-control" id="inputAuthorFirst" placeholder="Enter Firstname" autocomplete="off">
+                            <input tabindex="0" data-toggle="popover" title="Author Format" data-content="John Smith should be entered as Smith, J." data-placement="top" name="author" type="text" class="form-control" id="inputAuthor" placeholder="Enter Author" autocomplete="off">
                         </div>
                     </div>
-                    <div class="col-2">
-                            <div class="form-group">
-                                <input style="margin-top:32px;" name="authorSur" type="text" class="form-control" id="inputAuthorSur" placeholder="Enter Surname" autocomplete="off">
-                            </div>
-                        </div>
                     <div class="col-1">
                         <div class="form-group">
                             <label for="year">Year</label>
@@ -80,7 +75,7 @@
                     <div class="col-5 barcodeEntry-container">
                         <div class="form-group">
                             <label for="barcode">Barcode <span style="color:red">*</span></label>
-                            <input name="barcode" type="text" class="form-control" id="inputBarcode" placeholder="Enter Barcode" autocomplete="off">
+                            <input tabindex="0" data-toggle="popover" title="Barcode Format" data-content="As multiple copies of the same book are added to the system the syntax is 'barcode-copynumber' (e.g barcode, barcode-1, barcode-2)" data-placement="bottom" name="barcode" type="text" class="form-control" id="inputBarcode" placeholder="Enter Barcode" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -162,17 +157,7 @@
                 valid(this);
             }
         });
-        $('#inputAuthorFirst').on('change', function(event){
-            value = event.currentTarget.value;
-            if(!value.replace(/\s/g, '').length || value == ""){
-                invalid(this);
-            } else if(hasNumber(value)){
-                invalid(this);
-            } else {
-                valid(this);
-            }
-        });
-        $('#inputAuthorSur').on('change', function(event){
+        $('#inputAuthor').on('change', function(event){
             value = event.currentTarget.value;
             if(!value.replace(/\s/g, '').length || value == ""){
                 invalid(this);
@@ -200,5 +185,14 @@
                 valid(this);
             }
         });
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+        $('#inputAuthor').popover({
+            trigger: 'focus'
+        })
+        $('#inputBarcode').popover({
+            trigger: 'focus'
+        })
     </script>
 @endsection
