@@ -15,25 +15,44 @@
 @section('content')
     <div class="row content-container">
         <div class="col-lg-8 offset-lg-2 content-text">
-            Please scan your card or enter your username bellow to login
+            Please scan your card or enter your username and amount of</br> time you wish to stay logged in bellow
         </div>
     </div>
 @endsection
 @section('form')
     <div class="row form-container">
-        <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-3 form-input">
-            <form method="post" action="/setUserCookie" id="barcode">
+        <div class="col-6 offset-4">
+            <form method="post" action="/setUserCookie" id="login">
                 {{ csrf_field() }}
-                {{Form::text('username', null, array('autofocus'=>'autofocus','autocomplete'=>'off'))}}</br>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="username">Username <span style="color:red">*</span></label>
+                            <input name="username" type="text" class="form-control" id="username" autofocus="autofocus" autocomplete="off" placeholder="Enter Username">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input tabindex="0" data-toggle="popover" title="Time Value" data-content="This will define how long your session will last before the system asks you to log in again, the default value is 5 minutes" data-placement="top" name="time" type="text" class="form-control" id="time" autofocus="autofocus" autocomplete="off" placeholder="Value In Minutes">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 @endsection
 @section('buttonBar')
-    <span onClick="document.getElementById('barcode').submit();" class="button">Login</span>
+    <span onClick="document.getElementById('login').submit();" class="button">Login</span>
 @endsection
 @section('script')
     <script>
-        document.getElementById("barcode").focus();
+        document.getElementById("username").focus();
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+        $('#time').popover({
+            trigger: 'focus'
+        })
     </script>
 @endsection
