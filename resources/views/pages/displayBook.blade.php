@@ -69,7 +69,7 @@
     <form method="post" action="/unreserve/{{ $bookData[0]->barcode }}" id="unreserve">
         {{ csrf_field() }}
     </form>
-    <form method="post" action="/borrow" id="borrow">
+    <form method="post" action="/borrowFromBookDisplay" id="borrow">
         {{ csrf_field() }}
         <input type="hidden" name="barcode" value="{{$bookData[0]->barcode}}"/>
     </form>

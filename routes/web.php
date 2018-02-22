@@ -22,6 +22,9 @@ Route::post('/setBooksCookie', 'BooksController@setBooksCookie');
 //borrow page
 Route::get('/borrow', 'UserBooksController@borrow');
 Route::post('/borrow', 'UserBooksController@borrow');
+//borrowFromBookDisplay
+Route::get('/borrowFromBookDisplay', 'UserBooksController@borrowFromBookDisplay');
+Route::post('/borrowFromBookDisplay', 'UserBooksController@borrowFromBookDisplay');
 //checkout page
 Route::get('/checkout', 'UserBooksController@checkout');
 Route::post('/checkout', 'UserBooksController@checkout');

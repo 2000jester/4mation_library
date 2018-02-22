@@ -166,7 +166,7 @@ class BooksController extends Controller{
         if($_POST['barcode']==""){
             return redirect('/')->withCookie(cookie('errorMessage',serialize('barcode')));
         }
-        $dupeBook = BookFuncs::getBookTrait($_POST['barcode'],True);
+        $dupeBook = BookFuncs::getBookTrait($_POST['barcode'],true);
         if(!empty($dupeBook[0]->barcode)){
             if($dupeBook[0]->deleted == 1){
                 if(BookFuncs::undoDeleteInDBTrait($_POST)){

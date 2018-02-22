@@ -17,11 +17,91 @@
                 <div class="col-12">
                     <nav class="navbar sticky-top navbar-light">
                         <div class="row" style="width:100%">
-                            <div class="col-1">
-                                @if( (($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/menu' || $_SERVER['REQUEST_URI'] == '/home') && !empty(Cookie::get('user'))) || ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home'))
+                            <div class="col-3">
+                                @if((($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/menu' || $_SERVER['REQUEST_URI'] == '/home') && !empty(Cookie::get('user'))) || ($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home'))
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="fa fa-bars"></span>
                                     </button>
+                                    <div class="collapse" id="navbarToggleExternalContent">
+                                        <div class="bg-dark p-4">
+                                            <div class="navbarDropdown">
+                                                <div class="col-lg-12">
+                                                    @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home')
+                                                        <div class="row">
+                                                            <div class="col-lg-10">
+                                                                <a href="/" class="navbarLinks">Menu</a>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <a href="/" class="navbarLinks">
+                                                                    <i class="fa fa-home"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    @if(!empty(unserialize(Cookie::get('admin'))))
+                                                        @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home')
+                                                            <hr>
+                                                        @endif
+                                                        <div class="row">
+                                                            <div class="col-lg-10">
+                                                                <a href="/userLookup" class="navbarLinks">Search a User</a>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <a href="/userLookup" class="navbarLinks">
+                                                                    <i class="fa fa-search"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-10">
+                                                                <a href="/checkDupes" class="navbarLinks">View Duplicate Barcodes</a>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <a href="/checkDupes" class="navbarLinks">
+                                                                    <i class="fa fa-barcode"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-10">
+                                                                <a href="/bookAdd" class="navbarLinks">Add book to system</a>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <a href="/userLookup" class="navbarLinks">
+                                                                    <i class="fa fa-book"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    @if(!empty(Cookie::get('user')))
+                                                        @if(($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home') || !empty(unserialize(Cookie::get('admin'))))
+                                                            <hr>
+                                                        @endif
+                                                        <div class="row">
+                                                            <div class="col-lg-10">
+                                                                <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}"class="navbarLinks">My Account</a>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}" class="navbarLinks">
+                                                                    <i class="fa fa-user-o"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-lg-10">
+                                                                <a href="/userLookup" class="navbarLinks">Logout</a>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <a href="/logout" class="navbarLinks">
+                                                                    <i class="fa fa-sign-out"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endif
                             </div>
                             @if(!empty(unserialize(Cookie::get('errorMessage'))))
@@ -54,7 +134,7 @@
                                     Cookie::queue(\Cookie::forget('successMessage'));
                                 @endphp
                             @endif
-                            <div class="col-4 offset-7" style="text-align:right;">
+                            <div class="col-4 offset-5" style="text-align:right;">
                                 @if ($_SERVER['REQUEST_URI'] != '/login' && $_SERVER['REQUEST_URI'] != '/loginAdmin')
                                     @if(!empty(Cookie::get('user')))
                                         @if (unserialize(Cookie::get('user'))[0]->admin == 1 && empty(Cookie::get('admin')))
@@ -73,88 +153,7 @@
                             </div>
                         </div>
                     </nav>
-                    <div class="collapse" id="navbarToggleExternalContent">
-                        <div class="bg-dark p-4">
-                            @if(!empty(Cookie::get('user')))
-                                <div class="navbarDropdown">
-                                    <div class="col-lg-12">
-                                        @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home')
-                                            <div class="row">
-                                                <div class="col-lg-10">
-                                                    <a href="/" class="navbarLinks">Menu</a>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <a href="/" class="navbarLinks">
-                                                        <i class="fa fa-home"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        @endif
-                                        @if(!empty(unserialize(Cookie::get('admin'))))
-                                            @if($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home')
-                                                <hr>
-                                            @endif
-                                            <div class="row">
-                                                <div class="col-lg-10">
-                                                    <a href="/userLookup" class="navbarLinks">Search a User</a>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <a href="/userLookup" class="navbarLinks">
-                                                        <i class="fa fa-search"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-10">
-                                                    <a href="/checkDupes" class="navbarLinks">View Duplicate Barcodes</a>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <a href="/checkDupes" class="navbarLinks">
-                                                        <i class="fa fa-barcode"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-10">
-                                                    <a href="/bookAdd" class="navbarLinks">Add book to system</a>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <a href="/userLookup" class="navbarLinks">
-                                                        <i class="fa fa-book"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        @endif
-                                        @if(!empty(Cookie::get('user')))
-                                            @if(($_SERVER['REQUEST_URI'] != '/' && $_SERVER['REQUEST_URI'] != '/menu' && $_SERVER['REQUEST_URI'] != '/home') || !empty(unserialize(Cookie::get('admin'))))
-                                                <hr>
-                                            @endif
-                                            <div class="row">
-                                                <div class="col-lg-10">
-                                                    <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}"class="navbarLinks">My Account</a>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <a href="users/{{ unserialize(Cookie::get('user'))[0]->username }}" class="navbarLinks">
-                                                        <i class="fa fa-user-o"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-lg-10">
-                                                    <a href="/userLookup" class="navbarLinks">Logout</a>
-                                                </div>
-                                                <div class="col-lg-2">
-                                                    <a href="/logout" class="navbarLinks">
-                                                        <i class="fa fa-sign-out"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            @endif
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             @yield('header')

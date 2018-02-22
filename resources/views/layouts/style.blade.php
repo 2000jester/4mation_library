@@ -112,14 +112,16 @@
             background-color: white;
         }
         .navbarDropdown{
-            text-align: left;        
+            text-align: left;
         }
         div.nav a.navbarLinks{
             color: white;
             width: 100%;
         }
         #navbarToggleExternalContent{
-            max-width:400px;
+            width:100%;
+            position:absolute;
+            max-width: 400px;
         }
         .lightButton:hover{
             background-color: #636b6f;

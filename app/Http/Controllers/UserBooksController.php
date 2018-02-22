@@ -29,6 +29,9 @@ class UserBooksController extends Controller{
             'dataToBeStored'=>$dataToBeStored
         ));
     }
+    public function borrowFromBookDisplay(){
+        return redirect('borrow')->withCookie(cookie('books', serialize([request('barcode')])));
+    }
     public function checkout(){
         Funcs::sendPageCookieTrait();
         Funcs::checkUserTrait();

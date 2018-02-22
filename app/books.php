@@ -14,8 +14,8 @@ class books extends Model{
     public static function checkDupesFromDB(){
         return DB::select(DB::raw("SELECT * FROM books WHERE barcode IN (SELECT barcode FROM(SELECT barcode, count(*) AS counted From books GROUP BY barcode HAVING counted > 1) AS barcodes) AND deleted = 0"));
     }
-    public static function getBookFromDB($barcode,$includeDel){
-        if($includeDel==True){
+    public static function getBookFromDB($barcode,$includeDel = false){
+        if($includeDel==true){
             return DB::table('books')->select()->where([['barcode', '=', $barcode]])->get();
         } else {
             return DB::table('books')->select()->where([['barcode', '=', $barcode],['deleted','=','0']])->get();
