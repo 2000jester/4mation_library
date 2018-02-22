@@ -89,6 +89,16 @@ class BooksController extends Controller{
             $reserved = $numberOfReserves > 0 ? true : false;
             $reservedByCurrentUser = ReservationFuncs::doesUserHaveReservedTrait($barcode, Funcs::getCookieTrait('user')[0]->username);
             $borrowedByCurrentUser = UserBookFuncs::doesUserHaveBorrowedTrait($barcode, Funcs::getCookieTrait('user')[0]->username);
+            $genres = BookGenreFuncs::getGenresByIdTrait($barcode);
+            $genresIdArray = array();
+            foreach($genres->toArray() as $genre){
+                array_push($genresIdArray, $genre->genre);
+            }
+            $genresIdArray = array_reverse($genresIdArray);
+            $genresArray = array();
+            foreach($genresIdArray as $id){
+                array_push($genresArray, GenreFuncs::getGenreByIdTrait($id)[0]->genre);
+            }   
             return view('pages.displayBook', array(
                 'user'=>true,
                 'bookData'=>$bookData, 
@@ -96,7 +106,8 @@ class BooksController extends Controller{
                 'reserved'=>$reserved, 
                 'numberOfReserves'=>$numberOfReserves,
                 'reservedByCurrentUser'=>$reservedByCurrentUser,
-                'borrowedByCurrentUser'=>$borrowedByCurrentUser
+                'borrowedByCurrentUser'=>$borrowedByCurrentUser,
+                'genres'=>$genresArray
             ));
         }
     }
@@ -136,12 +147,23 @@ class BooksController extends Controller{
         if(preg_match("/[0-9]/i", $_POST['authorSur']) || $_POST['authorSur']=="" || substr_count($_POST['authorSur'], ' ') === strlen($_POST['authorSur'])){
             return redirect('/')->withCookie(cookie('errorMessage',serialize('authorSur')));
         }
-        //genres
         $genres = explode(",", $_POST['genres']);
-        
-        //barcode
+        if($genres[0]!=""){
+            $genresList = GenreFuncs::getAllGenresTrait();
+            foreach($genres as $genre){
+                $isValid = False;
+                foreach($genresList as $genresListItem){
+                    if($genre == $genresListItem->id){
+                        $isValid = True;
+                    }
+                }
+                if($isValid==False){
+                    return redirect('/')->withCookie(cookie('errorMessage',serialize('genres')));
+                }
+            }
+        }
         if(!empty(BookFuncs::getBookTrait($_POST['barcode'])[0]) || $_POST['barcode']==""){
-            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+            return redirect('/')->withCookie(cookie('errorMessage',serialize('barcode')));
         }
         if(BookFuncs::addBookToDBTrait($_POST)){
             return redirect('/')->withCookie(cookie('successMessage',serialize('Book was successfully added!')));

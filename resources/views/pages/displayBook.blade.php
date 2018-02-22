@@ -31,32 +31,34 @@
                     @endforeach</br></br>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-2 offset-lg-5" style="text-align:center;">
-                    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to delete</p></br>
-                                    <p> - {{ $bookData[0]->title }}</p></br>
-                                    <p>from the database?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default lightButton" data-dismiss="modal">Cancel</button>
-                                    <a href="delete/{{ $bookData[0]->barcode }}"class="btn btn-danger btn-ok">Delete</a>
+            @if(!empty(unserialize(Cookie::get('admin')))){
+                <div class="row">
+                    <div class="col-lg-2 offset-lg-5" style="text-align:center;">
+                        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Are you sure you want to delete</p></br>
+                                        <p> - {{ $bookData[0]->title }}</p></br>
+                                        <p>from the database?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default lightButton" data-dismiss="modal">Cancel</button>
+                                        <a href="delete/{{ $bookData[0]->barcode }}"class="btn btn-danger btn-ok">Delete</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-default lightButton" data-toggle="modal" data-target="#confirm-delete">
+                            Delete Book From Database
+                        </button>
                     </div>
-                    <button class="btn btn-default lightButton" data-toggle="modal" data-target="#confirm-delete">
-                        Delete Book From Database
-                    </button>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 @endsection

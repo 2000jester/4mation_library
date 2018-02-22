@@ -27,19 +27,30 @@ class books extends Model{
     }
 
     public static function addBookToDB($data){
-        return DB::table('books')->insert([
-            'author'=>$data['authorFirst'].$data['authorSur'],
-            'title'=>$data['title'],
-            'year'=>$data['year'],
-            'barcode'=>$data['barcode'],
-            'file'=>'',
-            'deleted'=>'0'
-        ]);
         $genres = explode(',', $data['genres']);
-        foreach($genres as $genre){
-            DB::table('book_genres')->insert([
+        if($genres[0]!=""){
+            DB::table('books')->insert([
+                'author'=>$data['authorFirst'].$data['authorSur'],
+                'title'=>$data['title'],
+                'year'=>$data['year'],
                 'barcode'=>$data['barcode'],
-                'genre'=>$genre
+                'file'=>'',
+                'deleted'=>'0'
+            ]);
+            foreach($genres as $genre){
+                return DB::table('book_genres')->insert([
+                    'barcode'=>$data['barcode'],
+                    'genre'=>$genre
+                ]);
+            }
+        } else {
+            return DB::table('books')->insert([
+                'author'=>$data['authorFirst'].$data['authorSur'],
+                'title'=>$data['title'],
+                'year'=>$data['year'],
+                'barcode'=>$data['barcode'],
+                'file'=>'',
+                'deleted'=>'0'
             ]);
         }
     }
