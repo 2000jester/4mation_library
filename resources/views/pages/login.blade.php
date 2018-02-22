@@ -34,7 +34,7 @@
                     <div class="col-4">
                         <div class="form-group">
                             <label for="time">Time</label>
-                            <input tabindex="0" data-toggle="popover" title="Time Value" data-content="This will define how long your session will last before the system asks you to log in again, the default value is 5 minutes" data-placement="top" name="time" type="text" class="form-control" id="time" autofocus="autofocus" autocomplete="off" placeholder="Value In Minutes">
+                            <input tabindex="0" data-toggle="popover" title="Time Value" data-content="This will define how long your session will last before the system asks you to log in again, the default value is 5 minutes" data-placement="top" name="time" type="text" class="form-control" id="time" autofocus="autofocus" autocomplete="off" placeholder="Between 0 and 30">
                         </div>
                     </div>
                 </div>

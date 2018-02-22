@@ -54,7 +54,7 @@ class UsersController extends Controller{
         if(count($user) == 0){
             return redirect('/login');
         }
-        if(!empty(request('time')) && request('time') < 30){
+        if(!empty(request('time')) && request('time') < 31){
             return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('user', serialize($user), request('time')));
         } else {
             return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('user', serialize($user), 5));
