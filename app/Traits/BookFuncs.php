@@ -27,8 +27,8 @@ trait BookFuncs{
             }
         }
     }
-    public static function getBookTrait($barcode){
-        return books::getBookFromDB($barcode);
+    public static function getBookTrait($barcode,$includeDel = false){
+        return books::getBookFromDB($barcode,$includeDel);
     }
     public static function getAllBooksTrait(){
         return books::getAllFromDB();
@@ -47,5 +47,8 @@ trait BookFuncs{
     }
     public static function addBookToDBTrait($data){
         return books::addBookToDB($data);
+    }
+    public static function undoDeleteInDBTrait($data){
+        return books::undoDeleteInDB($data);
     }
 }

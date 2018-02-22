@@ -162,14 +162,27 @@ class BooksController extends Controller{
                 }
             }
         }
-        if(!empty(BookFuncs::getBookTrait($_POST['barcode'])[0]) || $_POST['barcode']==""){
+        
+        if($_POST['barcode']==""){
             return redirect('/')->withCookie(cookie('errorMessage',serialize('barcode')));
         }
-        if(BookFuncs::addBookToDBTrait($_POST)){
-            return redirect('/')->withCookie(cookie('successMessage',serialize('Book was successfully added!')));
+        $dupeBook = BookFuncs::getBookTrait($_POST['barcode'],True);
+        if(!empty($dupeBook[0]->barcode)){
+            if($dupeBook[0]->deleted == 1){
+                if(BookFuncs::undoDeleteInDBTrait($_POST)){
+                    return redirect('/')->withCookie(cookie('successMessage',serialize('Book was successfully added!')));
+                } else {
+                    return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+                }
+            } else {
+                return redirect('/')->withCookie(cookie('errorMessage',serialize('Book already exists in database!')));
+            }
         } else {
-            return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+            if(BookFuncs::addBookToDBTrait($_POST)){
+                return redirect('/')->withCookie(cookie('successMessage',serialize('Book was successfully added!')));
+            } else {
+                return redirect('/')->withCookie(cookie('errorMessage',serialize('Ooops, something went wrong!')));
+            }
         }
-        
     }
 }
