@@ -15,9 +15,6 @@
 @section('content')
     <div class="row content-container">
         <div class="col-lg-8 offset-lg-2 content-text">
-            @section('divStyle')
-                justify-content-normal
-            @endsection
             @if(count($users) == 0)
                 There were no results for the phrase "{{ $phrase }}"
             @else

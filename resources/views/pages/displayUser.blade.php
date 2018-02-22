@@ -19,61 +19,47 @@
     </div>
 @endsection
 @section('content')
-    @section('divStyle')
-        justify-content-normal
-    @endsection
-    <div class="user-parent">
-        <div class="user-child">
-           <div class="user-borrows left-text">
-                <div class="user-lists">
-                    <div class="user-list-header">Currently Borrowed</div>
-                    <table style="width: 100%;">
-                        <thead class="dispBlock-overAuto">
-                            <tr>
-                                <th class="user-borrows-width">Title</th>
-                                <th class="user-borrows-width">Author</th>
-                            </tr>
-                        </thead>
-                        <tbody class="dispBlock-overAuto user-borrows-height">
-                            @if(!empty($books))
-                                @for($i = 0; $i<count($books); $i++)
-                                    <tr>
-                                        <td class="user-borrows-width"><a href="/books/{{$books[$i]->barcode}}">{{ $books[$i]->title }}</a></td>
-                                        <td class="user-borrows-width">{{ $books[$i]->author }}</td>
-                                    </tr>
-                                @endfor
-                            @endif
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="user-child">
-            <div class="user-reserves  left-text">
-                <div class="user-lists">
-                    <div class="user-list-header">Currently Reserved</div>
-                    <table style="width: 100%;">
-                        <thead class="dispBlock-overAuto">
-                            <tr>
-                                <th class="user-borrows-width">Title</th>
-                                <th class="user-borrows-width">Author</th>
-                            </tr>
-                        </thead>
-                        <tbody class="dispBlock-overAuto user-borrows-height">
-                            @if(!empty($reservations))
-                                @for($i = 0; $i<count($reservations); $i++)
-                                    <tr>
-                                        <td class="user-borrows-width"><a href="/books/{{$reservations[$i]->barcode}}">{{ $reservations[$i]->title }}</a></td>
-                                        <td class="user-borrows-width"><a href="">{{ $reservations[$i]->author }}</a></td>
-                                    </tr>
-                                @endfor
-                            @endif
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="user-list-header">Currently Borrowed</div>
+    <table style="width: 100%" class="table table-striped table-hover">
+        <thead class="dispBlock-overAuto">
+            <tr>
+                <th class="user-borrows-width">Title</th>
+                <th class="user-borrows-width">Author</th>
+            </tr>
+        </thead>
+        <tbody class="dispBlock-overAuto table-content-height">
+            @if(!empty($books))
+                @for($i = 0; $i<count($books); $i++)
+                    <tr>
+                        <td class="user-borrows-width"><a href="/books/{{$books[$i]->barcode}}">{{ $books[$i]->title }}</a></td>
+                        <td class="user-borrows-width">{{ $books[$i]->author }}</td>
+                    </tr>
+                @endfor
+            @endif
+        </tbody>
+    </table>
+</div>
+
+<div class="user-list-header">Currently Reserved</div>
+    <table style="width: 100%;" class="table table-striped table-hover">
+        <thead class="dispBlock-overAuto">
+            <tr>
+                <th class="user-borrows-width">Title</th>
+                <th class="user-borrows-width">Author</th>
+            </tr>
+        </thead>
+        <tbody class="dispBlock-overAuto user-borrows-height">
+            @if(!empty($reservations))
+                @for($i = 0; $i<count($reservations); $i++)
+                    <tr>
+                        <td class="user-borrows-width"><a href="/books/{{$reservations[$i]->barcode}}">{{ $reservations[$i]->title }}</a></td>
+                        <td class="user-borrows-width"><a href="">{{ $reservations[$i]->author }}</a></td>
+                    </tr>
+                @endfor
+            @endif
+        </tbody>
+    </table>
+</div>
 @endsection
 @section('form')
     <div class="row form-container">

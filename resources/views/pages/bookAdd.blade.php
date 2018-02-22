@@ -12,9 +12,6 @@
         </div>
     </div>
 @endsection
-@section('content')
-
-@endsection
 @section('form')
     <div class="row form-container">
         <div class="col-12">

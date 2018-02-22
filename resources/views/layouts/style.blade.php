@@ -205,6 +205,12 @@
             margin-left: 0;
             padding-left: 100px;
         }
+        .genreSelect{
+            width: 260px;
+            height: calc(100vh - 500px);
+            overflow: auto;
+            overflow-x: hidden;
+        }
     /*//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         Font Styles
