@@ -21,10 +21,23 @@
 @endsection
 @section('form')
     <div class="row form-container">
-        <div class="col-lg-4 offset-lg-4 col-md-4 offset-md-4 col-sm-4 offset-sm-4 col-6 offset-3 form-input">
+        <div class="col-6 offset-4">
             <form method="post" action="/setAdminCookie" id="loginForm">
                 {{ csrf_field() }}
-                {{Form::password('password', array('autofocus'=>'autofocus','autocomplete'=>'off', 'id'=>'password'))}}</br>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="password">Password <span style="color:red">*</span></label>
+                            <input name="password" type="password" class="form-control" id="password" autofocus="autofocus" autocomplete="off" placeholder="Enter Password">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input tabindex="0" data-toggle="popover" title="Time Value" data-content="This will define how long your session will last before the system asks you to log in again, the default value is 5 minutes" data-placement="top" name="time" type="text" class="form-control" id="time" autofocus="autofocus" autocomplete="off" placeholder="Between 0 and 30">
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
