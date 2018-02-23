@@ -47,7 +47,19 @@ class UsersController extends Controller{
         }
     }
     public function setAdminCookie(){
-        return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('admin', serialize(true), 30));
+        if(!empty(request('time')) && request('time') < 31){
+            if(request('password') == Funcs::getCookieTrait('user')[0]->password){
+                return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('admin', serialize(true), request('time')));
+            } else {
+                return redirect("/loginAdmin")->withCookie(cookie('errorMessage', serialize("Password Incorrect!")));
+            }
+        } else {
+            if(request('password') == Funcs::getCookieTrait('user')[0]->password){
+                return redirect(Funcs::getCookieTrait('lastPage'))->withCookie(cookie('admin', serialize(true), 30));
+            } else {
+                return redirect("/loginAdmin")->withCookie(cookie('errorMessage', serialize("Password Incorrect!")));
+            }
+        }
     }
     public function setUserCookie(){
         $user = UserFuncs::getUserByUsernameTrait(request('username'));
