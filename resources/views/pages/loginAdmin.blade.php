@@ -15,7 +15,7 @@
 @section('content')
     <div class="row content-container">
         <div class="col-lg-8 offset-lg-2 content-text">
-            Please enter your passord bellow</br>
+            Please enter your passord and amount of</br> time you wish to stay logged in bellow</br>
         </div>
     </div>
 @endsection
